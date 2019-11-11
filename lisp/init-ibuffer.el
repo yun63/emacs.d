@@ -10,7 +10,7 @@
 (after-load 'ibuffer
  (fullframe ibuffer ibuffer-quit))
 
-;;(require-package 'ibuffer-vc)
+(require-package 'ibuffer-vc)
 
 (defun ibuffer-set-up-preferred-filters ()
   (ibuffer-vc-set-filter-groups-by-vc-root)
