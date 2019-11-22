@@ -2,16 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (maybe-require-package 'projectile)
-  (add-hook 'after-init-hook 'projectile-mode)
-
-  ;; Shorter modeline
+(use-package projectile
+  :ensure t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode t)
   (setq-default projectile-mode-line-prefix " Proj")
-
-  (after-load 'projectile
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-  (maybe-require-package 'ibuffer-projectile))
+  (use-package ag
+   :ensure t)
+)
 
 
 (provide 'init-projectile)

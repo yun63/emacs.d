@@ -34,59 +34,58 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-utils)
+;;;(require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
-(require 'init-elpa)      ;; Machinery for installing required packages
-(require 'init-exec-path) ;; Set up $PATH
+(require 'init-core)      ;; Machinery for installing required packages
+;;;(require 'init-exec-path) ;; Set up $PATH
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
 ;;----------------------------------------------------------------------------
-(require 'init-preload-local nil t)
+;;;(require 'init-preload-local nil t)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-(require-package 'diminish)
-(maybe-require-package 'scratch)
-(require-package 'command-log-mode)
+;;;(require-package 'diminish)
+;;;(maybe-require-package 'scratch)
+;;;(require-package 'command-log-mode)
 
-(require 'init-use-package)
-(require 'init-frame-hooks)
-(require 'init-xterm)
-(require 'init-themes)
-(require 'init-dashboard)
-(require 'init-evil)
-(require 'init-osx-keys)
-(require 'init-gui-frames)
-(require 'init-dired)
-(require 'init-isearch)
+;;;(require 'init-frame-hooks)
+;;;(require 'init-xterm)
+;;;(require 'init-themes)
+;;;(require 'init-dashboard)
+;;;(require 'init-evil)
+;;;(require 'init-osx-keys)
+;;;(require 'init-gui-frames)
+;;;(require 'init-dired)
+;;;(require 'init-isearch)
 ;;;(require 'init-grep)
 ;;;(require 'init-uniquify)
-(require 'init-ibuffer)
+;;;(require 'init-ibuffer)
 ;;;(require 'init-flycheck)
 ;;;
-(require 'init-recentf)
-(require 'init-smex)
-(require 'init-ivy)
+;;;(require 'init-recentf)
+;;;(require 'init-smex)
+;;;(require 'init-ivy)
 ;;;(require 'init-helm)
-(require 'init-hippie-expand)
-(require 'init-company)
-(require 'init-windows)
+;;;(require 'init-hippie-expand)
+;;;(require 'init-company)
+;;;(require 'init-windows)
 ;;;(require 'init-sessions)
 ;;;(require 'init-mmm)
 ;;;
 ;;;(require 'init-editing-utils)
 ;;;(require 'init-whitespace)
 ;;;
-(require 'init-git)
-(require 'init-github)
+;;;(require 'init-git)
+;;;(require 'init-github)
 ;;;
 (require 'init-projectile)
 ;;;
-(require 'init-compile)
+;;;(require 'init-compile)
 ;;;;;(require 'init-crontab)
 ;;;(require 'init-markdown)
 ;;;(require 'init-csv)
