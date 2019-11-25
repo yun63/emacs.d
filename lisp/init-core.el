@@ -33,7 +33,18 @@
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-(require 'use-package)
+
+(eval-and-compile
+  (require 'use-package))
+
+(use-package use-package-ensure-system-package
+  :ensure t)
+
+(use-package diminish
+  :ensure t)
+
+(use-package bind-key
+  :ensure t)
 
 
 

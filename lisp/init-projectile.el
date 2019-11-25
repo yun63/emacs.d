@@ -10,8 +10,8 @@
   (projectile-mode t)
   (setq-default projectile-mode-line-prefix " Proj")
   (use-package ag
-   :ensure t)
-)
+    :ensure t)
+  )
 
 
 (provide 'init-projectile)
