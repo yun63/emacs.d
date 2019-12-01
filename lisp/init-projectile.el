@@ -8,10 +8,23 @@
   ("C-c p" . projectile-command-map)
   :config
   (projectile-mode t)
+  (setq projectile-completion-system 'ivy)
   (setq-default projectile-mode-line-prefix " Proj")
+  (use-package counsel-projectile
+    :ensure t)
+    
   (use-package ag
     :ensure t)
+
+  (use-package autoinsert
+    :ensure t
+    :config
+    (setq auto-insert-query nil)
+    (setq auto-insert-directory (locate-user-emacs-file "templates"))
+    (add-hook 'find-file-hook 'auto-insert)
+    (auto-insert-mode t))
   )
+
 
 
 (provide 'init-projectile)

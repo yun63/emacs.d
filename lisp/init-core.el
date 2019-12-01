@@ -46,6 +46,11 @@
 (use-package bind-key
   :ensure t)
 
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-versions t)
+  (auto-package-update-maybe))
 
 
 ;;; On-demand installation of packages
