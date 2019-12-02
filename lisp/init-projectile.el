@@ -5,17 +5,17 @@
 (use-package projectile
   :ensure t
   :bind-keymap
-  ("C-c p" . projectile-command-map)
+  ("\C-c p" . projectile-command-map)
   :config
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
   (setq-default projectile-mode-line-prefix " Proj")
   (use-package counsel-projectile
     :ensure t)
-    
-  (use-package ag
-    :ensure t)
 
+  (use-package ibuffer-projectile
+    :ensure t)
+    
   (use-package autoinsert
     :ensure t
     :config

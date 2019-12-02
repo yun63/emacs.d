@@ -6,6 +6,7 @@
 (use-package ivy
   :ensure t
   :init
+  (setq enable-recursive-minibuffers t)
   (add-hook 'after-init-hook #'ivy-mode)
   :config
   (setq-default ivy-use-virtual-buffers t
@@ -21,6 +22,16 @@
 
   (use-package counsel
     :ensure t
+    :init
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "C-h f") 'counsel-describe-function)
+    (global-set-key (kbd "C-h v") 'counsel-describe-variable)
+    (global-set-key (kbd "C-h l") 'counsel-find-library)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    (global-set-key (kbd "C-c k") 'counsel-ag)
+    (global-set-key (kbd "C-x l") 'counsel-locate)
     :config
     (setq-default ivy-initial-inputs-alist
 		  '((Man-completion-table . "^")
@@ -32,6 +43,11 @@
     :ensure t
     :init
     (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+
+  (use-package swiper
+    :ensure t
+    :init
+    (global-set-key "\C-s" 'swiper))
   )
 
 

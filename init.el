@@ -57,7 +57,7 @@
 ;;;(require 'init-xterm)
 ;;;(require 'init-themes)
 ;;;(require 'init-dashboard)
-;;;(require 'init-evil)
+(require 'init-evil)
 ;;;(require 'init-osx-keys)
 ;;;(require 'init-gui-frames)
 ;;;(require 'init-dired)
