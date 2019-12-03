@@ -2,6 +2,9 @@ elpa
 elpa-26.3
 *~
 recentf
-.smex-items
+smex-items
 projectile-bookmarks.eld
 custom.el
+.last-package-update-day
+eshell/
+transient
