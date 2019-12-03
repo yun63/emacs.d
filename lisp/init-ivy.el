@@ -36,6 +36,7 @@
     (setq-default ivy-initial-inputs-alist
 		  '((Man-completion-table . "^")
 		    (woman . "^")))
+    (setq counsel-find-file-ignore-regexp "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)")
     (add-hook 'after-init-hook 'counsel-mode)
     )
 

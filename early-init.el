@@ -11,6 +11,11 @@
 
 (setq package-enable-at-startup nil)
 
+(setq user-full-name "yun63")
+(setq user-mail-address "towardstheway@gmail.com")
+
+;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
+
 ;; So we can detect this having been loaded
 (provide 'early-init)
 

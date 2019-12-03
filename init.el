@@ -38,7 +38,7 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
 (require 'init-core)      ;; Machinery for installing required packages
-;;;(require 'init-exec-path) ;; Set up $PATH
+(require 'init-editor)
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
@@ -53,7 +53,7 @@
 ;;;(maybe-require-package 'scratch)
 ;;;(require-package 'command-log-mode)
 
-;;;(require 'init-frame-hooks)
+(require 'init-frame-hooks)
 ;;;(require 'init-xterm)
 ;;;(require 'init-themes)
 ;;;(require 'init-dashboard)
@@ -66,13 +66,10 @@
 ;;;(require 'init-uniquify)
 ;;;(require 'init-ibuffer)
 ;;;(require 'init-flycheck)
-;;;
 ;;;(require 'init-recentf)
-;;;(require 'init-smex)
 (require 'init-ivy)
-;;;(require 'init-helm)
-;;;(require 'init-hippie-expand)
 (require 'init-company)
+(require 'init-hippie-expand)
 ;;;(require 'init-windows)
 ;;;(require 'init-sessions)
 ;;;(require 'init-mmm)
