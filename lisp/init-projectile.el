@@ -16,6 +16,9 @@
 
   (use-package ibuffer-projectile
     :ensure t)
+
+  (use-package ag
+    :ensure t)
     
   (use-package autoinsert
     :ensure t
