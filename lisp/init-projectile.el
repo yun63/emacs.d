@@ -8,6 +8,7 @@
   ("\C-c p" . projectile-command-map)
   :config
   (projectile-mode t)
+  (projectile-cleanup-known-projects)
   (setq projectile-completion-system 'ivy)
   (setq-default projectile-mode-line-prefix " Proj")
   (use-package counsel-projectile
