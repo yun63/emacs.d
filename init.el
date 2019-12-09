@@ -20,9 +20,6 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-;;----------------------------------------------------------------------------
-;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
@@ -34,10 +31,9 @@
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
-;;;(require 'init-utils)
+(require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
-;; Calls (package-initialize)
-(require 'init-core)      ;; Machinery for installing required packages
+(require 'init-core)      ;;
 (require 'init-editor)
 
 ;;----------------------------------------------------------------------------
@@ -49,10 +45,6 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-;;;(require-package 'diminish)
-;;;(maybe-require-package 'scratch)
-;;;(require-package 'command-log-mode)
-
 (require 'init-frame-hooks)
 ;;;(require 'init-xterm)
 ;;;(require 'init-themes)
@@ -63,14 +55,15 @@
 ;;;(require 'init-dired)
 ;;;(require 'init-grep)
 ;;;(require 'init-uniquify)
-;;;(require 'init-ibuffer)
 ;;;(require 'init-flycheck)
 ;;;(require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
+(require 'init-projectile)
 (require 'init-hippie-expand)
+(require 'init-ibuffer)
 (require 'init-isearch)
-;;;(require 'init-windows)
+(require 'init-windows)
 ;;;(require 'init-sessions)
 ;;;(require 'init-mmm)
 ;;;
@@ -80,7 +73,6 @@
 ;;;(require 'init-git)
 ;;;(require 'init-github)
 ;;;
-(require 'init-projectile)
 ;;;
 ;;;(require 'init-compile)
 ;;;;;(require 'init-crontab)
@@ -114,15 +106,11 @@
 ;;;;;(require 'init-twitter)
 ;;;;; (require 'init-mu)
 ;;;(require 'init-ledger)
-;;;;; Extra packages which don't require any configuration
 ;;;
 ;;;(require-package 'lua-mode)
 ;;;(require-package 'dsvn)
-;;;(when *is-a-mac*
-;;;  (require-package 'osx-location))
 ;;;(unless (eq system-type 'windows-nt)
 ;;;  (maybe-require-package 'daemons))
-;;;(maybe-require-package 'dotenv-mode)
 ;;;
 ;;;(when (maybe-require-package 'uptimes)
 ;;;  (setq-default uptimes-keep-count 200)
@@ -131,31 +119,21 @@
 ;;;(when (fboundp 'global-eldoc-mode)
 ;;;  (add-hook 'after-init-hook 'global-eldoc-mode))
 ;;;
-;;;;;----------------------------------------------------------------------------
-;;;;; Allow access from emacsclient
-;;;;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
             (unless (server-running-p)
               (server-start))))
 
-;;----------------------------------------------------------------------------
-;; Variables configured via the interactive 'customize' interface
-;;----------------------------------------------------------------------------
 (when (file-exists-p custom-file)
   (load custom-file))
 
 
-;;;;;----------------------------------------------------------------------------
-;;;;; Locales (setting them earlier in this file doesn't work in X)
-;;;;;----------------------------------------------------------------------------
+;;; Locales (setting them earlier in this file doesn't work in X)
 ;;;(require 'init-locales)
 
 
-;;;;;----------------------------------------------------------------------------
-;;;;; Allow users to provide an optional "init-local" containing personal settings
-;;;;;----------------------------------------------------------------------------
+;;; Allow users to provide an optional "init-local" containing personal settings
 ;;;(require 'init-local nil t)
 
 

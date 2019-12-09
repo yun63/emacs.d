@@ -11,24 +11,27 @@
   (projectile-cleanup-known-projects)
   (setq projectile-completion-system 'ivy)
   (setq-default projectile-mode-line-prefix " Proj")
-  (use-package counsel-projectile
-    :ensure t)
-
-  (use-package ibuffer-projectile
-    :ensure t)
-
-  (use-package ag
-    :ensure t)
-    
-  (use-package autoinsert
-    :ensure t
-    :config
-    (setq auto-insert-query nil)
-    (setq auto-insert-directory (locate-user-emacs-file "templates"))
-    (add-hook 'find-file-hook 'auto-insert)
-    (auto-insert-mode t))
   )
 
+;; counsel-projectile
+(use-package counsel-projectile
+  :ensure t)
+
+;; ibuffer-projectile
+(use-package ibuffer-projectile
+  :ensure t)
+
+(use-package ag
+  :ensure t)
+    
+;; autoinsert
+(use-package autoinsert
+  :ensure t
+  :config
+  (setq auto-insert-query nil)
+  (setq auto-insert-directory (locate-user-emacs-file "templates"))
+  (add-hook 'find-file-hook 'auto-insert)
+  (auto-insert-mode t))
 
 
 (provide 'init-projectile)
