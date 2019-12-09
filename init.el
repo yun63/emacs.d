@@ -35,6 +35,7 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
 (require 'init-editor)
+(require 'init-ui)
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
