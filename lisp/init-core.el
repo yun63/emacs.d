@@ -22,6 +22,11 @@
   (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t))
 
 
+(defconst emacs-local-dir
+  (concat user-emacs-directory ".local-dir/")
+  "Root directory for local storage
+Use this as a local storage for some caches")
+
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -46,11 +51,11 @@
 (use-package bind-key
   :ensure t)
 
-(use-package auto-package-update
-  :ensure t
-  :config
-  (setq auto-package-update-delete-versions t)
-  (auto-package-update-maybe))
+;;(use-package auto-package-update
+;;  :ensure t
+;;  :config
+;;  (setq auto-package-update-delete-versions t)
+;;  (auto-package-update-maybe))
 
 (use-package exec-path-from-shell
   :ensure t
