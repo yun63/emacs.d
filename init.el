@@ -36,16 +36,7 @@
 (require 'init-core)      ;;
 (require 'init-editor)
 (require 'init-ui)
-
-;;----------------------------------------------------------------------------
-;; Allow users to provide an optional "init-preload-local.el"
-;;----------------------------------------------------------------------------
-;;;(require 'init-preload-local nil t)
-
-;;----------------------------------------------------------------------------
-;; Load configs for specific features and modes
-;;----------------------------------------------------------------------------
-
+;;;
 (require 'init-frame-hooks)
 ;;;(require 'init-xterm)
 ;;;(require 'init-themes)
@@ -54,7 +45,6 @@
 ;;;(require 'init-osx-keys)
 ;;;(require 'init-gui-frames)
 ;;;(require 'init-dired)
-;;;(require 'init-grep)
 ;;;(require 'init-uniquify)
 ;;;(require 'init-flycheck)
 ;;;(require 'init-recentf)
@@ -65,9 +55,8 @@
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-windows)
-;;;(require 'init-sessions)
-;;;(require 'init-mmm)
-;;;
+;;; Project
+(require 'init-project)
 ;;;(require 'init-editing-utils)
 ;;;(require 'init-whitespace)
 ;;;
