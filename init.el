@@ -35,19 +35,35 @@
 ;;; Core
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+<<<<<<< HEAD
 (require 'init-core)      ;; Elpa
 
 ;;; UI
 (require 'init-ui)
+=======
+(require 'init-core)      ;;
+(require 'init-editor)
+(require 'init-ui)
+;;;
+>>>>>>> 1099bc2acc2e76b9abeeb54cbbda9b3ad1ba2dec
 (require 'init-frame-hooks)
 ;;(require 'init-themes)
 (require 'init-editor)
 
 ;;; Editor
 (require 'init-evil)
+<<<<<<< HEAD
 (require 'init-osx-keys)
 
 ;;; Completion
+=======
+;;;(require 'init-osx-keys)
+;;;(require 'init-gui-frames)
+;;;(require 'init-dired)
+;;;(require 'init-uniquify)
+;;;(require 'init-flycheck)
+;;;(require 'init-recentf)
+>>>>>>> 1099bc2acc2e76b9abeeb54cbbda9b3ad1ba2dec
 (require 'init-ivy)
 (require 'init-company)
 (require 'init-hippie-expand)
@@ -58,12 +74,17 @@
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-windows)
+<<<<<<< HEAD
 (require 'init-recentf)
 
 ;;; Emacs
 ;;;(require 'init-dired)
 ;;;(require 'init-flycheck)
 ;;;
+=======
+;;; Project
+(require 'init-project)
+>>>>>>> 1099bc2acc2e76b9abeeb54cbbda9b3ad1ba2dec
 ;;;(require 'init-editing-utils)
 ;;;(require 'init-whitespace)
 

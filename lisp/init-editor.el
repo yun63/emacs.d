@@ -21,10 +21,10 @@
 (blink-cursor-mode 1)
 (setq-default cursor-type 'bar)
 ;;; 设置显示光标所在行列号
-;;;(line-number-mode t)
-;;;(column-number-mode t)
-;;;(global-linum-mode t)
-;;;(setq linum-format "%4d ")
+(line-number-mode t)
+(column-number-mode t)
+(global-linum-mode t)
+(setq linum-format "%4d ")
 ;;; 显示匹配括号
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
