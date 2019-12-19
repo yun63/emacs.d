@@ -5,84 +5,45 @@
 ;; Theme
 (use-package doom-themes
   :ensure t
-  :defines doom-themes-treemacs-theme
-  :functions doom-themes-hide-modeline
-  :hook (after-load-theme . (lambda ()
-                              (set-face-foreground
-                               'mode-line
-                               (face-foreground 'default))))
   :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-molokai t)
   (set-face-foreground 'mode-line (face-foreground 'default))
-  ;; Make swiper match clearer
-  (with-eval-after-load 'swiper
-    (set-face-background 'swiper-background-match-face-1 "SlateGray1"))
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-  ;; WORKAROUND: use legacy codes
-  (set-face-attribute 'doom-visual-bell nil
-                      :inherit 'mode-line
-                      :background (face-foreground 'error)
-                      :inverse-video 'unspecified)
-  (defvar doom-themes--bell-p nil)
-  (defun doom-themes-visual-bell-fn ()
-    "Blink the mode-line red briefly. Set `ring-bell-function' to this to use it."
-    (unless doom-themes--bell-p
-      (let ((old-remap (copy-alist face-remapping-alist)))
-        (setq doom-themes--bell-p t)
-        (setq face-remapping-alist
-              (append (delete (assq 'mode-line face-remapping-alist)
-                              face-remapping-alist)
-                      '((mode-line doom-visual-bell))))
-        (force-mode-line-update)
-        (run-with-timer 0.15 nil
-                        (lambda (remap buf)
-                          (with-current-buffer buf
-                            (when (assq 'mode-line face-remapping-alist)
-                              (setq face-remapping-alist remap
-                                    doom-themes--bell-p nil))
-                            (force-mode-line-update)))
-                        old-remap
-                        (current-buffer)))))
+  
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  (doom-themes-treemacs-config)
+  
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  ;; Enable customized theme (`all-the-icons' must be installed!)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-  (with-eval-after-load 'treemacs
-    (remove-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)))
+  )
 
-;; Make certain buffers grossly incandescent
-(use-package solaire-mode
+(use-package doom-modeline
   :ensure t
-  :functions persp-load-state-from-file
-  :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-         (minibuffer-setup . solaire-mode-in-minibuffer)
-         (after-load-theme . solaire-mode-swap-bg))
-  :config
-  (setq solaire-mode-remap-fringe nil)
-  (solaire-global-mode 1)
-  (solaire-mode-swap-bg)
-  (advice-add #'persp-load-state-from-file
-              :after #'solaire-mode-restore-persp-mode-buffers))
+  :defer t
+  :hook (after-init . doom-modeline-init))
 
-;; Mode-line
-;;;(use-package doom-modeline
-;;;  :hook (after-init . doom-modeline-mode)
-;;;  :init
-;;;  ;; prevent flash of unstyled modeline at startup
-;;;  (unless after-init-time
-;;;    (setq doom-modeline--old-format mode-line-format)
-;;;    (setq-default mode-line-format nil))
-;;;
-;;;  (setq doom-modeline-major-mode-color-icon t
-;;;        doom-modeline-minor-modes nil
-;;;        doom-modeline-mu4e nil)
-;;;  )
+;;(use-package powerline
+;;  :ensure t
+;;  :init
+;;  (setq powerline-arrow-shape 'arrow)   ;; the default
+;;  (custom-set-faces
+;;   '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+;;   '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
+;;  (setq powerline-color1 "grey22")
+;;  (setq powerline-color2 "grey40"))
 
 
-(use-package hide-mode-line
-  :ensure t
-  :hook (((completion-list-mode completion-in-region-mode) . hide-mode-line-mode)))
+;;(use-package hide-mode-line
+;;  :ensure t
+;;  :hook (((completion-list-mode completion-in-region-mode) . hide-mode-line-mode)))
+
 
 ;; Icons
 ;; NOTE: Must run `M-x all-the-icons-install-fonts', and install fonts manually on Windows
@@ -180,23 +141,6 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(gfm-mode all-the-icons-octicon "markdown" :face all-the-icons-lblue)))
 
-;; Show native line numbers if possible, otherwise use linum
-;;(if (fboundp 'display-line-numbers-mode)
-;;    (use-package display-line-numbers
-;;      :ensure t 
-;;      :hook (prog-mode . display-line-numbers-mode))
-;;  (use-package linum-off
-;;    :demand
-;;    :defines linum-format
-;;    :hook (after-init . global-linum-mode)
-;;    :init (setq linum-format "%4d ")
-;;    :config
-;;    ;; Highlight current line number
-;;    (use-package hlinum
-;;      :defines linum-highlight-in-all-buffersp
-;;      :custom-face (linum-highlight-face ((t (:inherit default :background nil :foreground nil))))
-;;      :hook (global-linum-mode . hlinum-activate)
-;;      :init (setq linum-highlight-in-all-buffersp t))))
 
 ;; Suppress GUI features
 (setq use-file-dialog nil

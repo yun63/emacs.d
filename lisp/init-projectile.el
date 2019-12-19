@@ -31,7 +31,7 @@
   (setq projectile-switch-project-action #'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)
   (setq projectile-completion-system 'ivy)
-  (setq-default projectile-mode-line-prefix " Proj")
+  (setq-default projectile-mode-line-prefix nil)
 
   ;; In the interest of performance, we reduce the number of project root marker
   ;; files/directories projectile searches for when resolving the project root.
@@ -57,9 +57,6 @@
 (use-package find-file-in-project
   :ensure t)
 
-
-(use-package ag
-  :ensure t)
     
 ;; autoinsert
 (use-package autoinsert

@@ -42,6 +42,7 @@
 ;;;(require 'init-themes)
 ;;;(require 'init-dashboard)
 (require 'init-evil)
+(require 'init-hydra)
 (require 'init-dired)
 ;;;(require 'init-uniquify)
 ;;;(require 'init-flycheck)
