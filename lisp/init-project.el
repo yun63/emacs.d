@@ -13,9 +13,7 @@
 
 ;; company-c-headers
 (use-package company-c-headers
-  :ensure t
-  :init
-  (add-to-list 'company-backends 'company-c-headers))
+  :ensure t)
 
 (provide 'init-project)
 ;;; init-project.el ends here

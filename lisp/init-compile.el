@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq-default compilation-scroll-output t)
-
-(require-package 'alert)
+(use-package alert
+  :ensure t
+  :init
+  (setq-default compilation-scroll-output t))
 
 ;; Customize `alert-default-style' to get messages after compilation
 
@@ -63,8 +64,8 @@
   (add-hook 'compilation-filter-hook 'sanityinc/colourise-compilation-buffer))
 
 
-(maybe-require-package 'cmd-to-echo)
-
+(use-package cmd-to-echo
+  :ensure t)
 
 (provide 'init-compile)
 ;;; init-compile.el ends here

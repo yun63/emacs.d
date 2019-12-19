@@ -30,66 +30,81 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-benchmark) ;; Measure startup time
-
-;;; Core
+(require 'init-benchmarking) ;; Measure startup time
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
+(require 'init-editor)
 (require 'init-ui)
 ;;;
 (require 'init-frame-hooks)
-;;(require 'init-themes)
-(require 'init-editor)
-
-;;; Editor
+;;;(require 'init-xterm)
+;;;(require 'init-themes)
+;;;(require 'init-dashboard)
 (require 'init-evil)
-;;(require 'init-osx-keys)
-
-;;;(require 'init-osx-keys)
-;;;(require 'init-gui-frames)
-;;;(require 'init-dired)
+(require 'init-dired)
 ;;;(require 'init-uniquify)
 ;;;(require 'init-flycheck)
-
-;;; Completion
+(require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
-(require 'init-hippie-expand)
-
-;;; 
 (require 'init-projectile)
+(require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-windows)
-(require 'init-recentf)
-
-;;; Emacs
-;;;(require 'init-dired)
-;;;(require 'init-flycheck)
-;;;
 ;;; Project
 (require 'init-project)
 ;;;(require 'init-editing-utils)
 ;;;(require 'init-whitespace)
-
-;;; Tools
-;;(require 'init-git)
-;;(require 'init-github)
-
-;;; Languages
-
-;;;(require 'init-markdown)
+;;;
+;;;(require 'init-git)
+;;;(require 'init-github)
+;;;
+;;;
+(require 'init-compile)
 ;;;(require 'init-csv)
-;;;(require 'init-lua-mode)
 ;;;(require 'init-javascript)
+;;;(require 'init-php)
 ;;;(require 'init-org)
+;;;(require 'init-nxml)
 ;;;(require 'init-http)
 ;;;(require 'init-python)
+;;;(require 'init-elm)
+;;;(require 'init-rails)
+;;;(require 'init-yaml)
+;;;(require 'init-docker)
+;;;;;(require 'init-nix)
+;;;(maybe-require-package 'nginx-mode)
+;;;
+;;;(require 'init-paredit)
 ;;;(require 'init-lisp)
 ;;;(require 'init-common-lisp)
+;;;
+;;;(when *spell-check-support-enabled*
+;;;  (require 'init-spelling))
+;;;
+;;;(require 'init-misc)
+;;;
 ;;;(require 'init-folding)
-
+;;;(require 'init-dash)
+;;;
+;;;;;(require 'init-twitter)
+;;;;; (require 'init-mu)
+;;;(require 'init-ledger)
+;;;
+;;;(require-package 'lua-mode)
+;;;(require-package 'dsvn)
+;;;(unless (eq system-type 'windows-nt)
+;;;  (maybe-require-package 'daemons))
+;;;
+;;;(when (maybe-require-package 'uptimes)
+;;;  (setq-default uptimes-keep-count 200)
+;;;  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
+;;;
+;;;(when (fboundp 'global-eldoc-mode)
+;;;  (add-hook 'after-init-hook 'global-eldoc-mode))
+;;;
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
@@ -98,6 +113,14 @@
 
 (when (file-exists-p custom-file)
   (load custom-file))
+
+
+;;; Locales (setting them earlier in this file doesn't work in X)
+;;;(require 'init-locales)
+
+
+;;; Allow users to provide an optional "init-local" containing personal settings
+;;;(require 'init-local nil t)
 
 
 (provide 'init)

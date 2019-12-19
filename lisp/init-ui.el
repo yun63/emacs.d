@@ -204,6 +204,15 @@
       inhibit-startup-screen t
       inhibit-startup-echo-area-message t)
 
+(use-package default-text-scale
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'default-text-scale-mode)
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (setq line-spacing 0)))
+  )
+
 ;; Display dividers between windows
 (setq window-divider-default-places t
       window-divider-default-bottom-width 1
