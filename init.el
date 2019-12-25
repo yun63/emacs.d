@@ -9,6 +9,13 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (let ((minver "24.4"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
@@ -35,8 +42,8 @@
 (require 'init-core)      ;;
 (require 'init-editor)
 (require 'init-ui)
+(require 'init-windows)
 ;;;
-;;;(require 'init-themes)
 ;;;(require 'init-dashboard)
 (require 'init-evil)
 ;;;(require 'init-hydra)
@@ -50,7 +57,6 @@
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
-(require 'init-windows)
 ;;; Project
 (require 'init-project)
 ;;;(require 'init-editing-utils)
@@ -59,13 +65,9 @@
 ;;;(require 'init-git)
 ;;;(require 'init-github)
 ;;;
-;;;
-;;;(require 'init-compile)
 ;;;(require 'init-org)
 ;;;(require 'init-http)
 ;;;(require 'init-python)
-;;;
-;;;(require 'init-dash)
 ;;;
 ;;;
 (add-hook 'after-init-hook

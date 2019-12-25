@@ -7,19 +7,17 @@
   :ensure t
   :config
   ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (setq doom-themes-enable-bold t)    ; if nil, bold is universally disabled
+  (setq doom-themes-enable-italic t)  ; if nil, italics is universally disabled
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
   (load-theme 'doom-molokai t)
   (set-face-foreground 'mode-line (face-foreground 'default))
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-  
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
   ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
   (doom-themes-treemacs-config)
-  
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
   )
@@ -52,16 +50,6 @@
   (setq doom-modeline-lsp t)
   (setq doom-modeline-github nil)
   )
-
-;;(use-package powerline
-;;  :ensure t
-;;  :init
-;;  (setq powerline-arrow-shape 'arrow)   ;; the default
-;;  (custom-set-faces
-;;   '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
-;;   '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
-;;  (setq powerline-color1 "grey22")
-;;  (setq powerline-color2 "grey40"))
 
 
 ;; Icons
