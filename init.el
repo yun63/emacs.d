@@ -40,16 +40,20 @@
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
-(require 'init-editor)
+
+;;; UI
 (require 'init-ui)
 (require 'init-windows)
-;;;
-;;;(require 'init-dashboard)
+;;(require 'init-dashboard)
+
+;;; Editor
 (require 'init-evil)
-;;;(require 'init-hydra)
-;;;(require 'init-dired)
-;;;(require 'init-uniquify)
-;;;(require 'init-flycheck)
+;;(require 'init-hydra)
+;;(require 'init-dired)
+;;(require 'init-uniquify)
+;;(require 'init-flycheck)
+
+;;; Tools
 (require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
@@ -57,16 +61,14 @@
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
+
 ;;; Project
 (require 'init-project)
-;;;(require 'init-editing-utils)
-;;;(require 'init-whitespace)
-;;;
+
 ;;;(require 'init-git)
 ;;;(require 'init-github)
 ;;;
 ;;;(require 'init-org)
-;;;(require 'init-http)
 ;;;(require 'init-python)
 ;;;
 ;;;
@@ -78,14 +80,6 @@
 
 (when (file-exists-p custom-file)
   (load custom-file))
-
-
-;;; Locales (setting them earlier in this file doesn't work in X)
-;;;(require 'init-locales)
-
-
-;;; Allow users to provide an optional "init-local" containing personal settings
-;;;(require 'init-local nil t)
 
 
 (provide 'init)
