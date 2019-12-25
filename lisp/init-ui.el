@@ -27,7 +27,31 @@
 (use-package doom-modeline
   :ensure t
   :defer t
-  :hook (after-init . doom-modeline-init))
+  :hook (after-init . doom-modeline-init)
+  :config
+  (setq doom-modeline-height 25)
+  (setq doom-modeline-bar-width 3)
+  (setq doom-modeline-project-detection 'project)
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (setq doom-modeline-icon (display-graphic-p))
+  (setq doom-modeline-major-mode-icon t)
+  (setq doom-modeline-major-mode-color-icon t)
+  (setq doom-modeline-buffer-state-icon t)
+  (setq doom-modeline-buffer-modification-icon t)
+  (setq doom-modeline-unicode-fallback nil)
+  (setq doom-modeline-minor-modes (featurep 'minions))
+  (setq doom-modeline-enable-word-count nil)
+  (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
+  (setq doom-modeline-buffer-encoding t)
+  (setq doom-modeline-indent-info nil)
+  (setq doom-modeline-checker-simple-format t)
+  (setq doom-modeline-number-limit 99)
+  (setq doom-modeline-vcs-max-length 12)
+  (setq doom-modeline-persp-name t)
+  (setq doom-modeline-display-default-persp-name nil)
+  (setq doom-modeline-lsp t)
+  (setq doom-modeline-github nil)
+  )
 
 ;;(use-package powerline
 ;;  :ensure t
