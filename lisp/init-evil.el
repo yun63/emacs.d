@@ -6,15 +6,13 @@
 (use-package evil
   :ensure t
   :init
-  ;; enable evil-mode
-  (evil-mode 1)
+  (evil-mode 1))
 
-  (use-package evil-leader
-    :ensure t)
+(use-package evil-leader
+  :ensure t)
 
-  (use-package ace-jump-mode
-    :ensure t)
-  )
+(use-package ace-jump-mode
+  :ensure t)
 
 
 (provide 'init-evil)

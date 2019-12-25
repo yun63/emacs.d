@@ -107,6 +107,12 @@
   (setq doom-modeline-github nil)
   )
 
+;;;###package ansi-color
+(setq ansi-color-for-comint-mode t)
+
+(use-package page-break-lines
+  :ensure t)
+
 (use-package powerline-evil
   :ensure t)
 
