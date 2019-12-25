@@ -19,95 +19,14 @@
   (dolist (pattern patterns)
     (add-to-list 'auto-mode-alist (cons pattern mode))))
 
-
-;;----------------------------------------------------------------------------
-;; String utilities missing from core emacs
-;;----------------------------------------------------------------------------
-(defun string-all-matches (regex str &optional group)
-  "Find all matches for `REGEX' within `STR', returning the full match string or group `GROUP'."
-  (let ((result nil)
-        (pos 0)
-        (group (or group 0)))
-    (while (string-match regex str pos)
-      (push (match-string group str) result)
-      (setq pos (match-end group)))
-    result))
-
-
-;;----------------------------------------------------------------------------
-;; Delete the current file
-;;----------------------------------------------------------------------------
-(defun delete-this-file ()
-  "Delete the current file, and kill the buffer."
-  (interactive)
-  (unless (buffer-file-name)
-    (error "No file is currently being edited"))
-  (when (yes-or-no-p (format "Really delete '%s'?"
-                             (file-name-nondirectory buffer-file-name)))
-    (delete-file (buffer-file-name))
-    (kill-this-buffer)))
-
-
-;;----------------------------------------------------------------------------
-;; Rename the current file
-;;----------------------------------------------------------------------------
-(defun rename-this-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (unless filename
-      (error "Buffer '%s' is not visiting a file!" name))
-    (progn
-      (when (file-exists-p filename)
-        (rename-file filename new-name 1))
-      (set-visited-file-name new-name)
-      (rename-buffer new-name))))
-
-;;----------------------------------------------------------------------------
-;; Browse current HTML file
-;;----------------------------------------------------------------------------
-(defun browse-current-file ()
-  "Open the current file as a URL using `browse-url'."
-  (interactive)
-  (let ((file-name (buffer-file-name)))
-    (if (and (fboundp 'tramp-tramp-file-p)
-             (tramp-tramp-file-p file-name))
-        (error "Cannot open tramp file")
-      (browse-url (concat "file://" file-name)))))
-
-(defun light/backward-kill-word ()
-  "Customize/Smart backward-kill-word."
-  (interactive)
-  (let* ((cp (point))
-         (backword)
-         (end)
-         (space-pos)
-         (backword-char (if (bobp)
-                            ""           ;; cursor in begin of buffer
-                          (buffer-substring cp (- cp 1)))))
-    (if (equal (length backword-char) (string-width backword-char))
-        (progn
-          (save-excursion
-            (setq backword (buffer-substring (point) (progn (forward-word -1) (point)))))
-          (setq ab/debug backword)
-          (save-excursion
-            (when (and backword          ;; when backword contains space
-                       (s-contains? " " backword))
-              (setq space-pos (ignore-errors (search-backward " ")))))
-          (save-excursion
-            (let* ((pos (ignore-errors (search-backward-regexp "\n")))
-                   (substr (when pos (buffer-substring pos cp))))
-              (when (or (and substr (s-blank? (s-trim substr)))
-                        (s-contains? "\n" backword))
-                (setq end pos))))
-          (if end
-              (kill-region cp end)
-            (if space-pos
-                (kill-region cp space-pos)
-              (backward-kill-word 1))))
-      (kill-region cp (- cp 1)))         ;; word is non-english word
-    ))
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+    (lambda ()
+        (message "Emacs ready in %s with %d garbage collections."
+            (format "%.2f seconds"
+                (float-time
+                    (time-subtract after-init-time before-init-time)))
+        gcs-done)))
 
 
 (provide 'init-utils)

@@ -30,20 +30,17 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-benchmarking) ;; Measure startup time
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
 (require 'init-editor)
 (require 'init-ui)
 ;;;
-(require 'init-frame-hooks)
-;;;(require 'init-xterm)
 ;;;(require 'init-themes)
 ;;;(require 'init-dashboard)
 (require 'init-evil)
-(require 'init-hydra)
-(require 'init-dired)
+;;;(require 'init-hydra)
+;;;(require 'init-dired)
 ;;;(require 'init-uniquify)
 ;;;(require 'init-flycheck)
 (require 'init-recentf)
@@ -63,48 +60,13 @@
 ;;;(require 'init-github)
 ;;;
 ;;;
-(require 'init-compile)
-;;;(require 'init-csv)
-;;;(require 'init-javascript)
-;;;(require 'init-php)
+;;;(require 'init-compile)
 ;;;(require 'init-org)
-;;;(require 'init-nxml)
 ;;;(require 'init-http)
 ;;;(require 'init-python)
-;;;(require 'init-elm)
-;;;(require 'init-rails)
-;;;(require 'init-yaml)
-;;;(require 'init-docker)
-;;;;;(require 'init-nix)
-;;;(maybe-require-package 'nginx-mode)
 ;;;
-;;;(require 'init-paredit)
-;;;(require 'init-lisp)
-;;;(require 'init-common-lisp)
-;;;
-;;;(when *spell-check-support-enabled*
-;;;  (require 'init-spelling))
-;;;
-;;;(require 'init-misc)
-;;;
-;;;(require 'init-folding)
 ;;;(require 'init-dash)
 ;;;
-;;;;;(require 'init-twitter)
-;;;;; (require 'init-mu)
-;;;(require 'init-ledger)
-;;;
-;;;(require-package 'lua-mode)
-;;;(require-package 'dsvn)
-;;;(unless (eq system-type 'windows-nt)
-;;;  (maybe-require-package 'daemons))
-;;;
-;;;(when (maybe-require-package 'uptimes)
-;;;  (setq-default uptimes-keep-count 200)
-;;;  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
-;;;
-;;;(when (fboundp 'global-eldoc-mode)
-;;;  (add-hook 'after-init-hook 'global-eldoc-mode))
 ;;;
 (add-hook 'after-init-hook
           (lambda ()

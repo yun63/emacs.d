@@ -35,13 +35,10 @@
       scroll-margin 3
       scroll-conservatively 10000)
 ;;; 显示时间
-(display-time-mode t)
-(setq display-time-24hr-format t)
-(setq display-time-day-and-date t)
-(setq display-time-use-mail-icon t)
-;;; 高亮当前行
-;;;(require 'hl-line)
-;;;(global-hl-line-mode t)
+;;;(display-time-mode t)
+;;;(setq display-time-24hr-format t)
+;;;(setq display-time-day-and-date t)
+;;;(setq display-time-use-mail-icon t)
 ;;; 在标题栏显示buffer的名称，默认不显示
 (setq frame-title-format "%b@emacs")
 ;;; 支持emacs和外部程序的黏贴
