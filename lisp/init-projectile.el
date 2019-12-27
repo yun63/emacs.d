@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package projectile
-  :ensure t
+  :defer 1
   :commands (projectile-project-root
              projectile-project-name
              projectile-project-p
@@ -47,20 +47,21 @@
 
 ;; counsel-projectile
 (use-package counsel-projectile
-  :ensure t)
+  :defer 2)
 
 ;; ibuffer-projectile
 (use-package ibuffer-projectile
-  :ensure t)
+  :defer 2)
 
 ;; find-file-in-project
 (use-package find-file-in-project
-  :ensure t)
+  :defer 1)
+
 
     
 ;; autoinsert
 (use-package autoinsert
-  :ensure t
+  :defer 2
   :config
   (setq auto-insert-query nil)
   (setq auto-insert-directory (locate-user-emacs-file "templates"))

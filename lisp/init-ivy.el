@@ -42,11 +42,13 @@
 
   (use-package ivy-xref
     :ensure t
+    :defer 2
     :init
     (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
   (use-package swiper
     :ensure t
+    :defer 2
     :init
     (global-set-key "\C-s" 'swiper))
   )

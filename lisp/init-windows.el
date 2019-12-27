@@ -10,6 +10,7 @@
 
 (use-package switch-window
   :ensure t
+  :defer 2
   :init
   (add-hook 'after-init-hook #'winner-mode)
   (setq-default switch-window-shortcut-style 'alphabet)

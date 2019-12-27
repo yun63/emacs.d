@@ -111,13 +111,19 @@
 (setq ansi-color-for-comint-mode t)
 
 (use-package page-break-lines
-  :ensure t)
+  :ensure t
+  :defer 2)
 
-(use-package powerline-evil
-  :ensure t)
+(use-package smart-mode-line
+  :ensure t
+  :init
+  (setq sml/theme 'dark))
+  (setq sml/no-confirm-load-theme t)
+  (sml/setup)
 
 (use-package all-the-icons
   :ensure t
+  :defer 2
   :if (display-graphic-p)
   :init (unless (or sys/win32p (member "all-the-icons" (font-family-list)))
           (all-the-icons-install-fonts t))

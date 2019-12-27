@@ -27,15 +27,13 @@
   "Root directory for local storage
 Use this as a local storage for some caches")
 
-
+
 (setq package-enable-at-startup nil)
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-
-
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -59,6 +57,7 @@ Use this as a local storage for some caches")
 
 (use-package exec-path-from-shell
   :ensure t
+  :defer 2
   :config
   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var))
