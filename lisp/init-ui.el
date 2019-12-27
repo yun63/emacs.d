@@ -104,7 +104,7 @@
   (setq doom-modeline-persp-name t)
   (setq doom-modeline-display-default-persp-name nil)
   (setq doom-modeline-lsp t)
-  (setq doom-modeline-github nil)
+  (setq doom-modeline-github t)
   )
 
 ;;;###package ansi-color
@@ -120,6 +120,7 @@
   (setq sml/theme 'dark))
   (setq sml/no-confirm-load-theme t)
   (sml/setup)
+
 
 (use-package all-the-icons
   :ensure t
