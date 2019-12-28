@@ -52,6 +52,7 @@
 (which-func-mode)
 ;;; 禁用启动信息
 (setq inhibit-startup-message t)
+(setq inhibit-startup-screen nil)
 ;;; 隐藏工具栏
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -63,9 +64,9 @@
 ;;; 防止删掉重要的内容
 (setq kill-ring-max 200)
 
-;; Theme
+
+;;;Theme
 (use-package doom-themes
-  :ensure t
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
@@ -79,8 +80,6 @@
   )
 
 (use-package doom-modeline
-  :ensure t
-  :defer t
   :hook (after-init . doom-modeline-init)
   :config
   (setq doom-modeline-height 25)
@@ -107,23 +106,21 @@
   (setq doom-modeline-github t)
   )
 
-;;;###package ansi-color
-(setq ansi-color-for-comint-mode t)
 
 (use-package page-break-lines
-  :ensure t
   :defer 2)
 
 (use-package smart-mode-line
-  :ensure t
   :init
   (setq sml/theme 'dark))
   (setq sml/no-confirm-load-theme t)
   (sml/setup)
 
+(use-package telephone-line
+  :init
+  (telephone-line-mode 1))
 
 (use-package all-the-icons
-  :ensure t
   :defer 2
   :if (display-graphic-p)
   :init (unless (or sys/win32p (member "all-the-icons" (font-family-list)))

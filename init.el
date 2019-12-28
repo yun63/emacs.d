@@ -44,7 +44,7 @@
 ;;; UI
 (require 'init-ui)
 (require 'init-windows)
-(require 'init-frame-hooks)
+;;(require 'init-frame-hooks)
 
 ;;; Editor
 (require 'init-evil)
