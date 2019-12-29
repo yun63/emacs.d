@@ -64,61 +64,12 @@
 ;;; 防止删掉重要的内容
 (setq kill-ring-max 200)
 
-
-;;;Theme
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t)
-  (setq doom-themes-enable-italic t)
-  (setq doom-themes-treemacs-theme "doom-colors")
-;;  (load-theme 'doom-molokai t)
-  (set-face-foreground 'mode-line (face-foreground 'default))
-  (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
-  (doom-themes-treemacs-config)
-  (doom-themes-org-config)
-  )
-
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-init)
-  :config
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-bar-width 3)
-  (setq doom-modeline-project-detection 'project)
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-  (setq doom-modeline-icon (display-graphic-p))
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-buffer-state-icon t)
-  (setq doom-modeline-buffer-modification-icon t)
-  (setq doom-modeline-unicode-fallback nil)
-  (setq doom-modeline-minor-modes (featurep 'minions))
-  (setq doom-modeline-enable-word-count nil)
-  (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
-  (setq doom-modeline-buffer-encoding t)
-  (setq doom-modeline-indent-info nil)
-  (setq doom-modeline-checker-simple-format t)
-  (setq doom-modeline-number-limit 99)
-  (setq doom-modeline-vcs-max-length 12)
-  (setq doom-modeline-persp-name t)
-  (setq doom-modeline-display-default-persp-name nil)
-  (setq doom-modeline-lsp t)
-  (setq doom-modeline-github t)
-  )
-
-
-(use-package page-break-lines
-  :defer 2)
-
-(use-package smart-mode-line
-  :init
-  (setq sml/theme 'dark))
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup)
-
 (use-package telephone-line
   :init
   (telephone-line-mode 1))
+
+(use-package page-break-lines
+  :defer 2)
 
 (use-package all-the-icons
   :defer 2
