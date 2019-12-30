@@ -49,7 +49,7 @@
 ;;; 当光标在行尾上下移动的时候，始终保持在行尾
 (setq track-eol t)
 ;;; 在模式栏中显示当前光标所在函数
-(which-func-mode)
+;;(which-func-mode)
 ;;; 禁用启动信息
 (setq inhibit-startup-message t)
 (setq inhibit-startup-screen nil)
