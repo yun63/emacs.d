@@ -49,7 +49,7 @@
 ;;; 当光标在行尾上下移动的时候，始终保持在行尾
 (setq track-eol t)
 ;;; 在模式栏中显示当前光标所在函数
-;;(which-func-mode)
+(which-func-mode)
 ;;; 禁用启动信息
 (setq inhibit-startup-message t)
 (setq inhibit-startup-screen nil)
@@ -65,51 +65,28 @@
 (setq kill-ring-max 200)
 
 (use-package telephone-line
-  :init
+  :ensure t
+  :config
+  ;;(setq telephone-line-subseparator-faces '())
+  ;;(setq telephone-line-height 24
+  ;;      telephone-line-evil-use-short-tag t)
+  ;;
+  ;;(setq telephone-line-primary-right-separator 'telephone-line-abs-left
+  ;;      telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
+  ;;(setq telephone-line-height 24
+  ;;      telephone-line-evil-use-short-tag t)
+  
+  (setq telephone-line-primary-left-separator 'telephone-line-gradient
+        telephone-line-secondary-left-separator 'telephone-line-nil
+        telephone-line-primary-right-separator 'telephone-line-gradient
+        telephone-line-secondary-right-separator 'telephone-line-nil)
+  (setq telephone-line-height 24
+        telephone-line-evil-use-short-tag nil)
   (telephone-line-mode 1))
+
 
 (use-package page-break-lines
   :defer 2)
-
-(use-package all-the-icons
-  :defer 2
-  :if (display-graphic-p)
-  :init (unless (or sys/win32p (member "all-the-icons" (font-family-list)))
-          (all-the-icons-install-fonts t))
-  :config
-  (with-no-warnings
-    (defun all-the-icons-icon-for-dir (dir &optional chevron padding)
-      "Format an icon for DIR with CHEVRON similar to tree based directories."
-      (let* ((matcher (all-the-icons-match-to-alist (file-name-base (directory-file-name dir)) all-the-icons-dir-icon-alist))
-             (path (expand-file-name dir))
-             (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
-             (padding (or padding "\t"))
-             (icon (cond
-                    ((file-symlink-p path)
-                     (all-the-icons-octicon "file-symlink-directory" :height 1.0 :v-adjust 0.0))
-                    ((all-the-icons-dir-is-submodule path)
-                     (all-the-icons-octicon "file-submodule" :height 1.0 :v-adjust 0.0))
-                    ((file-exists-p (format "%s/.git" path))
-                     (format "%s" (all-the-icons-octicon "repo" :height 1.1 :v-adjust 0.0)))
-                    (t (apply (car matcher) (list (cadr matcher) :v-adjust 0.0))))))
-        (format "%s%s%s%s%s" padding chevron padding icon padding)))
-
-    (defun all-the-icons-reset ()
-      "Reset (unmemoize/memoize) the icons."
-      (interactive)
-      (dolist (f '(all-the-icons-icon-for-file
-                   all-the-icons-icon-for-mode
-                   all-the-icons-icon-for-url
-                   all-the-icons-icon-family-for-file
-                   all-the-icons-icon-family-for-mode
-                   all-the-icons-icon-family))
-        (ignore-errors
-          (memoize-restore f)
-          (memoize f)))
-      (message "Reset all-the-icons")))
-
-  (add-to-list 'all-the-icons-mode-icon-alist
-               '(gfm-mode all-the-icons-octicon "markdown" :face all-the-icons-lblue)))
 
 
 (provide 'init-ui)
