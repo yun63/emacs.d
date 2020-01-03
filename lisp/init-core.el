@@ -27,6 +27,9 @@
   "Root directory for local storage
 Use this as a local storage for some caches")
 
+(defun local-require (pkg)
+  (unless (featurep pkg)
+    (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -67,6 +70,9 @@ Use this as a local storage for some caches")
 	      (daemonp)))
     (exec-path-from-shell-initialize))
   )
+
+(use-package which-key
+  :defer 2)
 
 ;;; On-demand installation of packages
 (require 'cl-lib)

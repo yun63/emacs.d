@@ -44,14 +44,12 @@
 ;;; UI
 (require 'init-ui)
 (require 'init-windows)
-;;(require 'init-frame-hooks)
 
 ;;; Editor
 (require 'init-evil)
+(require 'init-markdown)
 ;;(require 'init-hydra)
 ;;(require 'init-dired)
-;;(require 'init-uniquify)
-;;(require 'init-flycheck)
 
 ;;; Tools
 (require 'init-recentf)

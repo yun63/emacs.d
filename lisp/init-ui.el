@@ -64,6 +64,18 @@
 ;;; 防止删掉重要的内容
 (setq kill-ring-max 200)
 
+
+(use-package dracula-theme
+  :defer 2
+  :init
+  (load-theme 'dracula t)
+
+  (use-package rainbow-delimiters
+    :defer 2
+    :hook (prog-mode . rainbow-delimiters-mode))
+  )
+
+
 (use-package telephone-line
   :ensure t
   :config
@@ -71,27 +83,22 @@
   ;;(setq telephone-line-height 24
   ;;      telephone-line-evil-use-short-tag t)
   ;;
-  ;;(setq telephone-line-primary-right-separator 'telephone-line-abs-left
-  ;;      telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
-  ;;(setq telephone-line-height 24
-  ;;      telephone-line-evil-use-short-tag t)
-  
-  (setq telephone-line-primary-left-separator 'telephone-line-gradient
-        telephone-line-secondary-left-separator 'telephone-line-nil
-        telephone-line-primary-right-separator 'telephone-line-gradient
-        telephone-line-secondary-right-separator 'telephone-line-nil)
+  (setq telephone-line-primary-right-separator 'telephone-line-abs-left
+        telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
   (setq telephone-line-height 24
         telephone-line-evil-use-short-tag nil)
+  
+  ;;(setq telephone-line-primary-left-separator 'telephone-line-gradient
+  ;;      telephone-line-secondary-left-separator 'telephone-line-nil
+  ;;      telephone-line-primary-right-separator 'telephone-line-gradient
+  ;;      telephone-line-secondary-right-separator 'telephone-line-nil)
+  ;;(setq telephone-line-height 24
+  ;;      telephone-line-evil-use-short-tag nil)
   (telephone-line-mode 1))
 
 
 (use-package page-break-lines
   :defer 2)
-
-(use-package rainbow-delimiters
-  :defer 2
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 
 (provide 'init-ui)
