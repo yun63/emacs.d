@@ -88,6 +88,11 @@
 (use-package page-break-lines
   :defer 2)
 
+(use-package rainbow-delimiters
+  :defer 2
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
