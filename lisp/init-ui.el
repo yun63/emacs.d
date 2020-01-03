@@ -52,11 +52,10 @@
 (which-func-mode)
 ;;; 禁用启动信息
 (setq inhibit-startup-message t)
-(setq inhibit-startup-screen nil)
+(setq inhibit-startup-screen t)
 ;;; 隐藏工具栏
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(mouse-avoidance-mode 'animate)
 ;;; 语法高亮
 (global-font-lock-mode t)
 ;;; 高亮显示选中的区域
@@ -73,16 +72,20 @@
   (use-package rainbow-delimiters
     :defer 2
     :hook (prog-mode . rainbow-delimiters-mode))
+
+  (use-package smartparens
+    :defer 2
+    :hook
+    (prog-mode . turn-on-smartparens-strict-mode)
+    (markdown-mode . turn-on-smartparens-strict-mode)
+    :config
+    (progn
+      (show-smartparens-global-mode t)))
   )
 
 
 (use-package telephone-line
-  :ensure t
   :config
-  ;;(setq telephone-line-subseparator-faces '())
-  ;;(setq telephone-line-height 24
-  ;;      telephone-line-evil-use-short-tag t)
-  ;;
   (setq telephone-line-primary-right-separator 'telephone-line-abs-left
         telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
   (setq telephone-line-height 24

@@ -59,6 +59,7 @@
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
+(require 'init-yasnippet)
 
 ;;; Project
 (require 'init-project)
