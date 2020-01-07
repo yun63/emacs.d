@@ -34,6 +34,8 @@
      (define-key isearch-mode-map "\C-\M-w" 'isearch-yank-symbol)
   ))
 
+(use-package ag
+  :defer 2)
 
 (defun my-isearch-exit-other-end ()
   "Exit isearch, but at the other end of the search string.
