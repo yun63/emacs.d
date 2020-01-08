@@ -77,8 +77,7 @@
     :ensure smartparens
     :config
     (progn
-      (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-      (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+      (smartparens-global-mode)
       (show-smartparens-global-mode t)))
   )
 
@@ -109,6 +108,16 @@
 
 (use-package page-break-lines
   :defer 2)
+
+(use-package all-the-icons
+  :defer 2)
+
+(use-package dimmer
+  :defer 2
+  :config
+  (dimmer-configure-which-key)
+  (dimmer-configure-helm)
+  (dimmer-mode t))
 
 
 (provide 'init-ui)

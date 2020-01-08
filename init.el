@@ -33,6 +33,10 @@
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+(defun local-require (pkg)
+  (unless (featurep pkg)
+    (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
+
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
