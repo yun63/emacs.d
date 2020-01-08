@@ -85,11 +85,6 @@
 
 (use-package telephone-line
   :config
-  ;;(setq telephone-line-primary-right-separator 'telephone-line-abs-left
-  ;;      telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
-  ;;(setq telephone-line-height 24
-  ;;      telephone-line-evil-use-short-tag nil)
-
   (setq telephone-line-primary-left-separator 'telephone-line-gradient
         telephone-line-secondary-left-separator 'telephone-line-nil
         telephone-line-primary-right-separator 'telephone-line-gradient
