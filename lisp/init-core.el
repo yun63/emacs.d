@@ -71,9 +71,6 @@ Use this as a local storage for some caches")
     (exec-path-from-shell-initialize))
   )
 
-(use-package which-key
-  :defer 2)
-
 ;;; On-demand installation of packages
 (require 'cl-lib)
 
