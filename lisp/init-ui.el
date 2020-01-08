@@ -64,39 +64,51 @@
 (setq kill-ring-max 200)
 
 
-(use-package dracula-theme
+(use-package spacemacs-theme
   :defer 2
   :init
-  (load-theme 'dracula t)
+  (load-theme 'spacemacs-dark t)
 
   (use-package rainbow-delimiters
     :defer 2
     :hook (prog-mode . rainbow-delimiters-mode))
 
-  (use-package smartparens
-    :defer 2
-    :hook
-    (prog-mode . turn-on-smartparens-strict-mode)
-    (markdown-mode . turn-on-smartparens-strict-mode)
+  (use-package smartparens-config
+    :ensure smartparens
     :config
     (progn
+      (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+      (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
       (show-smartparens-global-mode t)))
   )
 
 
 (use-package telephone-line
   :config
-  (setq telephone-line-primary-right-separator 'telephone-line-abs-left
-        telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
-  (setq telephone-line-height 24
-        telephone-line-evil-use-short-tag nil)
-  
-  ;;(setq telephone-line-primary-left-separator 'telephone-line-gradient
-  ;;      telephone-line-secondary-left-separator 'telephone-line-nil
-  ;;      telephone-line-primary-right-separator 'telephone-line-gradient
-  ;;      telephone-line-secondary-right-separator 'telephone-line-nil)
+  ;;(setq telephone-line-primary-right-separator 'telephone-line-abs-left
+  ;;      telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
   ;;(setq telephone-line-height 24
   ;;      telephone-line-evil-use-short-tag nil)
+
+  (setq telephone-line-primary-left-separator 'telephone-line-gradient
+        telephone-line-secondary-left-separator 'telephone-line-nil
+        telephone-line-primary-right-separator 'telephone-line-gradient
+        telephone-line-secondary-right-separator 'telephone-line-nil)
+
+  (setq telephone-line-height 24
+        telephone-line-evil-use-short-tag nil)
+ 
+  (setq telephone-line-lhs
+        '((evil   . (telephone-line-evil-tag-segment))
+          (accent . (telephone-line-erc-modified-channels-segment
+                     telephone-line-process-segment))
+          (nil    . (telephone-line-buffer-segment))))
+  (setq telephone-line-rhs
+        '((nil    . (telephone-line-misc-info-segment))
+          (accent . (telephone-line-atom-encoding-segment))
+          (accent . (telephone-line-major-mode-segment))
+          (accent . (telephone-line-vc-segment))
+          (evil   . (telephone-line-airline-position-segment))))
   (telephone-line-mode 1))
 
 
