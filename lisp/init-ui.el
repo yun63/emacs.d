@@ -90,10 +90,9 @@
   :config
   (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
   (setq dashboard-show-shortcuts nil)
-  (setq dashboard-items '((recents  . 5)
-                          (projects . 3)
-                          (bookmarks . 5)
+  (setq dashboard-items '((projects . 3)
                           (agenda . 5)))
+  (setq page-break-lines-char ?-)
   (setq dashboard-set-navigator t)
   (setq show-week-agenda-p t)
   (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
