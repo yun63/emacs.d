@@ -117,6 +117,8 @@
 
 (use-package telephone-line
     :config
+    (set-face-attribute 'mode-line           nil :background "grey22")
+
     (setq telephone-line-primary-left-separator 'telephone-line-gradient
           telephone-line-secondary-left-separator 'telephone-line-nil
           telephone-line-primary-right-separator 'telephone-line-gradient

@@ -71,7 +71,7 @@
 (require 'init-project)
 
 (require 'init-git)
-;;;(require 'init-github)
+(require 'init-github)
 ;;;
 ;;;(require 'init-org)
 ;;;(require 'init-python)
