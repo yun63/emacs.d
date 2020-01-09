@@ -36,5 +36,15 @@
 (use-package company-c-headers
   :defer 2)
 
+;; modern c++
+(use-package modern-cpp-font-lock
+  :defer 2
+  :hook (c++-mode . modern-c++-font-lock-mode))
+
+(use-package clang-format
+  :config
+  (global-set-key (kbd "C-c C-f") 'clang-format-region))
+
+
 (provide 'init-project)
 ;;; init-project.el ends here

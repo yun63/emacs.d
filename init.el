@@ -70,7 +70,7 @@
 ;;; Project
 (require 'init-project)
 
-;;;(require 'init-git)
+(require 'init-git)
 ;;;(require 'init-github)
 ;;;
 ;;;(require 'init-org)

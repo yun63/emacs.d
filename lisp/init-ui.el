@@ -109,7 +109,9 @@
       :hook (prog-mode . rainbow-delimiters-mode))
 
     (use-package autopair
-      :hook (prog-mode . autopair-global-mode))
+      :hook (prog-mode . autopair-global-mode)
+      :config
+      (setq autopair-blink nil))
     )
 
 
