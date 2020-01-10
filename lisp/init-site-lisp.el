@@ -4,8 +4,7 @@
 
 ;;; Set load path
 
-(local-require 'mode-icons)
-(mode-icons-mode)
+;;(local-require 'mode-icons)
 
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here
