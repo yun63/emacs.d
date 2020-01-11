@@ -4,6 +4,7 @@ elpa-26.3
 recentf
 smex-items
 projectile-bookmarks.eld
+projectile.cache
 custom.el
 .last-package-update-day
 eshell/
