@@ -101,6 +101,7 @@
 
 (use-package spacemacs-theme
     :defer 2
+    :hook (prog-mode . display-line-numbers-mode)
     :init
     (load-theme 'spacemacs-dark t)
     
@@ -129,15 +130,15 @@
     
     (setq telephone-line-lhs
           '((evil   . (telephone-line-evil-tag-segment))
-            (accent . (telephone-line-erc-modified-channels-segment
+            (nil    . (telephone-line-erc-modified-channels-segment
                        telephone-line-process-segment))
-            (accent . (telephone-line-buffer-segment))))
+            (nil    . (telephone-line-buffer-segment))))
 
     (setq telephone-line-rhs
           '((nil    . (telephone-line-misc-info-segment))
-            (accent . (telephone-line-atom-encoding-segment))
-            (accent . (telephone-line-major-mode-segment))
-            (accent . (telephone-line-vc-segment))
+            (nil    . (telephone-line-atom-encoding-segment))
+            (nil    . (telephone-line-major-mode-segment))
+            (nil    . (telephone-line-vc-segment))
             (evil   . (telephone-line-airline-position-segment))))
     (telephone-line-mode 1))
 
