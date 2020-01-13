@@ -25,12 +25,14 @@
 ;; 设置光标不闪烁
 (blink-cursor-mode 1)
 (setq-default cursor-type 'bar)
+(setq-default blink-cursor-interval 0.4)
 
 ;; 设置显示光标所在行列号
 (line-number-mode t)
 (column-number-mode t)
 (global-linum-mode t)
 (setq linum-format "%4d ")
+(display-line-numbers-mode t)
 
 ;; 显示匹配括号
 (show-paren-mode t)
@@ -85,6 +87,22 @@
 ;; 防止删掉重要的内容
 (setq kill-ring-max 200)
 
+(setq-default
+ bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
+ buffers-menu-max-size 300
+ case-fold-search t
+ delete-selection-mode t
+ ediff-split-window-function 'split-window-horizontally
+ ediff-window-setup-function 'ediff-setup-windows-plain
+ mouse-yank-at-point t
+ save-interprogram-paste-before-kill t
+ scroll-preserve-screen-position 'always
+ set-mark-command-repeat-pop t
+ tooltip-delay 1.5
+ truncate-lines nil
+ truncate-partial-width-windows nil)
+
+
 
 (use-package dashboard
   :config
@@ -101,13 +119,19 @@
 
 (use-package spacemacs-theme
     :defer 2
-    :hook (prog-mode . display-line-numbers-mode)
     :init
     (load-theme 'spacemacs-dark t)
     
     (use-package rainbow-delimiters
       :defer 2
       :hook (prog-mode . rainbow-delimiters-mode))
+
+    (use-package beacon
+      :defer 2
+      :hook (after-init . beacon-mode)
+      :config
+      (setq-default beacon-lighter " ")
+      (setq-default beacon-size 20))
 
     (use-package autopair
       :hook (prog-mode . autopair-global-mode)
@@ -149,6 +173,64 @@
   (dimmer-configure-which-key)
   (dimmer-configure-helm)
   (dimmer-mode t))
+
+(use-package highlight-escape-sequences
+  :defer 2
+  :hook (after-init . hes-mode))
+
+(use-package which-key
+  :defer 2
+  :hook (after-init . which-key-mode)
+  :config
+  (setq-default which-key-idle-delay 1)
+  (diminish 'which-key-mode))
+
+(use-package unfill
+  :defer 2)
+
+(use-package list-unicode-display
+  :defer 2)
+
+;; Huge files
+(use-package vlf
+  :defer 2)
+
+;; A simple visible bell which works in all terminal types
+(use-package mode-line-bell
+  :hook (after-init . mode-line-bell-mode))
+
+(use-package browse-kill-ring
+  :defer 2
+  :config
+  (setq browse-kill-ring-separator "\f")
+  (global-set-key (kbd "M-Y") 'browse-kill-ring)
+  (define-key browse-kill-ring-mode-map (kbd "C-g") 'browse-kill-ring-quit)
+  (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
+  (define-key browse-kill-ring-mode-map (kbd "M-p") 'browse-kill-ring-previous)
+  (progn
+    (after-load 'page-break-lines
+      (push 'browse-kill-ring-mode page-break-lines-modes)))
+  )
+
+;; Newline behaviour
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+(defun newline-at-end-of-line ()
+  "Move to end of line, enter a newline, and reindent."
+  (interactive)
+  (move-end-of-line 1)
+  (newline-and-indent))
+
+(global-set-key (kbd "S-<return>") 'newline-at-end-of-line)
+
+(defun kill-back-to-indentation ()
+  "Kill from point back to the first non-whitespace character on the line."
+  (interactive)
+  (let ((prev-pos (point)))
+    (back-to-indentation)
+    (kill-region (point) prev-pos)))
+
+(global-set-key (kbd "C-<backspace>") 'kill-back-to-indentation)
 
 
 (provide 'init-ui)

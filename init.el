@@ -49,7 +49,6 @@
 
 ;;; UI
 (require 'init-ui)
-(require 'init-editing-utils)
 (require 'init-windows)
 
 ;;; Editor
