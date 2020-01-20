@@ -45,7 +45,7 @@
   ;;(set-face-attribute 'mode-line           nil :background "grey22")
   (setq doom-modeline-height 25)
   (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-icon (display-graphic-p))
   (setq doom-modeline-major-mode-icon t)
   (setq doom-modeline-major-mode-color-icon t)
@@ -62,16 +62,20 @@
   )
 
 (use-package dashboard
-  :after doom-modeline
+  :after (doom-themes doom-modeline)
   :config
   (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
   (setq dashboard-show-shortcuts nil)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
   (setq dashboard-items '((projects . 3)
+                          (recents  . 5)
                           (agenda . 5)))
   (setq page-break-lines-char ?-)
   (setq dashboard-set-navigator t)
   (setq show-week-agenda-p t)
-  (setq dashboard-set-file-icons t)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                  (bookmarks . "book")))
   (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
 
   (defun dashboard-goto-projects ()

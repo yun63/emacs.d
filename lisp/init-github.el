@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'init-git)
 
 (use-package yagist
   :defer 2)
