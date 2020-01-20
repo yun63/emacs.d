@@ -48,6 +48,7 @@
 (require 'init-core)      ;;
 
 ;;; UI
+(require 'init-themes)
 (require 'init-ui)
 (require 'init-windows)
 

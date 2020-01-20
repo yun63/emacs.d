@@ -102,100 +102,29 @@
               truncate-partial-width-windows nil)
 
 
-;;(use-package dashboard
-;;  :config
-;;  (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
-;;  (setq dashboard-show-shortcuts nil)
-;;  (setq dashboard-items '((projects . 3)
-;;                          (agenda . 5)))
-;;  (setq page-break-lines-char ?-)
-;;  (setq dashboard-set-navigator t)
-;;  (setq show-week-agenda-p t)
-;;  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
-;;  (dashboard-setup-startup-hook))
-
-(use-package treemacs
-  :defer t
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+(use-package dashboard
+  :after doom-modeline
   :config
-  (progn
-    (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
-          treemacs-deferred-git-apply-delay      0.5
-          treemacs-directory-name-transformer    #'identity
-          treemacs-display-in-side-window        t
-          treemacs-eldoc-display                 t
-          treemacs-file-event-delay              5000
-          treemacs-file-extension-regex          treemacs-last-period-regex-value
-          treemacs-file-follow-delay             0.2
-          treemacs-file-name-transformer         #'identity
-          treemacs-follow-after-init             t
-          treemacs-git-command-pipe              ""
-          treemacs-goto-tag-strategy             'refetch-index
-          treemacs-indentation                   2
-          treemacs-indentation-string            " "
-          treemacs-is-never-other-window         nil
-          treemacs-max-git-entries               5000
-          treemacs-missing-project-action        'ask
-          treemacs-no-png-images                 nil
-          treemacs-no-delete-other-windows       t
-          treemacs-project-follow-cleanup        nil
-          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-position                      'left
-          treemacs-recenter-distance             0.1
-          treemacs-recenter-after-file-follow    nil
-          treemacs-recenter-after-tag-follow     nil
-          treemacs-recenter-after-project-jump   'always
-          treemacs-recenter-after-project-expand 'on-distance
-          treemacs-show-cursor                   nil
-          treemacs-show-hidden-files             t
-          treemacs-silent-filewatch              nil
-          treemacs-silent-refresh                nil
-          treemacs-sorting                       'alphabetic-asc
-          treemacs-space-between-root-nodes      t
-          treemacs-tag-follow-cleanup            t
-          treemacs-tag-follow-delay              1.5
-          treemacs-width                         35)
+  (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+  (setq dashboard-show-shortcuts nil)
+  (setq dashboard-items '((projects . 3)
+                          (agenda . 5)))
+  (setq page-break-lines-char ?-)
+  (setq dashboard-set-navigator t)
+  (setq show-week-agenda-p t)
+  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
 
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
+  (defun dashboard-goto-projects ()
+    "Go to projects."
+    (interactive)
+    (funcall (local-key-binding "p")))
 
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null treemacs-python-executable)))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple))))
-  :bind
-  (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal dashboard-mode-map
+      "g" 'dashboard-refresh-buffer
+      "p" 'dashboard-goto-projects))
 
-(use-package treemacs-evil
-  :after treemacs evil
-  :ensure t)
-
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
-
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :ensure t
-  :config (treemacs-icons-dired-mode))
-
-(use-package treemacs-magit
-  :after treemacs magit
-  :ensure t)
+  (dashboard-setup-startup-hook))
 
 
 (use-package neotree
@@ -218,112 +147,6 @@
       (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
 
       (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
-
-
-(use-package doom-themes
-  :hook (after-init . icon-mode)
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  ;;(load-theme 'doom-one t)
-  (load-theme 'spacemacs-dark t)
-  (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
-
-  (use-package rainbow-delimiters
-    :defer 2
-    :hook (prog-mode . rainbow-delimiters-mode))
-
-  (use-package beacon
-    :defer 2
-    :hook (after-init . beacon-mode)
-    :config
-    (setq-default beacon-lighter " ")
-    (setq-default beacon-size 20))
-
-  (use-package autopair
-    :hook (prog-mode . autopair-global-mode)
-    :config
-    (setq autopair-blink nil))
-  )
-
-
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (set-face-attribute 'mode-line           nil :background "grey22")
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-project-detection 'project)
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
-  (setq doom-modeline-icon (display-graphic-p))
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-buffer-state-icon t)
-  (setq doom-modeline-buffer-modification-icon t)
-  (setq doom-modeline-unicode-fallback t)
-  (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
-  (setq doom-modeline-buffer-encoding t)
-  (setq doom-modeline-number-limit 99)
-  (setq doom-modeline-persp-name t)
-  (setq doom-modeline-github t)
-  (setq doom-modeline-github-interval (* 30 60))
-  (setq doom-modeline-env-version t)
-  )
-
-;;(use-package spacemacs-theme
-;;    :defer 2
-;;    :init
-;;    (load-theme 'spacemacs-dark t)
-;;    
-;;    (use-package rainbow-delimiters
-;;      :defer 2
-;;      :hook (prog-mode . rainbow-delimiters-mode))
-;;
-;;    (use-package beacon
-;;      :defer 2
-;;      :hook (after-init . beacon-mode)
-;;      :config
-;;      (setq-default beacon-lighter " ")
-;;      (setq-default beacon-size 20))
-;;
-;;    (use-package autopair
-;;      :hook (prog-mode . autopair-global-mode)
-;;      :config
-;;      (setq autopair-blink nil))
-;;    )
-
-
-;;(use-package telephone-line
-;;    :config
-;;    (set-face-attribute 'mode-line           nil :background "grey22")
-;;
-;;    (setq telephone-line-primary-left-separator 'telephone-line-gradient
-;;          telephone-line-secondary-left-separator 'telephone-line-nil
-;;          telephone-line-primary-right-separator 'telephone-line-gradient
-;;          telephone-line-secondary-right-separator 'telephone-line-nil)
-;;    
-;;    (setq telephone-line-height 24
-;;          telephone-line-evil-use-short-tag nil)
-;;    
-;;    (setq telephone-line-lhs
-;;          '((evil   . (telephone-line-evil-tag-segment))
-;;            (nil    . (telephone-line-erc-modified-channels-segment
-;;                       telephone-line-process-segment))
-;;            (nil    . (telephone-line-buffer-segment))))
-;;
-;;    (setq telephone-line-rhs
-;;          '((nil    . (telephone-line-misc-info-segment))
-;;            (nil    . (telephone-line-atom-encoding-segment))
-;;            (nil    . (telephone-line-major-mode-segment))
-;;            (nil    . (telephone-line-vc-segment))
-;;            (evil   . (telephone-line-airline-position-segment))))
-;;    (telephone-line-mode 1))
 
 
 (use-package dimmer
