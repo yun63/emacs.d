@@ -102,52 +102,6 @@
               truncate-partial-width-windows nil)
 
 
-(use-package dashboard
-  :after doom-modeline
-  :config
-  (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
-  (setq dashboard-show-shortcuts nil)
-  (setq dashboard-items '((projects . 3)
-                          (agenda . 5)))
-  (setq page-break-lines-char ?-)
-  (setq dashboard-set-navigator t)
-  (setq show-week-agenda-p t)
-  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
-
-  (defun dashboard-goto-projects ()
-    "Go to projects."
-    (interactive)
-    (funcall (local-key-binding "p")))
-
-  (with-eval-after-load 'evil
-    (evil-define-key 'normal dashboard-mode-map
-      "g" 'dashboard-refresh-buffer
-      "p" 'dashboard-goto-projects))
-
-  (dashboard-setup-startup-hook))
-
-
-(use-package neotree
-  :defer 2
-  :config
-  (evil-leader/set-key "m"  'neotree-toggle)
-  (evil-leader/set-key "n"  'neotree-project-dir)
-  (setq projectile-switch-project-action 'neotree-projectile-action)
-  (add-hook 'neotree-mode-hook
-    (lambda ()
-      (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-      (define-key evil-normal-state-local-map (kbd "I") 'neotree-hidden-file-toggle)
-      (define-key evil-normal-state-local-map (kbd "z") 'neotree-stretch-toggle)
-      (define-key evil-normal-state-local-map (kbd "R") 'neotree-refresh)
-      (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
-      (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
-      (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
-
-      (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
-      (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
-
-      (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
-
 
 (use-package dimmer
   :defer 2
