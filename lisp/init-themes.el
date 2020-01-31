@@ -6,7 +6,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'spacemacs-dark t)
+  (load-theme 'doom-dracula t)
   (doom-themes-visual-bell-config)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
@@ -42,14 +42,13 @@
 (use-package doom-modeline
   :config
   (doom-modeline-mode)
-  ;;(set-face-attribute 'mode-line           nil :background "grey22")
   (setq doom-modeline-height 25)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-icon (display-graphic-p))
   (setq doom-modeline-major-mode-icon t)
   (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-buffer-state-icon t)
+  (setq doom-modeline-buffer-state-icon nil)
   (setq doom-modeline-buffer-modification-icon t)
   (setq doom-modeline-unicode-fallback t)
   (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
@@ -132,32 +131,6 @@
 ;;      (setq autopair-blink nil))
 ;;    )
 
-
-;;(use-package telephone-line
-;;    :config
-;;    (set-face-attribute 'mode-line           nil :background "grey22")
-;;
-;;    (setq telephone-line-primary-left-separator 'telephone-line-gradient
-;;          telephone-line-secondary-left-separator 'telephone-line-nil
-;;          telephone-line-primary-right-separator 'telephone-line-gradient
-;;          telephone-line-secondary-right-separator 'telephone-line-nil)
-;;    
-;;    (setq telephone-line-height 24
-;;          telephone-line-evil-use-short-tag nil)
-;;    
-;;    (setq telephone-line-lhs
-;;          '((evil   . (telephone-line-evil-tag-segment))
-;;            (nil    . (telephone-line-erc-modified-channels-segment
-;;                       telephone-line-process-segment))
-;;            (nil    . (telephone-line-buffer-segment))))
-;;
-;;    (setq telephone-line-rhs
-;;          '((nil    . (telephone-line-misc-info-segment))
-;;            (nil    . (telephone-line-atom-encoding-segment))
-;;            (nil    . (telephone-line-major-mode-segment))
-;;            (nil    . (telephone-line-vc-segment))
-;;            (evil   . (telephone-line-airline-position-segment))))
-;;    (telephone-line-mode 1))
 
 (provide 'init-themes)
 ;;; init-ui.el ends here

@@ -24,12 +24,7 @@
 
 (defconst emacs-local-dir
   (concat user-emacs-directory ".local-dir/")
-  "Root directory for local storage
-Use this as a local storage for some caches")
-
-(defun local-require (pkg)
-  (unless (featurep pkg)
-    (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
+  "Root directory for local storage, use this as a local storage for some caches.")
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -73,6 +68,10 @@ Use this as a local storage for some caches")
 
 ;;; On-demand installation of packages
 (require 'cl-lib)
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (cl-letf (((symbol-function #'process-list) (lambda ())))
+    ad-do-it))
 
 (provide 'init-core)
 ;;; init-core.el ends here

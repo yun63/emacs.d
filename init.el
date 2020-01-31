@@ -34,6 +34,7 @@
               (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 (defun local-require (pkg)
+  "Load local `PKG` if pkg exists."
   (unless (featurep pkg)
     (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
 
@@ -70,11 +71,12 @@
 
 ;;; Project
 (require 'init-project)
+(require 'init-flycheck)
 
 (require 'init-git)
 (require 'init-github)
 ;;;
-;;;(require 'init-org)
+(require 'init-org)
 ;;;(require 'init-python)
 ;;;
 ;;;
@@ -94,4 +96,5 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
-;; init.el ends here
+;;; init.el ends here
+

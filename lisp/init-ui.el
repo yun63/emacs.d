@@ -50,7 +50,7 @@
 (setq frame-title-format "%b@emacs")
 
 ;; 支持emacs和外部程序的黏贴
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; 备份策略
 (setq make-backup-files t)
@@ -69,7 +69,7 @@
 (setq track-eol t)
 
 ;; 在模式栏中显示当前光标所在函数
-(which-func-mode)
+(which-function-mode)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)
@@ -102,12 +102,9 @@
               truncate-partial-width-windows nil)
 
 
-
 (use-package dimmer
-  :defer 2
   :config
   (dimmer-configure-which-key)
-  (dimmer-configure-helm)
   (dimmer-mode t))
 
 (use-package highlight-escape-sequences
@@ -170,4 +167,5 @@
 
 
 (provide 'init-ui)
+
 ;;; init-ui.el ends here
