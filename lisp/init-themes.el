@@ -6,17 +6,10 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-dracula t)
+  (load-theme 'srcery t)
   (doom-themes-visual-bell-config)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-navigator t)
-  (setq dashboard-set-init-info t)
-  (setq dashboard-set-footer nil)
-  (setq dashboard-footer "Dashboard is pretty cool!")
-  (setq show-week-agenda-p t)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
@@ -72,10 +65,16 @@
                           (agenda . 5)))
   (setq page-break-lines-char ?-)
   (setq dashboard-set-navigator t)
-  (setq show-week-agenda-p t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-navigator t)
+  (setq dashboard-set-init-info t)
+  (setq dashboard-set-footer nil)
+  (setq dashboard-footer "Dashboard is pretty cool!")
+  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
+
   (dashboard-modify-heading-icons '((recents . "file-text")
                                   (bookmarks . "book")))
-  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
 
   (defun dashboard-goto-projects ()
     "Go to projects."
@@ -95,7 +94,6 @@
   :config
   (evil-leader/set-key "m"  'neotree-toggle)
   (evil-leader/set-key "n"  'neotree-project-dir)
-  (setq projectile-switch-project-action 'neotree-projectile-action)
   (add-hook 'neotree-mode-hook
     (lambda ()
       (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
@@ -130,7 +128,6 @@
 ;;      :config
 ;;      (setq autopair-blink nil))
 ;;    )
-
 
 (provide 'init-themes)
 ;;; init-ui.el ends here

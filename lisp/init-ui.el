@@ -103,8 +103,8 @@
 
 
 (use-package dimmer
+  :commands (dimmer-configure-which-key)
   :config
-  (dimmer-configure-which-key)
   (dimmer-mode t))
 
 (use-package highlight-escape-sequences
@@ -169,3 +169,4 @@
 (provide 'init-ui)
 
 ;;; init-ui.el ends here
+

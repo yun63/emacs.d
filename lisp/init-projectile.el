@@ -24,6 +24,7 @@
                 projectile-kill-buffers-filter 'kill-only-files
                 projectile-files-cache-expire 604800
                 projectile-sort-order 'recentf
+                projectile-switch-project-action 'neotree-projectile-action
                 projectile-use-git-grep t)
 
   (setq projectile-switch-project-action #'projectile-dired)
