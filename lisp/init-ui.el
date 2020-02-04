@@ -69,7 +69,7 @@
 (setq track-eol t)
 
 ;; 在模式栏中显示当前光标所在函数
-(which-function-mode)
+;;(which-function-mode)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)

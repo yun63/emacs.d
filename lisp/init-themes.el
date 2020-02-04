@@ -12,6 +12,13 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
+  (use-package moe-theme
+    :config
+    (setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
+    (setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
+    (moe-theme-set-color 'w/b)
+    (moe-dark))
+
   (use-package rainbow-delimiters
     :defer 2
     :hook (prog-mode . rainbow-delimiters-mode))
@@ -77,10 +84,8 @@
     (interactive)
     (funcall (local-key-binding "p")))
 
-  (with-eval-after-load 'evil
-    (evil-define-key 'normal dashboard-mode-map
-      "g" 'dashboard-refresh-buffer
-      "p" 'dashboard-goto-projects))
+  (define-key dashboard-mode-map (kbd "g") 'dashboard-refresh-buffer)
+  (define-key dashboard-mode-map (kbd "p") 'dashboard-goto-projects)
 
   (dashboard-setup-startup-hook))
 
