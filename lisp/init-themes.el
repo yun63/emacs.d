@@ -54,7 +54,6 @@
 
 (use-package dashboard
   :after (doom-themes doom-modeline)
-  ;;:commands (dashboard-modify-heading-icons)
   :config
   (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
   (setq dashboard-show-shortcuts nil)
@@ -72,9 +71,6 @@
   (setq dashboard-set-footer nil)
   (setq dashboard-footer "Dashboard is pretty cool!")
   (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
-
-  (dashboard-modify-heading-icons '((recents . "file-text")
-                                  (bookmarks . "book")))
 
   (defun dashboard-goto-projects ()
     "Go to projects."
