@@ -6,7 +6,6 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'srcery t)
   (doom-themes-visual-bell-config)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
@@ -55,6 +54,7 @@
 
 (use-package dashboard
   :after (doom-themes doom-modeline)
+  ;;:commands (dashboard-modify-heading-icons)
   :config
   (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
   (setq dashboard-show-shortcuts nil)
@@ -106,28 +106,6 @@
       (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
       (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
       (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
-
-;;(use-package spacemacs-theme
-;;    :defer 2
-;;    :init
-;;    (load-theme 'spacemacs-dark t)
-;;    
-;;    (use-package rainbow-delimiters
-;;      :defer 2
-;;      :hook (prog-mode . rainbow-delimiters-mode))
-;;
-;;    (use-package beacon
-;;      :defer 2
-;;      :hook (after-init . beacon-mode)
-;;      :config
-;;      (setq-default beacon-lighter " ")
-;;      (setq-default beacon-size 20))
-;;
-;;    (use-package autopair
-;;      :hook (prog-mode . autopair-global-mode)
-;;      :config
-;;      (setq autopair-blink nil))
-;;    )
 
 (provide 'init-themes)
 ;;; init-ui.el ends here

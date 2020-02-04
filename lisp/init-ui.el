@@ -36,7 +36,7 @@
 
 ;; 显示匹配括号
 (show-paren-mode t)
-(setq show-paren-style 'parentheses)
+;;(setq show-paren-style 'parentheses)
 
 ;; 以y/n代表yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -57,7 +57,7 @@
 (setq backup-directory-alist '(("." . "~/.saves")))
 
 ;; 关闭自动保存模式
-(setq auto-save-mode nil)
+;;(setq auto-save-mode nil)
 
 ;; 不生成#filename#临时文件
 (setq auto-save-default nil)
@@ -141,7 +141,7 @@
   (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
   (define-key browse-kill-ring-mode-map (kbd "M-p") 'browse-kill-ring-previous)
   (progn
-    (after-load 'page-break-lines
+    (with-eval-after-load 'page-break-lines
       (push 'browse-kill-ring-mode page-break-lines-modes)))
   )
 
@@ -169,4 +169,3 @@
 (provide 'init-ui)
 
 ;;; init-ui.el ends here
-

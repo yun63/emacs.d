@@ -48,16 +48,15 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
 
+;;; Editor
+(require 'init-evil)
+(require 'init-markdown)
+(require 'init-python)
+
 ;;; UI
 (require 'init-themes)
 (require 'init-ui)
 (require 'init-windows)
-
-;;; Editor
-(require 'init-evil)
-(require 'init-markdown)
-;;(require 'init-hydra)
-;;(require 'init-dired)
 
 ;;; Tools
 (require 'init-recentf)
