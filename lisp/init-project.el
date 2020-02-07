@@ -9,7 +9,7 @@
   :config
   (progn
     (unless (irony--find-server-executable) (call-interactively #'irony-install-server))
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
   )
 
   (use-package company-irony-c-headers
@@ -30,6 +30,10 @@
     :config
     (add-hook 'irony-mode-hook #'irony-eldoc))
   )
+
+(use-package rtags
+  :after irony
+  :defer t)
 
 ;; modern c++
 (use-package modern-cpp-font-lock

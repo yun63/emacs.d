@@ -84,8 +84,13 @@
 ;; 高亮显示选中的区域
 (transient-mark-mode t)
 
+(setq echo-keystrokes 0.1)
+
 ;; 防止删掉重要的内容
 (setq kill-ring-max 200)
+
+;; 删除文件移动到回收站
+(setq delete-by-moving-to-trash t)
 
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
               buffers-menu-max-size 300
@@ -97,10 +102,35 @@
               save-interprogram-paste-before-kill t
               scroll-preserve-screen-position 'always
               set-mark-command-repeat-pop t
+              sentence-end-double-space nil
               tooltip-delay 1.5
               truncate-lines nil
               truncate-partial-width-windows nil)
 
+(when (window-system)
+  (add-to-list 'default-frame-alist '(font . "Fira Code")))
+
+(defvar light/read-only-color       "gray")
+(defvar light/read-only-cursor-type 'hbar)
+(defvar light/overwrite-color       "red")
+(defvar light/overwrite-cursor-type 'box)
+(defvar light/normal-color          "red")
+(defvar light/normal-cursor-type    'box)
+
+(defun light/set-cursor-according-to-mode ()
+  "Change cursor color and type according to some minor modes."
+  (cond
+   (buffer-read-only
+    (set-cursor-color light/read-only-color)
+    (setq cursor-type light/read-only-cursor-type))
+   (overwrite-mode
+    (set-cursor-color light/overwrite-color)
+    (setq cursor-type light/overwrite-cursor-type))
+   (t
+    (set-cursor-color light/normal-color)
+    (setq cursor-type light/normal-cursor-type))))
+
+(add-hook 'post-command-hook 'light/set-cursor-according-to-mode)
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)
@@ -165,6 +195,10 @@
 
 (global-set-key (kbd "C-<backspace>") 'kill-back-to-indentation)
 
+(use-package color-identifiers-mode
+  :disabled
+  :config
+  (add-hook 'after-init-hook 'global-color-identifiers-mode))
 
 (provide 'init-ui)
 

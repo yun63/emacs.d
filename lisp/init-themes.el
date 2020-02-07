@@ -16,7 +16,7 @@
     :config
     (setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
     (setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
-    (moe-theme-set-color 'w/b)
+    (moe-theme-set-color 'red)
     (moe-dark))
 
   (use-package rainbow-delimiters
@@ -26,8 +26,10 @@
   (use-package beacon
     :defer 2
     :hook (after-init . beacon-mode)
+    :diminish beacon-mode
     :config
     (setq-default beacon-lighter " ")
+    (setq-default beacon-color "#ff0000")
     (setq-default beacon-size 20))
 
   (use-package autopair
