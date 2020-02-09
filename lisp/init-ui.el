@@ -53,7 +53,7 @@
 (setq select-enable-clipboard t)
 
 ;; 备份策略
-(setq make-backup-files t)
+(setq make-backup-files nil)
 (setq backup-directory-alist '(("." . "~/.saves")))
 
 ;; 关闭自动保存模式

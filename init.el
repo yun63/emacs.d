@@ -55,8 +55,10 @@
 
 ;;; Editor
 (require 'init-evil)
-(require 'init-markdown)
+;;(require 'init-c++)
 (require 'init-python)
+(require 'init-go)
+(require 'init-markdown)
 
 ;;; Tools
 (require 'init-recentf)
@@ -66,6 +68,7 @@
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
+(require 'init-google)
 (require 'init-yasnippet)
 
 ;;; Project
