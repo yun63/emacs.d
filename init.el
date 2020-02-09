@@ -55,7 +55,7 @@
 
 ;;; Editor
 (require 'init-evil)
-;;(require 'init-c++)
+(require 'init-c++)
 (require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
@@ -72,7 +72,6 @@
 (require 'init-yasnippet)
 
 ;;; Project
-(require 'init-project)
 (require 'init-flycheck)
 
 (require 'init-git)

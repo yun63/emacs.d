@@ -1,4 +1,4 @@
-;;; init-project.el --- Project config for some languages -*- lexical-binding: t -*-
+;;; init-c++.el --- Project config for c/c++ language -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -45,5 +45,5 @@
   (global-set-key (kbd "C-c C-f") 'clang-format-region))
 
 
-(provide 'init-project)
-;;; init-project.el ends here
+(provide 'init-c++)
+;;; init-c++.el ends here
