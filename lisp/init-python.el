@@ -25,23 +25,9 @@
              jedi-config:vcs-root-sentinel
              jedi-config:python-module-sentinel))
 
-  (defun jedi-config:setup-server-agrs ()
-    (defmacro add-args (arg-list arg-name arg-value)
-      '(setq ,arg-list (append ,arg-list (list ,arg-name ,arg-value))))
-
-    (let ((project-root (current-buffer-project-root)))
-      (make-local-variable 'jedi:server-args)
-
-      (when project-root
-        (add-args jedi:server-args "--sys-path" project-root))
-      (when jedi-config:with-virtualenv
-        (add-args jedi:server-args "--virtual-env"
-                  jedi-config:with-virtualenv))))
-
   (defvar jedi-config:user-system-python t)
 
   (defun jedi-config:set-python-executable ()
-    (set-exec-path-from-shell-PATH)
     (make-local-variable 'jedi:server-command)
     (set 'jedi:server-command
          (list (executable-find "python")

@@ -47,15 +47,16 @@
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
+(require 'init-evil)
 
 ;;; UI
 (require 'init-themes)
 (require 'init-ui)
 (require 'init-windows)
 
-;;; Editor
-(require 'init-evil)
-(require 'init-c++)
+;;; Languages
+(require 'init-lsp)
+;;(require 'init-c++)
 (require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
