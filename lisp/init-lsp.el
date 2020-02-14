@@ -3,14 +3,11 @@
 ;;; Code:
 
 (use-package lsp-mode
-  ;;:commands (lsp lsp-deferred)
-  :commands lsp
+  :commands (lsp lsp-deferred)
   :hook
-  ;;(c-mode .lsp-deferred)
-  (c-mode .lsp)
-  (c++-mode . lsp)
-  (python-mode .lsp)
-  (prog-mode . lsp)
+  (c-mode .lsp-deferred)
+  (c++-mode . lsp-deferred)
+  (python-mode .lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration)
   :init
   (setq lsp-keymap-prefix "C-l")

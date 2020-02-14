@@ -39,19 +39,27 @@
   :hook ((c-mode c++-mode objc-mode cuda-mode) . (lambda () (require 'ccls) (lsp)))
   :config
   (setq ccls-executable "/usr/local/bin/ccls")
+  (setq ccls-args '("--log-file=/tmp/ccls.log"))
   (setq lsp-prefer-flymake nil)
+  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc)))
 
 
 ;; modern c++
 (use-package modern-cpp-font-lock
   :defer 2
-  :hook (c++-mode . modern-c++-font-lock-mode))
+  :config
+  (modern-c++-font-lock-global-mode t))
 
 (use-package clang-format
   :config
   (global-set-key (kbd "C-c C-f") 'clang-format-region))
 
+(defconst my-cc-style
+  '("cc-mode"
+    (c-offsets-alist . ((innamespace . [0])))))
+
+(c-add-style "my-cc-mode" my-cc-style)
 
 (provide 'init-c++)
 ;;; init-c++.el ends here
