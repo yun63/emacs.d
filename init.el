@@ -40,10 +40,11 @@
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-;;----------------------------------------------------------------------------
-;; Bootstrap config
-;;----------------------------------------------------------------------------
+
+;;; Bootstrap config
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+;;; Core
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-core)      ;;
@@ -53,13 +54,6 @@
 (require 'init-themes)
 (require 'init-ui)
 (require 'init-windows)
-
-;;; Languages
-(require 'init-lsp)
-;;(require 'init-c++)
-(require 'init-python)
-(require 'init-go)
-(require 'init-markdown)
 
 ;;; Tools
 (require 'init-recentf)
@@ -71,9 +65,16 @@
 (require 'init-isearch)
 (require 'init-google)
 (require 'init-yasnippet)
+(require 'init-flycheck)
+
+;;; Languages
+(require 'init-lsp)
+(require 'init-c++)
+(require 'init-python)
+(require 'init-go)
+(require 'init-markdown)
 
 ;;; Project
-(require 'init-flycheck)
 
 (require 'init-git)
 (require 'init-github)

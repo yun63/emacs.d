@@ -14,6 +14,8 @@
 
   (use-package moe-theme
     :config
+    (declare-function moe-theme-set-color "moe-theme.el")
+    (declare-function moe-dark "moe-theme.el")
     (setq moe-theme-resize-markdown-title '(1.5 1.4 1.3 1.2 1.0 1.0))
     (setq moe-theme-resize-org-title '(1.5 1.4 1.3 1.2 1.1 1.0 1.0 1.0 1.0))
     (moe-theme-set-color 'red)
