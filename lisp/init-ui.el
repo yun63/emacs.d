@@ -107,30 +107,8 @@
               truncate-lines nil
               truncate-partial-width-windows nil)
 
-(when (window-system)
-  (add-to-list 'default-frame-alist '(font . "Fira Code")))
-
-(defvar light/read-only-color       "gray")
-(defvar light/read-only-cursor-type 'hbar)
-(defvar light/overwrite-color       "red")
-(defvar light/overwrite-cursor-type 'box)
-(defvar light/normal-color          "red")
-(defvar light/normal-cursor-type    'box)
-
-(defun light/set-cursor-according-to-mode ()
-  "Change cursor color and type according to some minor modes."
-  (cond
-   (buffer-read-only
-    (set-cursor-color light/read-only-color)
-    (setq cursor-type light/read-only-cursor-type))
-   (overwrite-mode
-    (set-cursor-color light/overwrite-color)
-    (setq cursor-type light/overwrite-cursor-type))
-   (t
-    (set-cursor-color light/normal-color)
-    (setq cursor-type light/normal-cursor-type))))
-
-(add-hook 'post-command-hook 'light/set-cursor-according-to-mode)
+(set-face-background 'linum (face-attribute 'default :background) nil)
+(custom-set-faces '(linum ((t (:inherit (shadow default) :foreground "brightblack")))))
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)
