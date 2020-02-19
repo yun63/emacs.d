@@ -6,12 +6,11 @@
 ;;; Code:
 
 (use-package magit
-  :requires (git-blamed gitignore-mode gitconfig-mode git-timemachine-toggle)
-  :defer 2
+  :requires (gitignore-mode gitconfig-mode)
+  :defer t
   :config
+  (setq magit-auto-revert-mode nil)
   (setq-default magit-diff-refine-hunk t)
-  (magit-auto-revert-mode nil)
-  (global-set-key (kbd "C-x v t") 'git-timemachine-toggle)
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "C-x M-g") 'magit-dispatch))
   

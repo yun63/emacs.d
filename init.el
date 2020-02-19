@@ -73,14 +73,12 @@
 (require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
-
-;;; Project
-
-(require 'init-git)
-(require 'init-github)
 (require 'init-org)
 
-;;;
+;;; Project
+(require 'init-git)
+(require 'init-github)
+
 ;;;
 (add-hook 'after-init-hook
           (lambda ()

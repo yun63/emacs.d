@@ -18,8 +18,17 @@
 
   :config (setq projectile-enable-caching t
                 projectile-require-project-root nil
-                projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
-                projectile-globally-ignored-directories '(".git" ".svn")
+                projectile-globally-ignored-file-suffixes '(".elc"
+                                                            ".pyc"
+                                                            ".o"
+                                                            ".so"
+                                                            ".a"
+                                                            ".gitignore"
+                                                            ".ccls")
+                projectile-globally-ignored-directories '(".git"
+                                                          ".svn"
+                                                          ".git"
+                                                          ".ccls-cache")
                 projectile-ignored-projects '("~/" "/tmp")
                 projectile-kill-buffers-filter 'kill-only-files
                 projectile-files-cache-expire 604800
@@ -50,10 +59,11 @@
 
 ;; find-file-in-project
 (use-package find-file-in-project
-  :defer 1)
+  :defer 2
+  :config
+  (add-to-list 'ffip-ignore-filenames "*.ccls")
+  (add-to-list 'ffip-prune-patterns "*/.ccls-cache"))
 
-
-    
 ;; autoinsert
 (use-package autoinsert
   :defer 2

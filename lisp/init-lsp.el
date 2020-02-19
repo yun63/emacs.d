@@ -12,7 +12,7 @@
   :init
   (setq lsp-keymap-prefix "C-l")
   :config
-  (setq lsp-idle-delay 0.200)
+  (setq lsp-idle-delay 0.1)
   (setq lsp-prefer-flymake nil)
   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
 
@@ -30,6 +30,7 @@
 
 
 (use-package company-lsp
+  :ensure t
   :commands company-lsp
   :config
   (push 'company-lsp company-backends))
