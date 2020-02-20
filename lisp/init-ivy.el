@@ -14,6 +14,7 @@
 		ivy-count-format ""
 		projectile-completion-system 'ivy
 		ivy-magic-tilde nil
+        ivy-on-del-error-function nil
 		ivy-dynamic-exhibit-delay-ms 10
 		ivy-use-selectable-prompt t)
   (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)

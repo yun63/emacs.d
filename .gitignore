@@ -9,3 +9,5 @@ custom.el
 .last-package-update-day
 eshell/
 transient
+.lsp-session-v1
+
