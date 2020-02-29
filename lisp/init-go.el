@@ -3,12 +3,10 @@
 ;;; Code:
 
 (use-package go-mode
-  :ensure t
   :mode ("\\.go$" . go-mode))
 
 (use-package company-go
   :after (:all go-mode company-mode)
-  :ensure t
   :config
   (setq company-go-show-annotation t)
   (add-hook 'go-mode-hook (lambda ()
@@ -18,8 +16,7 @@
 (use-package go-eldoc
   :after (go-mode)
   :commands go-eldoc-setup
-  :ensure t
-  :init
+  :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (provide 'init-go)

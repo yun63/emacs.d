@@ -6,29 +6,29 @@
 ;; TODO Default sort order should place [a-z] before punctuation
 
 (use-package company
-  :commands (global-company-mode)
-  :hook (after-init . global-company-mode)
+  :hook
+  (after-init . global-company-mode)
   :config
-  (add-to-list 'completion-styles 'initials t)
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
-  (setq company-selection-wrap-around t)
-  (setq company-minimum-prefix-length 3)
-  (setq-default company-dabbrev-other-buffers 'all
-		company-tooltip-align-annotations t)
+  ;(setq company-minimum-prefix-length 3)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  )
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
 (use-package company-quickhelp
-  :ensure t
-  :init (add-hook 'global-company-mode #'company-quickhelp-mode))
+  :config
+  (add-hook 'global-company-mode #'company-quickhelp-mode))
 
+
+(use-package helm
+  :bind
+  ("M-x" . helm-M-x))
  
-(use-package smex
-  :ensure t
-  :bind (("M-x" . smex))
-  :config (smex-initialize))
+;(use-package smex
+;  :bind
+;  (("M-x" . smex))
+;  :config
+;  (smex-initialize))
 
 (provide 'init-company)
 ;;; init-company.el ends here

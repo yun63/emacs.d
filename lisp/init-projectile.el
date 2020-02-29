@@ -28,10 +28,8 @@
   (dolist (var '(".o" ".so" ".a" ".pyc" ".elc"))
     (add-to-list 'projectile-globally-ignored-file-suffixes var))
 
-  (dolist (var '(".git" ".svn" ".ccls-cache"))
+  (dolist (var '(".git" ".svn"))
     (add-to-list 'projectile-globally-ignored-directories var))
-
-  (add-to-list 'projectile-globally-ignored-files ".ccls")
 
   (setq projectile-switch-project-action #'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)
@@ -52,7 +50,13 @@
 
 ;; ibuffer-projectile
 (use-package ibuffer-projectile
-  :defer 2)
+  :defer 2
+  :config
+  (add-hook 'ibuffer-hook
+            (lambda ()
+              (ibuffer-projectile-set-filter-groups)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
 
 ;; find-file-in-project
 (use-package find-file-in-project

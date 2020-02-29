@@ -95,6 +95,8 @@
 ;; 删除文件移动到回收站
 (setq delete-by-moving-to-trash t)
 
+(setq line-move-visual nil)
+
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
               buffers-menu-max-size 300
               case-fold-search t
