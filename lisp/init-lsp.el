@@ -3,19 +3,15 @@
 ;;; Code:
 
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
+  :commands lsp
   :hook
-  (c-mode .lsp-deferred)
-  (c++-mode . lsp-deferred)
-  (python-mode .lsp-deferred)
-  (lsp-mode . lsp-enable-which-key-integration)
-  :init
-  (setq lsp-keymap-prefix "C-l")
+  (c-mode .lsp)
+  (c++-mode . lsp)
+  (python-mode .lsp)
   :config
-  (setq lsp-idle-delay 0.1)
+  (setq lsp-idle-delay 0.3)
   (setq lsp-prefer-flymake nil)
-  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
-
+  (setq lsp-enable-file-watchers nil)
   (lsp-mode))
 
 ;; optionally
@@ -48,11 +44,6 @@
 (use-package dap-mode
   :defer t)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
-
-;; optional if you want which-key integration
-(use-package which-key
-  :config
-  (which-key-mode))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here

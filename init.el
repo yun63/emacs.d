@@ -61,10 +61,9 @@
 (require 'init-isearch)
 (require 'init-google)
 (require 'init-yasnippet)
-(require 'init-flycheck)
+;(require 'init-flycheck)
 
 ;;; Languages
-(require 'init-lsp)
 (require 'init-c++)
 (require 'init-python)
 (require 'init-go)
@@ -72,8 +71,8 @@
 ;;(require 'init-org)
 
 ;;; Project
-(require 'init-git)
-(require 'init-github)
+;;(require 'init-git)
+;;(require 'init-github)
 
 ;;;
 (add-hook 'after-init-hook

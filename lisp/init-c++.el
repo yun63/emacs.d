@@ -35,14 +35,29 @@
 ;;  :after irony
 ;;  :defer t)
 
-(use-package ccls
-  :hook ((c-mode c++-mode objc-mode cuda-mode) . (lambda () (require 'ccls) (lsp)))
+(use-package ycmd
+  :hook
+  (c-mode . ycmd-mode)
+  (c++-mode . ycmd-mode)
   :config
-  (setq ccls-executable "/usr/local/bin/ccls")
-  (setq ccls-args '("--log-file=/tmp/ccls.log"))
-  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
-  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc)))
+  (set-variable 'ycmd-server-command '("python3" "/Users/Yaner/.ycmd/ycmd"))
+  (set-variable 'ycmd-global-config "/Users/Yaner/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"))
 
+(use-package company-ycmd
+  :hook
+  (c++-mode-hook . company-mode)
+  :commands company-ycmd-setup
+  :config
+  (company-ycmd-setup))
+
+(use-package auto-complete-c-headers
+  :defer t
+  :config
+  (add-hook 'c-mode-hook   (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers)))
+  (add-hook 'c++-mode-hook (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers)
+                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
 
 ;; modern c++
 (use-package modern-cpp-font-lock

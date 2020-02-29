@@ -3,13 +3,12 @@
 ;;; Code:
 
 (use-package flycheck
-  :hook (after-init . global-flycheck-mode)
-  :config
-  (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
+  :defer t
+  :hook (after-init . global-flycheck-mode))
 
-  (use-package flycheck-color-mode-line
-    :hook (flycheck-mode . flycheck-color-mode-line-mode))
-  )
+(use-package flycheck-color-mode-line
+  :defer t
+  :hook (flycheck-mode . flycheck-color-mode-line-mode))
 
 
 (provide 'init-flycheck)

@@ -6,13 +6,10 @@
 ;; TODO Default sort order should place [a-z] before punctuation
 
 (use-package company
-  :ensure t
   :commands (global-company-mode)
-  :init
-  (setq tab-always-indent 'complete)
-  (add-to-list 'completion-styles 'initials t)
   :hook (after-init . global-company-mode)
   :config
+  (add-to-list 'completion-styles 'initials t)
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
   (setq company-selection-wrap-around t)
@@ -32,15 +29,6 @@
   :ensure t
   :bind (("M-x" . smex))
   :config (smex-initialize))
-
-(use-package auto-complete-c-headers
-  :defer t
-  :config
-  (add-hook 'c-mode-hook   (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers)))
-  (add-hook 'c++-mode-hook (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers)
-                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
 
 (provide 'init-company)
 ;;; init-company.el ends here
