@@ -84,6 +84,9 @@
 ;; 高亮显示选中的区域
 (transient-mark-mode t)
 
+(modify-syntax-entry ?_ "w")
+(superword-mode t)
+
 (setq echo-keystrokes 0.1)
 
 ;; 防止删掉重要的内容
@@ -107,8 +110,10 @@
               truncate-lines nil
               truncate-partial-width-windows nil)
 
+
 (set-face-background 'linum (face-attribute 'default :background) nil)
 (custom-set-faces '(linum ((t (:inherit (shadow default) :foreground "brightblack")))))
+
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)

@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+
+(defun local-require (pkg)
+  "Load local `PKG` if pkg exists."
+  (unless (featurep pkg)
+    (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
+
 (if (fboundp 'with-eval-after-load)
     (defalias 'after-load 'with-eval-after-load)
   (defmacro after-load (feature &rest body)
@@ -10,10 +16,6 @@
     `(eval-after-load ,feature
        '(progn ,@body))))
 
-
-;;----------------------------------------------------------------------------
-;; Handier way to add modes to auto-mode-alist
-;;----------------------------------------------------------------------------
 (defun add-auto-mode (mode &rest patterns)
   "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
   (dolist (pattern patterns)
@@ -28,17 +30,15 @@
                     (time-subtract after-init-time before-init-time)))
         gcs-done)))
 
-(global-set-key (kbd "s-=")
-                (lambda ()
-                  (interactive)
-                  (let ((old-face-attribute (face-attribute 'default :height)))
-                    (set-face-attribute 'default nil :height (+ old-face-attribute 10)))))
+(global-set-key (kbd "s-=") (lambda ()
+                              (interactive)
+                              (let ((old-face-attribute (face-attribute 'default :height)))
+                                (set-face-attribute 'default nil :height (+ old-face-attribute 10)))))
 
-(global-set-key (kbd "s--")
-                (lambda ()
-                  (interactive)
-                  (let ((old-face-attribute (face-attribute 'default :height)))
-                    (set-face-attribute 'default nil :height (- old-face-attribute 10)))))
+(global-set-key (kbd "s--") (lambda ()
+                              (interactive)
+                              (let ((old-face-attribute (face-attribute 'default :height)))
+                                (set-face-attribute 'default nil :height (- old-face-attribute 10)))))
 
 
 (provide 'init-utils)

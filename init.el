@@ -33,10 +33,6 @@
     (add-hook 'emacs-startup-hook
               (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
-(defun local-require (pkg)
-  "Load local `PKG` if pkg exists."
-  (unless (featurep pkg)
-    (load (expand-file-name (format "~/.emacs.d/site-lisp/%s/%s" pkg pkg)))))
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -73,7 +69,7 @@
 (require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
-(require 'init-org)
+;;(require 'init-org)
 
 ;;; Project
 (require 'init-git)

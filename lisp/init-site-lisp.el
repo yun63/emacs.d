@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-;;; Set load path
+(local-require 'keyfreq)
+(local-require 'general)
 
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here

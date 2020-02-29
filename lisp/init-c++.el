@@ -40,7 +40,6 @@
   :config
   (setq ccls-executable "/usr/local/bin/ccls")
   (setq ccls-args '("--log-file=/tmp/ccls.log"))
-  (setq lsp-diagnostic-package nil)
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc)))
 

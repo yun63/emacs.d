@@ -18,23 +18,20 @@
 
   :config (setq projectile-enable-caching t
                 projectile-require-project-root nil
-                projectile-globally-ignored-file-suffixes '(".elc"
-                                                            ".pyc"
-                                                            ".o"
-                                                            ".so"
-                                                            ".a"
-                                                            ".gitignore"
-                                                            ".ccls")
-                projectile-globally-ignored-directories '(".git"
-                                                          ".svn"
-                                                          ".git"
-                                                          ".ccls-cache")
                 projectile-ignored-projects '("~/" "/tmp")
                 projectile-kill-buffers-filter 'kill-only-files
                 projectile-files-cache-expire 604800
                 projectile-sort-order 'recentf
                 projectile-switch-project-action 'neotree-projectile-action
                 projectile-use-git-grep t)
+
+  (dolist (var '(".o" ".so" ".a" ".pyc" ".elc"))
+    (add-to-list 'projectile-globally-ignored-file-suffixes var))
+
+  (dolist (var '(".git" ".svn" ".ccls-cache"))
+    (add-to-list 'projectile-globally-ignored-directories var))
+
+  (add-to-list 'projectile-globally-ignored-files ".ccls")
 
   (setq projectile-switch-project-action #'projectile-dired)
   (setq projectile-find-dir-includes-top-level t)

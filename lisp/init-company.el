@@ -27,10 +27,20 @@
   :ensure t
   :init (add-hook 'global-company-mode #'company-quickhelp-mode))
 
+ 
 (use-package smex
   :ensure t
   :bind (("M-x" . smex))
   :config (smex-initialize))
+
+(use-package auto-complete-c-headers
+  :defer t
+  :config
+  (add-hook 'c-mode-hook   (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers)))
+  (add-hook 'c++-mode-hook (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers)
+                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
 
 (provide 'init-company)
 ;;; init-company.el ends here
