@@ -24,11 +24,5 @@
   :bind
   ("M-x" . helm-M-x))
  
-;(use-package smex
-;  :bind
-;  (("M-x" . smex))
-;  :config
-;  (smex-initialize))
-
 (provide 'init-company)
 ;;; init-company.el ends here

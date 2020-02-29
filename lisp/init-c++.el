@@ -40,8 +40,8 @@
   (c-mode . ycmd-mode)
   (c++-mode . ycmd-mode)
   :config
-  (set-variable 'ycmd-server-command '("python3" "/Users/Yaner/.ycmd/ycmd"))
-  (set-variable 'ycmd-global-config "/Users/Yaner/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"))
+  (set-variable 'ycmd-server-command '("python3" "/home/leiyunfei/ycmd/ycmd"))
+  (set-variable 'ycmd-global-config "/home/leiyunfei/ycmd/.ycm_extra_conf.py"))
 
 (use-package company-ycmd
   :hook
@@ -57,7 +57,7 @@
                              (add-to-list 'ac-sources 'ac-source-c-headers)))
   (add-hook 'c++-mode-hook (lambda ()
                              (add-to-list 'ac-sources 'ac-source-c-headers)
-                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
+                             (add-to-list 'achead:include-directories '"/usr/include/c++/7.4.0"))))
 
 ;; modern c++
 (use-package modern-cpp-font-lock
