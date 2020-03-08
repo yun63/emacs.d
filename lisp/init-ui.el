@@ -22,6 +22,9 @@
 (setq tab-width 4)
 (setq c-basic-offset 4)
 
+;; 设置行间距
+(setq-default line-spacing 5)
+
 ;; 设置光标不闪烁
 (blink-cursor-mode 1)
 (setq-default cursor-type 'bar)
@@ -32,19 +35,13 @@
 (column-number-mode t)
 (global-linum-mode t)
 (setq linum-format "%4d ")
-(display-line-numbers-mode t)
+(global-hl-line-mode t)
 
 ;; 显示匹配括号
 (show-paren-mode t)
-;;(setq show-paren-style 'parentheses)
 
 ;; 以y/n代表yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; 滚动页面
-(setq scroll-step 1)
-(setq scroll-margin 3)
-(setq scroll-conservatively 10000)
 
 ;; 在标题栏显示buffer的名称，默认不显示
 (setq frame-title-format "%b@emacs")
@@ -57,19 +54,16 @@
 (setq backup-directory-alist '(("." . "~/.saves")))
 
 ;; 关闭自动保存模式
-;;(setq auto-save-mode nil)
+(setq auto-save-mode nil)
 
 ;; 不生成#filename#临时文件
-(setq auto-save-default nil)
+;;(setq auto-save-default t)
 
 ;; 自动的在文件末尾增加一新行
 (setq require-final-newline t)
 
 ;; 当光标在行尾上下移动的时候，始终保持在行尾
 (setq track-eol t)
-
-;; 在模式栏中显示当前光标所在函数
-;;(which-function-mode)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)
@@ -78,6 +72,7 @@
 ;; 隐藏工具栏
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+;;(scroll-bar-mode -1)
 
 ;; 语法高亮
 (global-font-lock-mode t)
@@ -116,6 +111,14 @@
 (set-face-background 'linum (face-attribute 'default :background) nil)
 (custom-set-faces '(linum ((t (:inherit (shadow default) :foreground "brightblack")))))
 
+
+(use-package smooth-scrolling
+  :config
+  ;; 滚动页面
+  ;;(setq scroll-step 1)
+  ;;(setq scroll-margin 3)
+  ;;(setq scroll-conservatively 10000)
+  (smooth-scrolling-mode t))
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)
