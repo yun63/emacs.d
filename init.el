@@ -61,11 +61,11 @@
 (require 'init-isearch)
 (require 'init-google)
 (require 'init-yasnippet)
-;(require 'init-flycheck)
+(require 'init-flycheck)
 
 ;;; Languages
 (require 'init-c++)
-(require 'init-python)
+;;(require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
 ;;(require 'init-org)

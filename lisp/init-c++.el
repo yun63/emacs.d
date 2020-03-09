@@ -2,53 +2,33 @@
 ;;; Commentary:
 ;;; Code:
 
-;;(use-package irony
-;;  :defer 2
-;;  :hook ((c++-mode . irony-mode)
-;;         (c-mode . irony-mode))
-;;  :config
-;;  (progn
-;;    (unless (irony--find-server-executable) (call-interactively #'irony-install-server))
-;;    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-;;  )
-;;
-;;  (use-package company-irony-c-headers
-;;    :ensure t)
-;;
-;;  (use-package company-irony
-;;    :ensure t
-;;    :config
-;;    (add-to-list (make-local-variable 'company-backends) '(company-irony company-irony-c-headers)))
-;;
-;;  (use-package flycheck-irony
-;;    :ensure t
-;;    :config
-;;    (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
-;;
-;;  (use-package irony-eldoc
-;;    :ensure t
-;;    :config
-;;    (add-hook 'irony-mode-hook #'irony-eldoc))
-;;  )
-;;
-;;(use-package rtags
-;;  :after irony
-;;  :defer t)
-
-(use-package ycmd
-  :hook
-  (c-mode . ycmd-mode)
-  (c++-mode . ycmd-mode)
+(use-package irony
+  :defer t
+  :hook ((c++-mode . irony-mode)
+         (c-mode . irony-mode))
   :config
-  (set-variable 'ycmd-server-command '("python3" "/home/leiyunfei/ycmd/ycmd"))
-  (set-variable 'ycmd-global-config "/home/leiyunfei/ycmd/.ycm_extra_conf.py"))
+  (progn
+    (unless (irony--find-server-executable) (call-interactively #'irony-install-server))
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  ))
 
-(use-package company-ycmd
-  :hook
-  (c++-mode-hook . company-mode)
-  :commands company-ycmd-setup
+(use-package company-irony-c-headers
+  :defer t)
+
+(use-package company-irony
   :config
-  (company-ycmd-setup))
+  (add-to-list (make-local-variable 'company-backends) '(company-irony company-irony-c-headers)))
+
+(use-package flycheck-irony
+  :config
+  (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+
+(use-package irony-eldoc
+  :config
+  (add-hook 'irony-mode-hook #'irony-eldoc))
+
+(use-package rtags
+  :defer t)
 
 (use-package auto-complete-c-headers
   :defer t
