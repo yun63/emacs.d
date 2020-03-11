@@ -39,6 +39,10 @@
 (use-package use-package-ensure-system-package
   :ensure t)
 
+(use-package benchmark-init
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 (use-package diminish
   :ensure t
   :demand t
