@@ -3,17 +3,14 @@
 ;;; Code:
 
 (use-package irony
-  :defer t
-  :hook ((c++-mode . irony-mode)
-         (c-mode . irony-mode))
+  :commands
+  (irony-install-server irony--find-server-executable)
+  :hook
+  (c-mode . irony-mode)
+  (c++-mode . irony-mode)
+  (irony-mode . irony-cdb-autosetup-compile-options)
   :config
-  (progn
-    (unless (irony--find-server-executable) (call-interactively #'irony-install-server))
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  ))
-
-(use-package company-irony-c-headers
-  :defer t)
+  (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
 
 (use-package company-irony
   :config
@@ -27,6 +24,13 @@
   :config
   (add-hook 'irony-mode-hook #'irony-eldoc))
 
+(defun my-irony-mode-hook ()
+    "Irony mode hook."
+    (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
+    (define-key irony-mode-map [remap complete-symbol] 'counsel-irony))
+
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+
 (use-package rtags
   :defer t)
 
@@ -38,6 +42,9 @@
   (add-hook 'c++-mode-hook (lambda ()
                              (add-to-list 'ac-sources 'ac-source-c-headers)
                              (add-to-list 'achead:include-directories '"/usr/include/c++/7.4.0"))))
+
+(use-package company-irony-c-headers
+  :defer t)
 
 ;; modern c++
 (use-package modern-cpp-font-lock
