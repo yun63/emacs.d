@@ -10,6 +10,9 @@
   (c++-mode . irony-mode)
   (irony-mode . irony-cdb-autosetup-compile-options)
   :config
+  (setq irony--compile-options '("-std=c++11"
+                                 "-stdlib=libc++"
+                                 "-I/usr/local/include/c++/9.2.0"))
   (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
 
 (use-package company-irony
@@ -32,7 +35,18 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 
 (use-package rtags
-  :defer t)
+  :defer t
+  :config
+  (rtags-enable-standard-keybindings)
+  (setq rtags-autostart-diagnostics t)
+  (rtags-diagnostics)
+  (setq rtags-completions-enabled t)
+  (define-key c-mode-base-map (kbd "M-.") (function rtags-find-symbol-at-point))
+  (define-key c-mode-base-map (kbd "M-,") (function rtags-find-references-at-point)))
+
+(use-package cmake-ide
+  :config
+  (cmake-ide-setup))
 
 (use-package auto-complete-c-headers
   :defer t
@@ -55,6 +69,13 @@
 (use-package clang-format
   :config
   (global-set-key (kbd "C-c C-f") 'clang-format-region))
+
+(use-package cmake-mode
+  :mode ("CMakeLists\\.txt$" . cmake-mode)
+  :config
+  (add-hook 'cmake-mode-hook (lambda()
+                               (add-to-list (make-local-variable 'company-backends)
+                                            'company-cmake))))
 
 (defconst my-cc-style
   '("cc-mode"
