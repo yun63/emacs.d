@@ -12,7 +12,7 @@
   :config
   (setq irony--compile-options '("-std=c++11"
                                  "-stdlib=libc++"
-                                 "-I/usr/local/include/c++/9.2.0"))
+                                 "-I/usr/include/c++/8"))
   (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
 
 (use-package company-irony
@@ -55,7 +55,7 @@
                              (add-to-list 'ac-sources 'ac-source-c-headers)))
   (add-hook 'c++-mode-hook (lambda ()
                              (add-to-list 'ac-sources 'ac-source-c-headers)
-                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
+                             (add-to-list 'achead:include-directories '"/usr/include/c++/8"))))
 
 (use-package company-irony-c-headers
   :defer t)
@@ -82,6 +82,8 @@
     (c-offsets-alist . ((innamespace . [0])))))
 
 (c-add-style "my-cc-mode" my-cc-style)
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (provide 'init-c++)
 ;;; init-c++.el ends here
