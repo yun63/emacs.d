@@ -28,7 +28,7 @@
   (dolist (var '(".o" ".so" ".a" ".pyc" ".elc"))
     (add-to-list 'projectile-globally-ignored-file-suffixes var))
 
-  (dolist (var '(".git" ".svn"))
+  (dolist (var '(".git" ".svn" ".clangd"))
     (add-to-list 'projectile-globally-ignored-directories var))
 
   (setq projectile-switch-project-action #'projectile-dired)

@@ -55,7 +55,7 @@
                              (add-to-list 'ac-sources 'ac-source-c-headers)))
   (add-hook 'c++-mode-hook (lambda ()
                              (add-to-list 'ac-sources 'ac-source-c-headers)
-                             (add-to-list 'achead:include-directories '"/usr/include/c++/7.4.0"))))
+                             (add-to-list 'achead:include-directories '"/usr/local/include/c++/9.2.0"))))
 
 (use-package company-irony-c-headers
   :defer t)

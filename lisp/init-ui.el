@@ -54,10 +54,9 @@
 (setq backup-directory-alist '(("." . "~/.saves")))
 
 ;; 关闭自动保存模式
-(setq auto-save-mode nil)
-
 ;; 不生成#filename#临时文件
-;;(setq auto-save-default t)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; 自动的在文件末尾增加一新行
 (setq require-final-newline t)
