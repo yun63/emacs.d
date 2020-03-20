@@ -21,9 +21,8 @@
   (add-hook 'global-company-mode #'company-quickhelp-mode))
 
 
-(use-package helm
-  :bind
-  ("M-x" . helm-M-x))
+(use-package smex
+  :defer t)
  
 (provide 'init-company)
 ;;; init-company.el ends here
