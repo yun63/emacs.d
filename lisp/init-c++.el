@@ -58,7 +58,12 @@
                              (add-to-list 'achead:include-directories '"/usr/include/c++/8"))))
 
 (use-package company-irony-c-headers
-  :defer t)
+  :defer t
+  :config
+  (progn (add-hook 'c-mode-hook
+                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))
+         (add-hook 'c++-mode-hook
+                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))))
 
 ;; modern c++
 (use-package modern-cpp-font-lock
