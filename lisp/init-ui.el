@@ -106,10 +106,10 @@
 
 
 (use-package nlinum
-  :config
+  :init
   (setq nlinum-format "%4d ")
   (global-hl-line-mode t)
-  (nlinum-mode t))
+  (global-nlinum-mode t))
 
 
 (use-package smooth-scrolling
