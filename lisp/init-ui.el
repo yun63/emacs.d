@@ -33,9 +33,6 @@
 ;; 设置显示光标所在行列号
 (line-number-mode t)
 (column-number-mode t)
-(global-linum-mode t)
-(setq linum-format "%4d ")
-(global-hl-line-mode t)
 
 ;; 显示匹配括号
 (show-paren-mode t)
@@ -107,16 +104,19 @@
               truncate-partial-width-windows nil)
 
 
-(set-face-background 'linum (face-attribute 'default :background) nil)
-(custom-set-faces '(linum ((t (:inherit (shadow default) :foreground "brightblack")))))
+
+(use-package nlinum
+  :config
+  (setq nlinum-format "%4d ")
+  (global-hl-line-mode t)
+  (nlinum-mode t))
 
 
 (use-package smooth-scrolling
   :config
-  ;; 滚动页面
   ;;(setq scroll-step 1)
-  ;;(setq scroll-margin 3)
-  ;;(setq scroll-conservatively 10000)
+  (setq scroll-margin 2)
+  (setq scroll-conservatively 10000)
   (smooth-scrolling-mode t))
 
 (use-package dimmer
