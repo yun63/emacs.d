@@ -28,8 +28,10 @@
   "v"  'split-window-vertically
   "m"  'evil-set-marker
   "g"  'counsel-ag
+  "o"  'neotree-toggle
   "p"  'projectile-switch-project
   "q"  'delete-other-window
+  "r"  'counsel-M-x
   "s"  'counsel-grep ; grep current buffer
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump ; open the dired from current buffer

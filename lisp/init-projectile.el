@@ -41,8 +41,7 @@
                   ".git"))       ; Git VCS root dir
         projectile-project-root-files '("TAGS")
         projectile-project-root-files-top-down-recurring '(".svn" "Makefile"))
-  (projectile-mode t)
-  ) ;; use-package end
+  (projectile-mode t))
 
 ;; counsel-projectile
 (use-package counsel-projectile

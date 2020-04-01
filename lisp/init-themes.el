@@ -98,8 +98,6 @@
 (use-package neotree
   :defer 2
   :config
-  (evil-leader/set-key "m"  'neotree-toggle)
-  (evil-leader/set-key "n"  'neotree-project-dir)
   (add-hook 'neotree-mode-hook
     (lambda ()
       (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
@@ -114,4 +112,4 @@
       (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
 
 (provide 'init-themes)
-;;; init-ui.el ends here
+;;; init-themes.el ends here
