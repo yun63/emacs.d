@@ -19,7 +19,7 @@
 ;; Use `,` as leader key
 (general-create-definer local-leader-def
   :prefix ","
-  :states '(normal visual))
+  :states '(normal visual emacs))
 
 (local-leader-def
   "d"  'dired
@@ -41,7 +41,7 @@
 ;; Use `SPC` as leader key
 (general-create-definer space-leader-def
   :prefix "SPC"
-  :states '(normal visual))
+  :states '(normal visual emacs))
 
 (space-leader-def
   "kk" 'scroll-other-window
