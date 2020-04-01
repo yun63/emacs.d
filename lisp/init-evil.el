@@ -29,6 +29,7 @@
   "v"  'split-window-vertically
   "m"  'evil-set-marker
   "g"  'counsel-ag
+  "p"  'projectile-switch-project
   "q"  'delete-other-window
   "s"  'counsel-grep ; grep current buffer
   "be" 'ivy-switch-buffer
