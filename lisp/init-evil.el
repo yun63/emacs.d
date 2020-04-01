@@ -11,11 +11,10 @@
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-insert-state-map (kbd "C-k") 'kill-line))
 
-(use-package evil-leader
-  :ensure t)
 
 (local-require 'general)
 (general-evil-setup t)
+
 
 ;; Use `,` as leader key
 (general-create-definer local-leader-def
