@@ -68,7 +68,7 @@
 ;;(require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
-;;(require 'init-org)
+(require 'init-org)
 
 ;;; Project
 ;;(require 'init-git)

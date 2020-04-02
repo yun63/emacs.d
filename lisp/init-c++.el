@@ -10,6 +10,7 @@
   (c++-mode . irony-mode)
   (irony-mode . irony-cdb-autosetup-compile-options)
   :config
+  (setq-default c-default-style "linux")
   (setq irony--compile-options '("-std=c++11"
                                  "-stdlib=libc++"
                                  "-I/usr/include/c++/8"))
@@ -54,8 +55,7 @@
   (add-hook 'c-mode-hook   (lambda ()
                              (add-to-list 'ac-sources 'ac-source-c-headers)))
   (add-hook 'c++-mode-hook (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers)
-                             (add-to-list 'achead:include-directories '"/usr/include/c++/8"))))
+                             (add-to-list 'ac-sources 'ac-source-c-headers))))
 
 (use-package company-irony-c-headers
   :defer t

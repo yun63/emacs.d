@@ -35,6 +35,7 @@
   "s"  'counsel-grep ; grep current buffer
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump ; open the dired from current buffer
+  "xf" 'counsel-find-file
   "xk" 'kill-buffer
   "bb" (lambda () (interactive) (switch-to-buffer nil))) ; switch to previous buffer
 
