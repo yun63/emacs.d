@@ -30,14 +30,14 @@
   "g"  'counsel-ag
   "o"  'neotree-toggle
   "p"  'projectile-switch-project
-  "q"  'delete-other-window
+  "q"  'delete-other-windows
   "r"  'counsel-M-x
-  "s"  'counsel-grep ; grep current buffer
+  "s"  'counsel-grep
   "be" 'ivy-switch-buffer
-  "xd" 'dired-jump ; open the dired from current buffer
+  "xd" 'dired-jump
   "xf" 'counsel-find-file
   "xk" 'kill-buffer
-  "bb" (lambda () (interactive) (switch-to-buffer nil))) ; switch to previous buffer
+  "bb" (lambda () (interactive) (switch-to-buffer nil)))
 
 ;; Use `SPC` as leader key
 (general-create-definer space-leader-def

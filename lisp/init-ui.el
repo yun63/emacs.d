@@ -75,6 +75,7 @@
 ;; 高亮显示选中的区域
 (transient-mark-mode t)
 
+(modify-syntax-entry ?- "w")
 (modify-syntax-entry ?_ "w")
 (superword-mode t)
 

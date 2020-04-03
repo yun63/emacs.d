@@ -8,7 +8,7 @@
   :defer t
   :mode ("\\.org$" . org-mode)
   :commands
-  (org-indent-org)
+  (org-indent-mode)
   :config
   (setq org-startup-indented t)
   (add-hook 'org-mode-hook #'org-indent-mode)
