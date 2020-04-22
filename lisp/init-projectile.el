@@ -64,15 +64,6 @@
   (add-to-list 'ffip-ignore-filenames "*.ccls")
   (add-to-list 'ffip-prune-patterns "*/.ccls-cache"))
 
-;; autoinsert
-(use-package autoinsert
-  :defer 2
-  :config
-  (setq auto-insert-query nil)
-  (setq auto-insert-directory (locate-user-emacs-file "templates"))
-  (add-hook 'find-file-hook 'auto-insert)
-  (auto-insert-mode t))
-
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
