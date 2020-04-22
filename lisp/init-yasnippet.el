@@ -22,9 +22,9 @@
   (setq auto-insert-query nil)
   (setq auto-insert-directory (locate-user-emacs-file "templates"))
   (add-hook 'find-file-hook 'auto-insert)
-  (define-auto-insert "\\.h$" [ "yas-template-header-c/c++" autoinsert-yas-expand ])
-  (define-auto-insert "\\.c$" [ "yas-template-c/c++" autoinsert-yas-expand ])
-  (define-auto-insert "\\.cpp$" [ "yas-template-c/c++" autoinsert-yas-expand ])
+  (define-auto-insert "\\.h$" [ "yas-template-header-c-c++" autoinsert-yas-expand ])
+  (define-auto-insert "\\.c$" [ "yas-template-c-c++" autoinsert-yas-expand ])
+  (define-auto-insert "\\.cpp$" [ "yas-template-c-c++" autoinsert-yas-expand ])
   (auto-insert-mode 1))
 
 
