@@ -45,9 +45,9 @@
   (define-key c-mode-base-map (kbd "M-.") (function rtags-find-symbol-at-point))
   (define-key c-mode-base-map (kbd "M-,") (function rtags-find-references-at-point)))
 
-(use-package cmake-ide
-  :config
-  (cmake-ide-setup))
+;;(use-package cmake-ide
+;;  :config
+;;  (cmake-ide-setup))
 
 (use-package auto-complete-c-headers
   :defer t
@@ -87,6 +87,10 @@
     (c-offsets-alist . ((innamespace . [0])))))
 
 (c-add-style "my-cc-mode" my-cc-style)
+
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (c-set-style "my-cc-mode")))
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 

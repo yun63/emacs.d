@@ -37,6 +37,12 @@
   "xd" 'dired-jump
   "xf" 'counsel-find-file
   "xk" 'kill-buffer
+  "wh" 'evil-window-left
+  "wl" 'evil-window-right
+  "wj" 'evil-window-up
+  "wk" 'evil-window-bottom
+  "ws" 'evil-window-split
+  "wc" 'evil-window-new
   "bb" (lambda () (interactive) (switch-to-buffer nil)))
 
 ;; Use `SPC` as leader key
