@@ -65,7 +65,7 @@
 
 ;;; Languages
 (require 'init-c++)
-;;(require 'init-python)
+(require 'init-python)
 (require 'init-go)
 (require 'init-markdown)
 (require 'init-org)

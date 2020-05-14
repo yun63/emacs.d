@@ -3,44 +3,35 @@
 ;;; Code:
 
 
-(use-package epc
-  :ensure t)
-
-;;(use-package jedi
-;;  :hook
-;;  (python-mode . jedi:setup)
-;;
-;;  :config
-;;  (defvar jedi-config:with-virtualenv nil
-;;    "Set to non-nil to point to a particular virtualenv.")
-;;  (defvar jedi-config:vcs-root-sentinel ".git")
-;;  (defvar jedi-config:python-module-sentinel "__init__.py")
-;;  (defun get-project-root (buf repo-type)
-;;    (vc-find-root (expand-file-name (buffer-file-name buf)) repo-type))
-;;  (defvar jedi-config:find-root-function 'get-project-root)
-;;
-;;  (defun current-buffer-project-root ()
-;;    (funcall jedi-config:find-root-function
-;;             (current-buffer)
-;;             jedi-config:vcs-root-sentinel
-;;             jedi-config:python-module-sentinel))
-;;
-;;  (defvar jedi-config:user-system-python t)
-;;
-;;  (defun jedi-config:set-python-executable ()
-;;    (make-local-variable 'jedi:server-command)
-;;    (set 'jedi:server-command
-;;         (list (executable-find "python")
-;;               (cadr jedi:server-command))))
-;;  
-;;  (add-to-list 'ac-sources 'ac-source-jedi-direct)
-;;  )
-
-(use-package lsp-python-ms
+(use-package python
   :ensure t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
-                         (lsp))))
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python3" . python-mode)
+  :config
+  (setq python-shell-completion-native-enable nil)
+  (setq indent-tabs-mode nil)
+  (setq python-indent-offset 4))
+
+
+(use-package py-autopep8
+  :ensure t
+  :hook (python-mode . py-autopep8-enable-on-save))
+
+
+(use-package company-jedi
+  :defer t
+  :config
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-hook 'python-mode-hook (lambda ()
+                                (add-to-list (make-local-variable 'company-backends)
+                                             'company-jedi))))
+
+(use-package elpy
+  :defer t
+  :commands (elpy-enable)
+  :config
+  (setq elpy-rpc-backend "jedi"))
+
 
 (provide 'init-python)
 ;;; init-python.el ends here
