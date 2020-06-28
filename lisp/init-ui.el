@@ -109,7 +109,7 @@
 (use-package nlinum
   :init
   (setq nlinum-format "%4d ")
-  (global-hl-line-mode t)
+  ;;(global-hl-line-mode t)
   (global-nlinum-mode t))
 
 

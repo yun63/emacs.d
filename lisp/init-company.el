@@ -12,7 +12,7 @@
   (setq company-idle-delay 0)
   (setq company-show-numbers t)
   (setq company-minimum-prefix-length 3)
-  (setq company-auto-complete t)
+  (setq company-auto-complete nil)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
