@@ -10,4 +10,5 @@ custom.el
 eshell/
 transient
 .lsp-session-v1
+irony/
 
