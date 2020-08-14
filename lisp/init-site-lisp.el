@@ -3,7 +3,7 @@
 ;;; Code:
 
 (local-require 'keyfreq)
-(local-require 'elpa-mirror)
+;;(local-require 'elpa-mirror)
 (local-require 'unicad)
 
 (provide 'init-site-lisp)

@@ -28,6 +28,7 @@
   (define-auto-insert "\\.java" [ "yas-template-java" autoinsert-yas-expand ])
   (define-auto-insert "\\.py$" [ "yas-template-py" autoinsert-yas-expand ])
   (define-auto-insert "\\.go$" [ "yas-template-go" autoinsert-yas-expand ])
+  (define-auto-insert "\\.proto$" [ "yas-template-protobuf" autoinsert-yas-expand ])
   (auto-insert-mode 1))
 
 
