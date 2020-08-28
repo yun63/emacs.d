@@ -3,22 +3,17 @@
 ;;; Code:
 
 (use-package irony
-  :commands
-  (irony-install-server irony--find-server-executable)
   :hook
   (c-mode . irony-mode)
   (c++-mode . irony-mode)
-  (irony-mode . irony-cdb-autosetup-compile-options)
-  :config
-  (setq-default c-default-style "linux")
-  (setq irony--compile-options '("-std=c++11"
-                                 "-stdlib=libc++"
-                                 "-I/usr/include/c++/8"))
-  (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
+  (iron-mode . irony-cdb-autosetup-compile-options))
 
 (use-package company-irony
   :config
-  (add-to-list (make-local-variable 'company-backends) '(company-irony company-irony-c-headers)))
+  (add-to-list 'company-backends '(company-irony company-irony-c-headers)))
+
+(use-package company-irony-c-headers
+  :ensure t)
 
 (use-package flycheck-irony
   :config
@@ -49,13 +44,13 @@
 ;;  :config
 ;;  (cmake-ide-setup))
 
-(use-package auto-complete-c-headers
-  :defer t
-  :config
-  (add-hook 'c-mode-hook   (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers)))
-  (add-hook 'c++-mode-hook (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers))))
+;;(use-package auto-complete-c-headers
+;;  :defer t
+;;  :config
+;;  (add-hook 'c-mode-hook   (lambda ()
+;;                             (add-to-list 'ac-sources 'ac-source-c-headers)))
+;;  (add-hook 'c++-mode-hook (lambda ()
+;;                             (add-to-list 'ac-sources 'ac-source-c-headers))))
 
 (use-package company-irony-c-headers
   :defer t

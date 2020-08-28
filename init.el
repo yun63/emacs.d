@@ -14,7 +14,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+(when (version< emacs-version "27.0")
+  (package-initialize))
 
 (let ((minver "24.4"))
     (when (version< emacs-version minver)
@@ -69,10 +70,6 @@
 (require 'init-go)
 (require 'init-markdown)
 (require 'init-org)
-
-;;; Project
-;;(require 'init-git)
-;;(require 'init-github)
 
 ;;;
 (add-hook 'after-init-hook
