@@ -26,12 +26,6 @@
                                 (add-to-list (make-local-variable 'company-backends)
                                              'company-jedi))))
 
-(use-package elpy
-  :defer t
-  :commands (elpy-enable)
-  :config
-  (setq elpy-rpc-backend "jedi"))
-
 
 (provide 'init-python)
 ;;; init-python.el ends here

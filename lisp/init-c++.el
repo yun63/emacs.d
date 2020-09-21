@@ -6,7 +6,13 @@
   :hook
   (c-mode . irony-mode)
   (c++-mode . irony-mode)
-  (iron-mode . irony-cdb-autosetup-compile-options))
+  (irony-mode . irony-cdb-autosetup-compile-options)
+  :config
+  (setq-default c-default-style "linux")
+  (setq irony--compile-options '("-std=c++11"
+                                 "-stdlib=libc++"
+                                 "-I/usr/local/include/c++/9.2.0"))
+  (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
 
 (use-package company-irony
   :config
