@@ -70,6 +70,7 @@
 (require 'init-go)
 (require 'init-markdown)
 (require 'init-org)
+(require 'init-java)
 
 ;;;
 (add-hook 'after-init-hook
