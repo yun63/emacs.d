@@ -11,11 +11,11 @@
   (setq-default c-default-style "linux")
   (setq irony--compile-options '("-std=c++11"
                                  "-stdlib=libc++"
-                                 "-I/usr/local/include/c++/9.2.0"))
-  (unless (irony--find-server-executable) (call-interactively #'irony-install-server)))
+                                 "-I/usr/local/include/c++/9.2.0")))
 
 (use-package company-irony
   :config
+  (setq company-irony-ignore-case 'smart)
   (add-to-list 'company-backends '(company-irony company-irony-c-headers)))
 
 (use-package company-irony-c-headers
