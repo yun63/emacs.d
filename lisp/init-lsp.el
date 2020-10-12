@@ -9,9 +9,6 @@
   (c++-mode . lsp)
   (python-mode .lsp)
   :config
-  (setq lsp-idle-delay 0.3)
-  (setq lsp-prefer-flymake nil)
-  (setq lsp-enable-file-watchers nil)
   (lsp-mode))
 
 ;; optionally
@@ -19,17 +16,12 @@
   :defer t
   :commands (lsp-ui-mode lsp-ui-doc-mode)
   :config
-  (setq lsp-ui-doc-include-signature t)
-  (setq lsp-ui-sideline-show-symbol t)
   (lsp-ui-mode)
   (lsp-ui-doc-mode))
 
 
 (use-package company-lsp
-  :ensure t
-  :commands company-lsp
-  :config
-  (push 'company-lsp company-backends))
+  :ensure t)
 
 
 (use-package lsp-ivy
