@@ -7,6 +7,8 @@
   :init
   (evil-mode 1)
   :config
+  (defalias 'forward-evil-word 'forward-evil-symbol)
+  (setq evil-ex-search-case 'sensitive)
   (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-insert-state-map (kbd "C-k") 'kill-line))

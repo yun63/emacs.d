@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package vscode-dark-plus-theme
+  :defer 2)
+
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
@@ -84,19 +87,8 @@
 
 (use-package neotree
   :defer 2
-  :config
-  (add-hook 'neotree-mode-hook
-    (lambda ()
-      (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-      (define-key evil-normal-state-local-map (kbd "I") 'neotree-hidden-file-toggle)
-      (define-key evil-normal-state-local-map (kbd "z") 'neotree-stretch-toggle)
-      (define-key evil-normal-state-local-map (kbd "R") 'neotree-refresh)
-      (define-key evil-normal-state-local-map (kbd "m") 'neotree-rename-node)
-      (define-key evil-normal-state-local-map (kbd "c") 'neotree-create-node)
-      (define-key evil-normal-state-local-map (kbd "d") 'neotree-delete-node)
-      (define-key evil-normal-state-local-map (kbd "s") 'neotree-enter-vertical-split)
-      (define-key evil-normal-state-local-map (kbd "S") 'neotree-enter-horizontal-split)
-      (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter))))
+  :custom
+  (neo-theme 'nerd2))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

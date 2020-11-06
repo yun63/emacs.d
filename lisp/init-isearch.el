@@ -37,6 +37,9 @@
 (use-package ag
   :defer 2)
 
+(use-package fiplr
+  :defer 2)
+
 (defun my-isearch-exit-other-end ()
   "Exit isearch, but at the other end of the search string.
 This is useful when followed by an immediate kill."

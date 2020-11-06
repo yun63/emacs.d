@@ -63,6 +63,7 @@
 (require 'init-google)
 (require 'init-yasnippet)
 (require 'init-flycheck)
+(require 'init-keyfreq)
 
 ;;; Languages
 (require 'init-c++)
@@ -70,7 +71,7 @@
 (require 'init-go)
 (require 'init-markdown)
 (require 'init-org)
-(require 'init-java)
+;;(require 'init-java)
 
 ;;;
 (add-hook 'after-init-hook

@@ -23,7 +23,7 @@
 (setq c-basic-offset 4)
 
 ;; 设置行间距
-(setq-default line-spacing 5)
+(setq-default line-spacing 8)
 
 ;; 设置光标不闪烁
 (blink-cursor-mode 1)
@@ -59,7 +59,7 @@
 (setq require-final-newline t)
 
 ;; 当光标在行尾上下移动的时候，始终保持在行尾
-(setq track-eol t)
+(setq track-eol nil)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)
@@ -68,15 +68,20 @@
 ;; 隐藏工具栏
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-;;(scroll-bar-mode -1)
+
+(if (display-graphic-p)
+    (progn
+      (scroll-bar-mode -1)))
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; 语法高亮
 (global-font-lock-mode t)
 ;; 高亮显示选中的区域
 (transient-mark-mode t)
 
-(modify-syntax-entry ?- "w")
-(modify-syntax-entry ?_ "w")
+;;(modify-syntax-entry ?- "w")
+;;(modify-syntax-entry ?_ "w")
 (superword-mode t)
 
 (setq echo-keystrokes 0.1)
@@ -93,8 +98,6 @@
               buffers-menu-max-size 300
               case-fold-search t
               delete-selection-mode t
-              ediff-split-window-function 'split-window-horizontally
-              ediff-window-setup-function 'ediff-setup-windows-plain
               mouse-yank-at-point t
               save-interprogram-paste-before-kill t
               scroll-preserve-screen-position 'always
@@ -109,14 +112,11 @@
 (use-package nlinum
   :init
   (setq nlinum-format "%4d ")
-  ;;(global-hl-line-mode t)
   (global-nlinum-mode t))
 
 
 (use-package smooth-scrolling
   :config
-  ;;(setq scroll-step 1)
-  (setq scroll-margin 2)
   (setq scroll-conservatively 10000)
   (smooth-scrolling-mode t))
 
