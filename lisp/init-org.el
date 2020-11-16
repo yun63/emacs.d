@@ -8,25 +8,40 @@
   :defer t
   :mode ("\\.org$" . org-mode)
   :config
-  (setq org-startup-indented t)
+  (setq org-startup-indented nil)
+  (setq org-log-done t)
 
-  (setq org-log-done t
-        org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE" "CANCELED"))
-        org-todo-keyword-faces
-        '(("INPROGRESS" . (:foreground "blue" :weight bold))
-           ("TODO" . (:foreground "yellow" :weight bold))
-           ("DONE" . (:foreground "green" :weight bold))
-           ("CANCELED" . (:foreground "red" :weight bold))))
+  (setq org-todo-keywords
+        '((sequence "TODO(p!)" "进行中(t!)" "阻塞中(s!)" "|" "已完成(d!)" "已取消(a@/!)")))
 
+  (setq org-todo-keyword-faces
+        '(("TODO" .   (:foreground "red" :weight bold))
+          ("进行中" . (:foreground "orange" :weight bold))
+          ("阻塞中" . (:foreground "red" :weight bold))
+          ("已完成" . (:foreground "green" :weight bold))
+          ("已取消" . (:background "gray" :foreground "black"))))
+  (setq org-indent-mode nil)
   (add-hook 'org-mode-hook
-          (lambda ()
-            (goodwrite-mode))))
+            (lambda ()
+              (org-show-all))))
 
 (use-package org-bullets
   :config
   (progn
-    (setq org-bullets-bullet-list '("☯" "✿" "✚" "◉" "❀"))
+    (setq org-bullets-bullet-list '("◉" "✚" "✿" "❀" "☯"))
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))))
+
+(use-package org-super-agenda
+  :config
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (org-super-agenda-mode))))
+
+(if (display-graphic-p)
+     (progn
+       (use-package org-beautify-theme
+         :config
+         (load-theme 'org-beautify t))))
 
 (provide 'init-org)
 ;;; init-org.el ends here

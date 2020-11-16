@@ -40,6 +40,5 @@
                               (let ((old-face-attribute (face-attribute 'default :height)))
                                 (set-face-attribute 'default nil :height (- old-face-attribute 10)))))
 
-
 (provide 'init-utils)
 ;;; init-utils.el ends here

@@ -23,12 +23,11 @@
 (setq c-basic-offset 4)
 
 ;; 设置行间距
-(setq-default line-spacing 8)
+(setq-default line-spacing 10)
 
 ;; 设置光标不闪烁
 (blink-cursor-mode 1)
 (setq-default cursor-type 'bar)
-(setq-default blink-cursor-interval 0.4)
 
 ;; 设置显示光标所在行列号
 (line-number-mode t)
@@ -41,7 +40,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 在标题栏显示buffer的名称，默认不显示
-(setq frame-title-format "%b@emacs")
+(setq frame-title-format "%b@Emacs")
 
 ;; 支持emacs和外部程序的黏贴
 (setq select-enable-clipboard t)
@@ -59,7 +58,7 @@
 (setq require-final-newline t)
 
 ;; 当光标在行尾上下移动的时候，始终保持在行尾
-(setq track-eol nil)
+(setq track-eol t)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)
@@ -80,8 +79,6 @@
 ;; 高亮显示选中的区域
 (transient-mark-mode t)
 
-;;(modify-syntax-entry ?- "w")
-;;(modify-syntax-entry ?_ "w")
 (superword-mode t)
 
 (setq echo-keystrokes 0.1)
@@ -94,26 +91,22 @@
 
 (setq line-move-visual nil)
 
-(setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
-              buffers-menu-max-size 300
-              case-fold-search t
-              delete-selection-mode t
-              mouse-yank-at-point t
-              save-interprogram-paste-before-kill t
-              scroll-preserve-screen-position 'always
-              set-mark-command-repeat-pop t
-              sentence-end-double-space nil
-              tooltip-delay 1.5
-              truncate-lines nil
-              truncate-partial-width-windows nil)
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
+(setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
 
 
 (use-package nlinum
   :init
   (setq nlinum-format "%4d ")
+  :config
+  (hl-line-mode t)
   (global-nlinum-mode t))
 
+(use-package highlight-numbers
+  :defer 2
+  :config
+  (highlight-numbers-mode))
 
 (use-package smooth-scrolling
   :config
@@ -139,9 +132,6 @@
 (use-package unfill
   :defer 2)
 
-(use-package list-unicode-display
-  :defer 2)
-
 ;; Huge files
 (use-package vlf
   :defer 2)
@@ -150,29 +140,8 @@
 (use-package mode-line-bell
   :hook (after-init . mode-line-bell-mode))
 
-(use-package browse-kill-ring
-  :defer 2
-  :config
-  (setq browse-kill-ring-separator "\f")
-  (global-set-key (kbd "M-Y") 'browse-kill-ring)
-  (define-key browse-kill-ring-mode-map (kbd "C-g") 'browse-kill-ring-quit)
-  (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
-  (define-key browse-kill-ring-mode-map (kbd "M-p") 'browse-kill-ring-previous)
-  (progn
-    (with-eval-after-load 'page-break-lines
-      (push 'browse-kill-ring-mode page-break-lines-modes)))
-  )
-
 ;; Newline behaviour
 (global-set-key (kbd "RET") 'newline-and-indent)
-
-(defun newline-at-end-of-line ()
-  "Move to end of line, enter a newline, and reindent."
-  (interactive)
-  (move-end-of-line 1)
-  (newline-and-indent))
-
-(global-set-key (kbd "S-<return>") 'newline-at-end-of-line)
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
