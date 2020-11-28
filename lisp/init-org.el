@@ -20,7 +20,7 @@
           ("阻塞中" . (:foreground "red" :weight bold))
           ("已完成" . (:foreground "green" :weight bold))
           ("已取消" . (:background "gray" :foreground "black"))))
-  (setq org-indent-mode nil)
+;;  (setq org-indent-mode nil)
   (add-hook 'org-mode-hook
             (lambda ()
               (org-show-all))))
@@ -33,6 +33,8 @@
 
 (use-package org-super-agenda
   :config
+  (setq org-agenda-files (list "~/.org/work.org"
+                               "~/.org/note.org"))
   (add-hook 'org-mode-hook
             (lambda ()
               (org-super-agenda-mode))))

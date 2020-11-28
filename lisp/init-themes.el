@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package vscode-dark-plus-theme
-  :defer 2)
 
 (use-package doom-themes
   :config
