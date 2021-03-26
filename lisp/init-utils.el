@@ -40,5 +40,7 @@
                               (let ((old-face-attribute (face-attribute 'default :height)))
                                 (set-face-attribute 'default nil :height (- old-face-attribute 10)))))
 
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 (provide 'init-utils)
 ;;; init-utils.el ends here
