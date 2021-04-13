@@ -1,6 +1,8 @@
 elpa
 elpa-26.3
+elpa-27.1
 *~
+.bookmarks.el
 recentf
 smex-items
 projectile-bookmarks.eld
