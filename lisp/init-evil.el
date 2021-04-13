@@ -11,6 +11,8 @@
   (setq evil-ex-search-case 'sensitive)
   (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-insert-state-map (kbd "C-u") 'kill-back-to-indentation)
+  (define-key evil-normal-state-map (kbd "C-u") 'kill-back-to-indentation)
   (define-key evil-insert-state-map (kbd "C-k") 'kill-line))
 
 
