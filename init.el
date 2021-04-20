@@ -60,6 +60,7 @@
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-isearch)
+(require 'init-fzf)
 (require 'init-google)
 (require 'init-yasnippet)
 (require 'init-flycheck)
