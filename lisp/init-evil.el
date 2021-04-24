@@ -31,7 +31,7 @@
   "h"  'split-window-horizontally
   "v"  'split-window-vertically
   "m"  'evil-set-marker
-  "g"  'counsel-ag
+  "g"  'helm-ag-project-root
   "o"  'neotree-toggle
   "p"  'projectile-switch-project
   "q"  'delete-other-windows

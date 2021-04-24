@@ -59,7 +59,7 @@
 (require 'init-projectile)
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
-(require 'init-isearch)
+(require 'init-search)
 (require 'init-fzf)
 (require 'init-google)
 (require 'init-yasnippet)
