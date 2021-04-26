@@ -12,8 +12,9 @@
   :ensure t)
 
 (use-package fuzzy-finder
-  :ensure t)
-
+  :defer 2
+  :config
+  (setq fuzzy-finder-default-arguments "--multi"))
 
 (provide 'init-fzf)
 ;;; init-fzf.el ends here
