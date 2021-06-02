@@ -11,7 +11,7 @@
   (setq-default c-default-style "linux")
   (setq irony--compile-options '("-std=c++11"
                                  "-stdlib=libc++"
-                                 "-I/usr/local/include/c++/9.2.0")))
+                                 "-I/usr/include/c++/8")))
 
 (use-package company-irony
   :config
@@ -50,13 +50,13 @@
 ;;  :config
 ;;  (cmake-ide-setup))
 
-;;(use-package auto-complete-c-headers
-;;  :defer t
-;;  :config
-;;  (add-hook 'c-mode-hook   (lambda ()
-;;                             (add-to-list 'ac-sources 'ac-source-c-headers)))
-;;  (add-hook 'c++-mode-hook (lambda ()
-;;                             (add-to-list 'ac-sources 'ac-source-c-headers))))
+(use-package auto-complete-c-headers
+  :defer t
+  :config
+  (add-hook 'c-mode-hook   (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers)))
+  (add-hook 'c++-mode-hook (lambda ()
+                             (add-to-list 'ac-sources 'ac-source-c-headers))))
 
 (use-package company-irony-c-headers
   :defer t
