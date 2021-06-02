@@ -64,6 +64,9 @@
   (add-to-list 'ffip-ignore-filenames "*.ccls")
   (add-to-list 'ffip-prune-patterns "*/.ccls-cache"))
 
+(use-package find-file-rg
+  :defer 2)
+
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

@@ -13,11 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
-  (load-theme 'vscode-dark-plus t)
-
-  (use-package rainbow-delimiters
-    :defer 2
-    :hook (prog-mode . rainbow-delimiters-mode))
+  (load-theme 'doom-dark+ t)
 
   (use-package beacon
     :defer 2
@@ -27,14 +23,7 @@
     (setq-default beacon-lighter " ")
     (setq-default beacon-color "#ff0000")
     (setq-default beacon-size 20))
-
-;;;  (use-package autopair
-;;;    :ensure
-;;;    :defer 2
-;;;    :hook (prog-mode . autopair-global-mode)
-;;;    :config
-;;;    (setq autopair-blink nil))
-  )
+ )
 
 
 (use-package doom-modeline
@@ -82,6 +71,10 @@
   (define-key dashboard-mode-map (kbd "p") 'dashboard-goto-projects)
 
   (dashboard-setup-startup-hook))
+
+
+(use-package rainbow-delimiters
+  :hook (after-init . rainbow-delimiters-mode))
 
 
 (use-package neotree
