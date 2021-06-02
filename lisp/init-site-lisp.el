@@ -3,8 +3,8 @@
 ;;; Code:
 
 (local-require 'keyfreq)
-;;(local-require 'elpa-mirror)
 (local-require 'unicad)
+(local-require 'autopair)
 
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here

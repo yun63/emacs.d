@@ -13,7 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
-  (load-theme 'doom-dark+ t)
+  (load-theme 'vscode-dark-plus t)
 
   (use-package rainbow-delimiters
     :defer 2
@@ -28,11 +28,12 @@
     (setq-default beacon-color "#ff0000")
     (setq-default beacon-size 20))
 
-  (use-package autopair
-    :defer 2
-    :hook (prog-mode . autopair-global-mode)
-    :config
-    (setq autopair-blink nil))
+;;;  (use-package autopair
+;;;    :ensure
+;;;    :defer 2
+;;;    :hook (prog-mode . autopair-global-mode)
+;;;    :config
+;;;    (setq autopair-blink nil))
   )
 
 
