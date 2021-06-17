@@ -13,7 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
-  (load-theme 'doom-dark+ t)
+  (load-theme 'dracula t)
 
   (use-package beacon
     :defer 2
