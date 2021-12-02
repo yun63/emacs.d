@@ -13,7 +13,7 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
-  (load-theme 'dracula t)
+  (load-theme 'doom-dracula t)
 
   (use-package beacon
     :defer 2
@@ -31,9 +31,9 @@
   (doom-modeline-mode)
   (setq doom-modeline-project-detection 'projectile)
   (setq doom-modeline-buffer-file-name-style 'file-name)
-  (setq doom-modeline-icon (display-graphic-p))
-  (setq doom-modeline-major-mode-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
+  ;;(setq doom-modeline-icon (display-graphic-p))
+  (setq doom-modeline-major-mode-icon nil)
+  (setq doom-modeline-major-mode-color-icon nil)
   (setq doom-modeline-buffer-state-icon t)
   (setq doom-modeline-buffer-modification-icon t)
   (setq doom-modeline-unicode-fallback t)
@@ -53,7 +53,6 @@
   (setq dashboard-show-shortcuts nil)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
-  (setq page-break-lines-char ?-)
   (setq dashboard-set-navigator t)
   (setq dashboard-set-init-info t)
   (setq dashboard-footer "Dashboard is pretty cool!")
