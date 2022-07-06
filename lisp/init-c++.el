@@ -2,69 +2,48 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package irony
-  :hook
-  (c-mode . irony-mode)
-  (c++-mode . irony-mode)
-  (irony-mode . irony-cdb-autosetup-compile-options)
-  :config
-  (setq-default c-default-style "linux")
-  (setq irony--compile-options '("-std=c++11"
-                                 "-stdlib=libc++"
-                                 "-I/usr/include/c++/8")))
+;;(use-package irony
+;;  :hook
+;;  (c-mode . irony-mode)
+;;  (c++-mode . irony-mode)
+;;  (irony-mode . irony-cdb-autosetup-compile-options)
+;;  :config
+;;  (setq-default c-default-style "linux")
+;;  (setq irony--compile-options '("-std=c++11"
+;;                                 "-stdlib=libc++"
+;;                                 "-I/usr/include/c++/11")))
+;;
+;;(use-package company-irony
+;;  :config
+;;  (setq company-irony-ignore-case 'smart)
+;;  (add-to-list 'company-backends '(company-irony company-irony-c-headers)))
 
-(use-package company-irony
-  :config
-  (setq company-irony-ignore-case 'smart)
-  (add-to-list 'company-backends '(company-irony company-irony-c-headers)))
+;;(use-package company-irony-c-headers
+;;  :ensure t)
+;;
+;;(defun my-irony-mode-hook ()
+;;    "Irony mode hook."
+;;    (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
+;;    (define-key irony-mode-map [remap complete-symbol] 'counsel-irony))
+;;
+;;(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+;;
 
-(use-package company-irony-c-headers
-  :ensure t)
+;;(use-package company-irony-c-headers
+;;  :defer t
+;;  :config
+;;  (progn (add-hook 'c-mode-hook
+;;                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))
+;;         (add-hook 'c++-mode-hook
+;;                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))))
+;;
 
-(use-package flycheck-irony
-  :config
-  (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+(use-package company-c-headers
+  :init
+  (setq company-backends (delete 'company-semantic company-backends))
+  (add-to-list 'company-backends 'company-c-headers))
 
-(use-package irony-eldoc
-  :config
-  (add-hook 'irony-mode-hook #'irony-eldoc))
-
-(defun my-irony-mode-hook ()
-    "Irony mode hook."
-    (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
-    (define-key irony-mode-map [remap complete-symbol] 'counsel-irony))
-
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
-
-(use-package rtags
-  :defer t
-  :config
-  (rtags-enable-standard-keybindings)
-  (setq rtags-autostart-diagnostics t)
-  (rtags-diagnostics)
-  (setq rtags-completions-enabled t)
-  (define-key c-mode-base-map (kbd "M-.") (function rtags-find-symbol-at-point))
-  (define-key c-mode-base-map (kbd "M-,") (function rtags-find-references-at-point)))
-
-(use-package cmake-ide
-  :config
-  (cmake-ide-setup))
-
-(use-package auto-complete-c-headers
-  :defer t
-  :config
-  (add-hook 'c-mode-hook   (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers)))
-  (add-hook 'c++-mode-hook (lambda ()
-                             (add-to-list 'ac-sources 'ac-source-c-headers))))
-
-(use-package company-irony-c-headers
-  :defer t
-  :config
-  (progn (add-hook 'c-mode-hook
-                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))
-         (add-hook 'c++-mode-hook
-                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))))
+(add-to-list 'company-c-headers-path-system "/usr/include/c++/11")
 
 ;; modern c++
 (use-package modern-cpp-font-lock
@@ -83,20 +62,8 @@
                                (add-to-list (make-local-variable 'company-backends)
                                             'company-cmake))))
 
-(defconst my-cc-style
-  '("cc-mode"
-    (c-set-offset 'case-label '+)
-    (c-offsets-alist . ((innamespace . [0])))))
-
-(c-add-style "my-cc-mode" my-cc-style)
-
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (c-set-offset 'case-label '+)
-             (c-offsets-alist . ((innamespace . [0])))
-             (c-default-style "bsd")))
-
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;; Available C style:
+(setq c-default-style "linux")
 
 (provide 'init-c++)
 ;;; init-c++.el ends here

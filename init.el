@@ -49,6 +49,7 @@
 
 ;;; UI
 (require 'init-themes)
+;;(require 'init-dashboard)
 (require 'init-ui)
 (require 'init-windows)
 
@@ -56,6 +57,7 @@
 (require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
+(require 'init-helm)
 (require 'init-projectile)
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
