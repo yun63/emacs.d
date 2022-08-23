@@ -10,13 +10,11 @@
   (after-init . global-company-mode)
   :config
   (setq company-idle-delay 0)
-  (setq company-show-numbers t)
   (setq company-minimum-prefix-length 3)
-  (setq company-auto-complete nil)
   (setq completion-ignore-case nil)
-  (setq company-dabbrev-downcase nil)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (setq company-backends (delete 'company-semantic company-backends)))
 
 
 (use-package company-quickhelp

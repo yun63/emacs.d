@@ -49,6 +49,7 @@
 
 ;;; UI
 (require 'init-themes)
+(require 'init-dashboard)
 (require 'init-ui)
 (require 'init-windows)
 
@@ -56,23 +57,24 @@
 (require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
+(require 'init-helm)
 (require 'init-projectile)
 (require 'init-hippie-expand)
 (require 'init-ibuffer)
 (require 'init-search)
 (require 'init-fzf)
-(require 'init-google)
+;;(require 'init-google)
 (require 'init-yasnippet)
 (require 'init-flycheck)
 (require 'init-keyfreq)
 
 ;;; Languages
 (require 'init-c++)
-(require 'init-python)
-(require 'init-go)
+(require 'init-google-c-style)
+;;(require 'init-python)
+;;(require 'init-go)
 (require 'init-markdown)
 (require 'init-org)
-;;(require 'init-java)
 
 ;;;
 (add-hook 'after-init-hook

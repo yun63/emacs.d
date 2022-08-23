@@ -20,7 +20,6 @@
 ;; 设置tab宽度
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
-(setq-default c-basic-offset 4)
 
 ;; 设置行间距
 (setq-default line-spacing 1.5)

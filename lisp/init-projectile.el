@@ -16,14 +16,16 @@
   :bind-keymap
   ("\C-c p" . projectile-command-map)
 
-  :config (setq projectile-enable-caching t
-                projectile-require-project-root nil
-                projectile-ignored-projects '("~/" "/tmp")
-                projectile-kill-buffers-filter 'kill-only-files
-                projectile-files-cache-expire 604800
-                projectile-sort-order 'recentf
-                projectile-switch-project-action 'neotree-projectile-action
-                projectile-use-git-grep t)
+  :config
+  (setq projectile-enable-caching t
+        projectile-require-project-root nil
+        projectile-project-search-path '("~/" "~/codes/" "~/sources" ("~/github" .))
+        projectile-kill-buffers-filter 'kill-only-files
+        projectile-auto-discover t
+        projectile-files-cache-expire 604800
+        projectile-sort-order 'recentf
+        projectile-switch-project-action 'neotree-projectile-action
+        projectile-use-git-grep t)
 
   (dolist (var '(".o" ".so" ".a" ".pyc" ".elc"))
     (add-to-list 'projectile-globally-ignored-file-suffixes var))
@@ -40,7 +42,7 @@
         (append '(".svn"         ; Subversion VCS root dir
                   ".git"))       ; Git VCS root dir
         projectile-project-root-files '("TAGS")
-        projectile-project-root-files-top-down-recurring '(".svn" "Makefile"))
+        projectile-project-root-files-top-down-recurring '(".svn" ".git" "Makefile"))
   (projectile-mode t))
 
 ;; counsel-projectile

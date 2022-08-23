@@ -26,12 +26,14 @@
               (org-show-all))))
 
 (use-package org-bullets
+  :defer t
   :config
   (progn
     (setq org-bullets-bullet-list '("◉" "✚" "✿" "❀" "☯"))
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))))
 
 (use-package org-super-agenda
+  :defer t
   :config
   (setq org-agenda-files (list "~/.org/work.org"
                                "~/.org/note.org"))

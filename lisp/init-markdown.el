@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package markdown-mode
+  :defer t
   :mode
   (("README\\.md\\'" . gfm-mode)
    ("\\.md\\'" . markdown-mode)

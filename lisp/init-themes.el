@@ -13,8 +13,6 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
-  (load-theme 'doom-dracula t)
-
   (use-package beacon
     :defer 2
     :hook (after-init . beacon-mode)
@@ -25,51 +23,13 @@
     (setq-default beacon-size 20))
  )
 
+(use-package all-the-icons
+  :ensure t
+  :defer 2)
 
 (use-package doom-modeline
-  :config
-  (doom-modeline-mode)
-  (setq doom-modeline-project-detection 'projectile)
-  (setq doom-modeline-buffer-file-name-style 'file-name)
-  ;;(setq doom-modeline-icon (display-graphic-p))
-  (setq doom-modeline-major-mode-icon nil)
-  (setq doom-modeline-major-mode-color-icon nil)
-  (setq doom-modeline-buffer-state-icon t)
-  (setq doom-modeline-buffer-modification-icon t)
-  (setq doom-modeline-unicode-fallback t)
-  (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
-  (setq doom-modeline-buffer-encoding t)
-  (setq doom-modeline-number-limit 99)
-  (setq doom-modeline-persp-name t)
-  (setq doom-modeline-github t)
-  (setq doom-modeline-github-interval (* 30 60))
-  (setq doom-modeline-env-version t)
-  )
-
-(use-package dashboard
-  :after (doom-themes doom-modeline)
-  :config
-  (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
-  (setq dashboard-show-shortcuts nil)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-navigator t)
-  (setq dashboard-set-init-info t)
-  (setq dashboard-footer "Dashboard is pretty cool!")
-  (setq dashboard-items '((projects . 5)
-                          (recents  . 10)
-                          (agenda . 10)))
-  (setq dashboard-org-agenda-categories '("Tasks" "Appointments"))
-
-  (defun dashboard-goto-projects ()
-    "Go to projects."
-    (interactive)
-    (funcall (local-key-binding "p")))
-
-  (define-key dashboard-mode-map (kbd "g") 'dashboard-refresh-buffer)
-  (define-key dashboard-mode-map (kbd "p") 'dashboard-goto-projects)
-
-  (dashboard-setup-startup-hook))
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 
 
 (use-package rainbow-delimiters
