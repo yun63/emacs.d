@@ -3,17 +3,13 @@
 ;;; Code:
 
 (use-package ag
-  :defer 2
-  :config
-  (setq ag-reuse-window 't))
+  :defer t)
 
 (use-package fiplr
-  :defer 2)
+  :defer t)
 
 (use-package helm-rg
-  :defer 2
-  :config
-  (setq helm-rg-default-directory 'git-root))
+  :defer t)
 
 (use-package helm-ag
   :config

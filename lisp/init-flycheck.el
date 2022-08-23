@@ -4,9 +4,7 @@
 
 (use-package flycheck
   :defer t
-  :hook (after-init . global-flycheck-mode)
-  :config
-  (setq flycheck-flake8-maximum-line-length 120))
+  :hook (after-init . global-flycheck-mode))
 
 (use-package flycheck-color-mode-line
   :defer t

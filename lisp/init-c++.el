@@ -38,12 +38,18 @@
 ;;                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))))
 ;;
 
+(use-package google-c-style
+  :ensure t
+  )
+
 (use-package company-c-headers
   :init
   (setq company-backends (delete 'company-semantic company-backends))
   (add-to-list 'company-backends 'company-c-headers))
 
 (add-to-list 'company-c-headers-path-system "/usr/include/c++/11")
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; modern c++
 (use-package modern-cpp-font-lock
@@ -61,9 +67,6 @@
   (add-hook 'cmake-mode-hook (lambda()
                                (add-to-list (make-local-variable 'company-backends)
                                             'company-cmake))))
-
-;; Available C style:
-(setq c-default-style "linux")
 
 (provide 'init-c++)
 ;;; init-c++.el ends here
