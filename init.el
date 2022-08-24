@@ -70,7 +70,7 @@
 
 ;;; Languages
 (require 'init-c++)
-(require 'init-google-c-style)
+(require 'init-cc++-mode-style)
 ;;(require 'init-python)
 ;;(require 'init-go)
 (require 'init-markdown)

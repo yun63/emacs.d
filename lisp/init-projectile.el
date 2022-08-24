@@ -19,7 +19,7 @@
   :config
   (setq projectile-enable-caching t
         projectile-require-project-root nil
-        projectile-project-search-path '("~/" "~/codes/" "~/sources" ("~/github" .))
+        projectile-project-search-path '("~/" "~/codes/" "~/sources")
         projectile-kill-buffers-filter 'kill-only-files
         projectile-auto-discover t
         projectile-files-cache-expire 604800

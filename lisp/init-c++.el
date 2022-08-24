@@ -38,10 +38,6 @@
 ;;                   (lambda () (add-to-list 'company-backends 'company-irony-c-headers)))))
 ;;
 
-(use-package google-c-style
-  :ensure t
-  )
-
 (use-package company-c-headers
   :init
   (setq company-backends (delete 'company-semantic company-backends))
@@ -67,6 +63,11 @@
   (add-hook 'cmake-mode-hook (lambda()
                                (add-to-list (make-local-variable 'company-backends)
                                             'company-cmake))))
+
+(defun my-c-mode-common-hook-setup ()
+    (setq cc-search-directories '("." "/usr/local/include" "/usr/local/include/*" "../*/include")))
+
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook-setup)
 
 (provide 'init-c++)
 ;;; init-c++.el ends here
