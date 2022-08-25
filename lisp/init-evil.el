@@ -47,6 +47,11 @@
   "wk" 'evil-window-bottom
   "ws" 'evil-window-split
   "wc" 'evil-window-new
+  "cc" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
   "bb" (lambda () (interactive) (switch-to-buffer nil)))
 
 ;; Use `SPC` as leader key

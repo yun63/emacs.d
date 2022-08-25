@@ -63,10 +63,10 @@
 (require 'init-ibuffer)
 (require 'init-search)
 (require 'init-fzf)
-;;(require 'init-google)
 (require 'init-yasnippet)
 (require 'init-flycheck)
 (require 'init-keyfreq)
+(require 'init-evil-nerd-commenter)
 
 ;;; Languages
 (require 'init-c++)
