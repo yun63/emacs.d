@@ -47,11 +47,8 @@
   "wk" 'evil-window-bottom
   "ws" 'evil-window-split
   "wc" 'evil-window-new
-  "cc" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "cc" 'smart-comment
+  "cl" 'smart-comment-line
   "bb" (lambda () (interactive) (switch-to-buffer nil)))
 
 ;; Use `SPC` as leader key
@@ -60,6 +57,7 @@
   :states '(normal visual emacs))
 
 (space-leader-def
+  "cc" 'smart-comment
   "kk" 'scroll-other-window
   "jj" 'scroll-other-window-down
   "pw" 'pwd

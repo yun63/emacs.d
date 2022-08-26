@@ -66,7 +66,7 @@
 (require 'init-yasnippet)
 (require 'init-flycheck)
 (require 'init-keyfreq)
-(require 'init-evil-nerd-commenter)
+(require 'init-smart-commenter)
 
 ;;; Languages
 (require 'init-c++)
