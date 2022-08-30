@@ -19,7 +19,8 @@
 
 ;; 设置tab宽度
 (setq-default indent-tabs-mode nil)
-(setq tab-width 4)
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
 
 ;; 设置行间距
 (setq-default line-spacing 1.5)
@@ -93,7 +94,6 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
-
 
 (use-package nlinum
   :init
