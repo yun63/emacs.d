@@ -12,6 +12,7 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 3)
   (setq completion-ignore-case nil)
+  (setq company-dabbrev-downcase nil)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (setq company-backends (delete 'company-semantic company-backends)))
