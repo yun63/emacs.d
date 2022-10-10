@@ -65,7 +65,8 @@
                                             'company-cmake))))
 
 (defun my-c-mode-common-hook-setup ()
-    (setq cc-search-directories '("." "/usr/include" "/usr/local/include/*" "../*/include")))
+  "C++ mode hook setup."
+  (setq cc-search-directories '("." "/usr/include" "/usr/local/include/*" "../*/include")))
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook-setup)
 

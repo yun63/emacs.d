@@ -64,7 +64,7 @@
 (require 'init-search)
 (require 'init-fzf)
 (require 'init-yasnippet)
-(require 'init-flycheck)
+;;(require 'init-flycheck)
 (require 'init-keyfreq)
 (require 'init-smart-commenter)
 

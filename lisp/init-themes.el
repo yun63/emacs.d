@@ -10,6 +10,7 @@
   ;;(doom-themes-visual-bell-config)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
+  (load-theme 'dracula)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 

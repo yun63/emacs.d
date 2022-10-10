@@ -5,6 +5,7 @@
 (c-add-style "my-c-default-style"
              '((indent-tabs-mode . nil)
               (c-basic-offset . 4)
+              (c-set-offset (quote cpp-macro) 0 nil)
               (c-offsets-alist
                (substatement-open . 0)
                (block-open . 0)
