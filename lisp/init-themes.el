@@ -14,6 +14,8 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
 
+  (load-theme 'dracula t)
+
   (use-package beacon
     :defer 2
     :hook (after-init . beacon-mode)

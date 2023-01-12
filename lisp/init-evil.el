@@ -27,7 +27,7 @@
 
 (local-leader-def
   "d"  'dired
-  "f"  'fzf
+  "f"  'counsel-fzf
   "h"  'split-window-horizontally
   "v"  'split-window-vertically
   "m"  'evil-set-marker

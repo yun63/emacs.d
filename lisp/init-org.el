@@ -12,10 +12,10 @@
   (setq org-log-done t)
 
   (setq org-todo-keywords
-        '((sequence "TODO(p!)" "进行中(t!)" "阻塞中(s!)" "|" "已完成(d!)" "已取消(a@/!)")))
+        '((sequence "待处理(p!)" "进行中(t!)" "阻塞中(s!)" "|" "已完成(d!)" "已取消(a@/!)")))
 
   (setq org-todo-keyword-faces
-        '(("TODO" .   (:foreground "red" :weight bold))
+        '(("待处理" .   (:foreground "blue" :weight bold))
           ("进行中" . (:foreground "orange" :weight bold))
           ("阻塞中" . (:foreground "red" :weight bold))
           ("已完成" . (:foreground "green" :weight bold))
