@@ -67,6 +67,7 @@
 ;;(require 'init-flycheck)
 (require 'init-keyfreq)
 (require 'init-smart-commenter)
+(require 'init-eglot)
 
 ;;; Languages
 (require 'init-c++)
