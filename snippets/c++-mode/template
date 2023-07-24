@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: template
-# key: temp
+# key: tmp
 # --
-template<${1:$$(yas/choose-value '("typename" "class"))} ${2:T}>
+template<typename ${1:T}>
 $0

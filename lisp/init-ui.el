@@ -91,6 +91,12 @@
 
 (setq line-move-visual nil)
 
+(setq scroll-conservatively 101
+      scroll-margin 8
+      scroll-preserve-screen-position 't)
+
+(setq smooth-scroll-margin 6)
+
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
