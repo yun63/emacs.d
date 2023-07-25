@@ -62,8 +62,8 @@
   :defer t)
 
 (use-package corfu
-  :init
-  (global-corfu-mode)
+  :hook
+  (after-init . global-corfu-mode)
   :config
   (setq-local corfu-auto t
               corfu-auto-delay 0
