@@ -43,8 +43,8 @@
   "xk" 'kill-buffer
   "wh" 'evil-window-left
   "wl" 'evil-window-right
-  "wj" 'evil-window-up
-  "wk" 'evil-window-bottom
+  "wk" 'evil-window-up
+  "wj" 'evil-window-down
   "ws" 'evil-window-split
   "wc" 'evil-window-new
   "cc" 'smart-comment
