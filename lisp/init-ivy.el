@@ -50,6 +50,8 @@
   :config
   (global-set-key "\C-s" 'swiper))
 
+(use-package avy
+  :defer 2)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here

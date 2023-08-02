@@ -44,5 +44,23 @@
   :custom
   (neo-theme 'nerd2))
 
+(use-package corfu
+  :hook
+  (after-init . global-corfu-mode)
+  :config
+  (setq-local corfu-auto t
+              corfu-auto-delay 0
+              corfu-auto-prefix 0
+              completion-styles '(basic))
+
+  (use-package popon
+               :ensure t)
+  )
+
+(use-package undo-tree
+  :defer 2
+  :hook
+  (after-init . global-undo-tree-mode))
+
 (provide 'init-themes)
 ;;; init-themes.el ends here

@@ -30,13 +30,15 @@
   "f"  'counsel-fzf
   "h"  'split-window-horizontally
   "v"  'split-window-vertically
-  "m"  'evil-set-marker
+  "m"  'bookmark-set
+  "n"  'bookmark-bmenu-list
   "g"  'helm-ag-project-root
   "o"  'neotree-toggle
   "p"  'projectile-switch-project
   "q"  'delete-other-windows
   "r"  'counsel-M-x
-  "s"  'counsel-grep
+  "s"  'avy-goto-char-timer
+  "k"  'query-replace
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump
   "xf" 'counsel-find-file
