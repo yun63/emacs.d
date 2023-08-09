@@ -60,7 +60,10 @@
 (use-package undo-tree
   :defer 2
   :hook
-  (after-init . global-undo-tree-mode))
+  (after-init . global-undo-tree-mode)
+  :config
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  )
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
