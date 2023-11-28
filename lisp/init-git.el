@@ -7,7 +7,7 @@
 
 (use-package magit
   :requires (gitignore-mode gitconfig-mode)
-  :defer t
+  :defer 2
   :config
   (setq magit-auto-revert-mode nil)
   (setq-default magit-diff-refine-hunk t)

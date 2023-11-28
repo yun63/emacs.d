@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(local-require 'keyfreq)
+;;(local-require 'keyfreq)
 (local-require 'unicad)
 (local-require 'autopair)
 (autopair-global-mode)

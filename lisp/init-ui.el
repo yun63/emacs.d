@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 ;; 写文件编码格式
 (set-buffer-file-coding-system 'utf-8)
 
@@ -89,6 +90,13 @@
 ;; 删除文件移动到回收站
 (setq delete-by-moving-to-trash t)
 
+;; 滚动一屏后显示 3 行上下文。
+(setq next-screen-context-lines 10)
+
+;; 像素平滑滚动。
+(if (boundp 'pixel-scroll-precision-mode)
+    (pixel-scroll-precision-mode t))
+
 (setq line-move-visual nil)
 
 (setq scroll-conservatively 101
@@ -101,12 +109,7 @@
 
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
 
-(use-package nlinum
-  :init
-  (setq nlinum-format "%4d ")
-  :config
-  (hl-line-mode t)
-  (global-nlinum-mode t))
+(global-display-line-numbers-mode 1)
 
 (use-package highlight-numbers
   :defer 2
@@ -119,6 +122,7 @@
   (smooth-scrolling-mode t))
 
 (use-package dimmer
+  :defer 2
   :commands (dimmer-configure-which-key)
   :config
   (dimmer-mode t))
@@ -143,6 +147,7 @@
 
 ;; A simple visible bell which works in all terminal types
 (use-package mode-line-bell
+  :defer 2
   :hook (after-init . mode-line-bell-mode))
 
 ;; Newline behaviour

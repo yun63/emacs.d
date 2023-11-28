@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package go-mode
+  :defer 2
   :mode ("\\.go$" . go-mode))
 
 (use-package company-go
@@ -15,6 +16,7 @@
 
 (use-package go-eldoc
   :after (go-mode)
+  :defer 2
   :commands go-eldoc-setup
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))

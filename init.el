@@ -73,7 +73,6 @@
 (require 'init-c++)
 (require 'init-cc++-mode-style)
 ;;(require 'init-python)
-;;(require 'init-go)
 (require 'init-markdown)
 (require 'init-org)
 

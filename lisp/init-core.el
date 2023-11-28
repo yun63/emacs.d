@@ -47,7 +47,7 @@
   :ensure t
   :demand t
   :diminish subword-mode
-  :diminish eldoc-mode
+  ;; :diminish eldoc-mode
   :diminish auto-revert-mode
   :diminish hs-minor-mode
   :diminish abbrev-mode

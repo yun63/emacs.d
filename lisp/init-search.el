@@ -6,12 +6,13 @@
   :defer t)
 
 (use-package fiplr
-  :defer t)
+  :defer 2)
 
 (use-package helm-rg
-  :defer t)
+  :defer 2)
 
 (use-package helm-ag
+  :defer 2
   :config
   (setq helm-ag-base-command "rg --line-number --smart-case --colors=line:fg:yellow --colors=line:style:bold --colors=path:fg:green --colors=path:style:bold --colors=match:fg:black --colors=match:bg:yellow --colors=match:style:nobold")
   ;; for file name

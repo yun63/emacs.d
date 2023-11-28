@@ -27,15 +27,24 @@
  )
 
 (use-package all-the-icons
-  :ensure t
-  :defer 2)
+  :if (display-graphic-p))
+
 
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-icon nil)
+  (setq doom-modeline-major-mode-icon nil)
+
+  (use-package nerd-icons
+    :defer 2
+    :ensure t)
+  )
 
 
 (use-package rainbow-delimiters
+  :defer 2
   :hook (after-init . rainbow-delimiters-mode))
 
 
@@ -54,7 +63,7 @@
               completion-styles '(basic))
 
   (use-package popon
-               :ensure t)
+    :ensure t)
   )
 
 (use-package undo-tree
