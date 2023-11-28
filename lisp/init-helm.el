@@ -14,12 +14,12 @@
 
  ;; Enable helm-gtags-mode in Dired so you can jump to any tag
  ;; when navigate project tree with Dired
- (add-hook 'dired-mode-hook 'helm-gtags-mode)
+ ;; (add-hook 'dired-mode-hook 'helm-gtags-mode)
 
  ;; Enable helm-gtags-mode in languages that GNU Global supports
- (add-hook 'c-mode-hook 'helm-gtags-mod)
- (add-hook 'c++-mode-hook 'helm-gtags-mode)
- (add-hook 'asm-mode-hook 'helm-gtags-mode)
+ ;; (add-hook 'c-mode-hook 'helm-gtags-mod)
+ ;; (add-hook 'c++-mode-hook 'helm-gtags-mode)
+ ;; (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
  ;; key bindings
  (with-eval-after-load 'helm-gtags

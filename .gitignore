@@ -3,6 +3,7 @@ elpa-27.1
 elpa-27.2
 elpa-28.1
 elpa-28.2
+elpa-29.1
 *~
 .bookmarks.el
 recentf
@@ -11,8 +12,10 @@ projectile-bookmarks.eld
 projectile.cache
 custom.el
 .last-package-update-day
+company-statistics-cache.el
 eshell/
 transient
 .lsp-session-v1
 irony/
+eln-cache/
 
