@@ -24,6 +24,12 @@
     (setq-default beacon-lighter " ")
     (setq-default beacon-color "#ff0000")
     (setq-default beacon-size 20))
+
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+    )
  )
 
 (use-package all-the-icons
@@ -41,12 +47,6 @@
     :defer 2
     :ensure t)
   )
-
-
-(use-package rainbow-delimiters
-  :defer 2
-  :hook (after-init . rainbow-delimiters-mode))
-
 
 (use-package neotree
   :defer 2
