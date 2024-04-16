@@ -1,9 +1,5 @@
 elpa
-elpa-27.1
-elpa-27.2
-elpa-28.1
-elpa-28.2
-elpa-29.1
+elpa-*
 *~
 .bookmarks.el
 recentf
