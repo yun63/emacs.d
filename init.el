@@ -57,7 +57,6 @@
 (require 'init-recentf)
 (require 'init-ivy)
 (require 'init-company)
-(require 'init-helm)
 (require 'init-projectile)
 (require 'init-hippie-expand)
 (require 'init-ibuffer)

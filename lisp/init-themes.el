@@ -7,12 +7,6 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  ;;(doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  (load-theme 'dracula t)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
 
   (load-theme 'dracula t)
 
@@ -41,17 +35,19 @@
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon nil)
-  (setq doom-modeline-major-mode-icon nil)
+  (setq doom-modeline-major-mode-icon nil))
 
-  (use-package nerd-icons
-    :defer 2
-    :ensure t)
-  )
 
-(use-package neotree
+(use-package rainbow-delimiters
+  :hook (after-init . rainbow-delimiters-mode))
+
+(use-package undo-tree
   :defer 2
-  :custom
-  (neo-theme 'nerd2))
+  :hook
+  (after-init . global-undo-tree-mode)
+  :config
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  )
 
 (use-package corfu
   :hook
