@@ -49,19 +49,6 @@
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   )
 
-(use-package corfu
-  :hook
-  (after-init . global-corfu-mode)
-  :config
-  (setq-local corfu-auto t
-              corfu-auto-delay 0
-              corfu-auto-prefix 0
-              completion-styles '(basic))
-
-  (use-package popon
-    :ensure t)
-  )
-
 (use-package undo-tree
   :defer 2
   :hook

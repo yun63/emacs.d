@@ -91,12 +91,6 @@
 
 (setq line-move-visual nil)
 
-(setq scroll-conservatively 101
-      scroll-margin 8
-      scroll-preserve-screen-position 't)
-
-(setq smooth-scroll-margin 6)
-
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (setq-default bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
@@ -108,10 +102,20 @@
   :config
   (highlight-numbers-mode))
 
+;;(setq scroll-conservatively 101)
+;;(setq scroll-margin 0)
+;;(setq scroll-step 1)
+;;(setq scroll-preserve-screen-position t)
+
 (use-package smooth-scrolling
+  :ensure t
   :config
-  (setq scroll-conservatively 10000)
-  (smooth-scrolling-mode t))
+  (smooth-scrolling-mode 1)
+  (setq hscroll-margin 0
+        scroll-margin 0
+        scroll-step 1
+        scroll-preserve-screen-position t
+        scroll-conservatively 101))
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)

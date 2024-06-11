@@ -4,7 +4,13 @@
 
 (use-package go-mode
   :defer 2
-  :mode ("\\.go$" . go-mode))
+  :mode ("\\.go$" . go-mode)
+  :config
+  (add-hook 'go-mode-hook 'lsp-deferred)
+
+  (use-package go-autocomplete
+    :ensure)
+  )
 
 (use-package company-go
   :after (:all go-mode company-mode)

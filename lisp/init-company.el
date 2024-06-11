@@ -61,14 +61,14 @@
 (use-package smex
   :defer t)
 
-(use-package corfu
-  :hook
-  (after-init . global-corfu-mode)
-  :config
-  (setq-local corfu-auto t
-              corfu-auto-delay 0
-              corfu-auto-prefix 0
-              completion-styles '(basic)))
+;;(use-package corfu
+;;  :hook
+;;  (after-init . global-corfu-mode)
+;;  :config
+;;  (setq-local corfu-auto t
+;;              corfu-auto-delay 0
+;;              corfu-auto-prefix 0
+;;              completion-styles '(basic)))
  
 (provide 'init-company)
 ;;; init-company.el ends here

@@ -74,6 +74,7 @@
 ;;(require 'init-python)
 (require 'init-markdown)
 (require 'init-org)
+(require 'init-go)
 
 ;;;
 (add-hook 'after-init-hook
