@@ -26,7 +26,7 @@
 (setq-default line-spacing 1.5)
 
 ;; 设置光标不闪烁
-(blink-cursor-mode 1)
+(blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
 
 ;; 设置显示光标所在行列号
