@@ -13,7 +13,13 @@
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-insert-state-map (kbd "C-u") 'kill-back-to-indentation)
   (define-key evil-normal-state-map (kbd "C-u") 'kill-back-to-indentation)
-  (define-key evil-insert-state-map (kbd "C-k") 'kill-line))
+  (define-key evil-insert-state-map (kbd "C-k") 'kill-line)
+
+  (add-hook 'xref--xref-buffer-mode-hook #'evil-emacs-state)
+
+  (with-eval-after-load 'xref
+    (evil-define-key 'normal xref--xref-buffer-mode-map (kbd "RET") #'xref-goto-xref)
+    (evil-define-key 'normal xref--xref-buffer-mode-map (kbd "o")   #'xref-goto-xref)))
 
 
 (local-require 'general)
@@ -32,15 +38,16 @@
   "v"  'split-window-vertically
   "m"  'bookmark-set
   "n"  'bookmark-bmenu-list
-  "g"  'helm-ag-project-root
-  "o"  'neotree-toggle
   "p"  'projectile-switch-project
   "q"  'delete-other-windows
   "r"  'counsel-M-x
-  "s"  'avy-goto-char-timer
+  "s"  'helm-ag-project-root
   "k"  'query-replace
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump
+  "gg" 'lsp-find-references
+  "gd" 'xref-find-definitions
+  "gb" 'xref-go-back
   "xf" 'counsel-find-file
   "xk" 'kill-buffer
   "wh" 'evil-window-left
@@ -64,7 +71,6 @@
   "jj" 'scroll-other-window-down
   "pw" 'pwd
   "pf" 'profiler-start)
-
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
