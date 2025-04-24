@@ -15,6 +15,9 @@
   (js-mode .lsp-deferred)
 
   :config
+  (setq lsp-lens-enable t)
+  (setq lsp-response-timeout 10)
+  (setq lsp-log-io nil)
   (lsp-mode))
 
 (use-package lsp-treemacs

@@ -8,8 +8,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
 
-  (load-theme 'dracula t)
-
   (use-package beacon
     :defer 2
     :hook (after-init . beacon-mode)
@@ -62,13 +60,11 @@
     :ensure t)
   )
 
-(use-package undo-tree
-  :defer 2
-  :hook
-  (after-init . global-undo-tree-mode)
+(use-package color-theme-modern
+  :ensure t
   :config
-  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-  )
+  (load-theme 'dracula t)
+  (set-frame-parameter nil 'undecorated t))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

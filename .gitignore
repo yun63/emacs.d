@@ -12,6 +12,7 @@ company-statistics-cache.el
 eshell/
 transient
 .lsp-session-v1
+.cache/
 irony/
 eln-cache/
 

@@ -23,7 +23,7 @@
 (setq-default c-basic-offset 4)
 
 ;; 设置行间距
-(setq-default line-spacing 1.5)
+;; (setq-default line-spacing 1.5)
 
 ;; 设置光标不闪烁
 (blink-cursor-mode 0)
@@ -32,6 +32,8 @@
 ;; 设置显示光标所在行列号
 (line-number-mode t)
 (column-number-mode t)
+
+(setq dired-use-ls-dired nil)
 
 ;; 显示匹配括号
 (show-paren-mode t)
@@ -58,7 +60,7 @@
 (setq require-final-newline t)
 
 ;; 当光标在行尾上下移动的时候，始终保持在行尾
-(setq track-eol t)
+;; (setq track-eol t)
 
 ;; 禁用启动信息
 (setq inhibit-startup-message t)
@@ -91,11 +93,6 @@
 
 (setq line-move-visual nil)
 
-(setq scroll-conservatively 101
-      scroll-margin 8
-      scroll-preserve-screen-position 't)
-
-(setq smooth-scroll-margin 6)
 
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
@@ -107,11 +104,6 @@
   :defer 2
   :config
   (highlight-numbers-mode))
-
-(use-package smooth-scrolling
-  :config
-  (setq scroll-conservatively 10000)
-  (smooth-scrolling-mode t))
 
 (use-package dimmer
   :commands (dimmer-configure-which-key)
@@ -151,11 +143,6 @@
     (kill-region (point) prev-pos)))
 
 (global-set-key (kbd "C-<backspace>") 'kill-back-to-indentation)
-
-(use-package color-identifiers-mode
-  :disabled
-  :config
-  (add-hook 'after-init-hook 'global-color-identifiers-mode))
 
 (provide 'init-ui)
 

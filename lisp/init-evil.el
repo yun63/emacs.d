@@ -9,6 +9,12 @@
   :config
   (defalias 'forward-evil-word 'forward-evil-symbol)
   (setq evil-ex-search-case 'sensitive)
+
+  (setq scroll-margin 0
+        scroll-conservatively 101
+        scroll-step 1
+        auto-window-vscroll nil)
+
   (define-key evil-insert-state-map (kbd "C-a") 'move-beginning-of-line)
   (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-insert-state-map (kbd "C-u") 'kill-back-to-indentation)
@@ -20,7 +26,6 @@
   (with-eval-after-load 'xref
     (evil-define-key 'normal xref--xref-buffer-mode-map (kbd "RET") #'xref-goto-xref)
     (evil-define-key 'normal xref--xref-buffer-mode-map (kbd "o")   #'xref-goto-xref)))
-
 
 (local-require 'general)
 (general-evil-setup t)
