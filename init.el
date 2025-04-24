@@ -71,7 +71,7 @@
 ;;; Languages
 (require 'init-c++)
 (require 'init-cc++-mode-style)
-;;(require 'init-python)
+(require 'init-lsp)
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-go)

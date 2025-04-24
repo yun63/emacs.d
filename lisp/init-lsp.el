@@ -4,29 +4,21 @@
 
 (use-package lsp-mode
   :commands lsp
+
+  :init
+  (setq lsp-enable-flymake nil)
+
   :hook
   (c-mode .lsp)
   (c++-mode . lsp)
   (python-mode .lsp)
+  (js-mode .lsp-deferred)
+
   :config
+  (setq lsp-lens-enable t)
+  (setq lsp-response-timeout 10)
+  (setq lsp-log-io nil)
   (lsp-mode))
-
-;; optionally
-(use-package lsp-ui
-  :defer t
-  :commands (lsp-ui-mode lsp-ui-doc-mode)
-  :config
-  (lsp-ui-mode)
-  (lsp-ui-doc-mode))
-
-
-(use-package company-lsp
-  :ensure t)
-
-
-(use-package lsp-ivy
-  :defer t
-  :commands lsp-ivy-workspace-symbol)
 
 (use-package lsp-treemacs
   :defer t

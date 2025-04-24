@@ -8,8 +8,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
 
-  (load-theme 'dracula t)
-
   (use-package beacon
     :defer 2
     :hook (after-init . beacon-mode)
@@ -49,13 +47,24 @@
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   )
 
-(use-package undo-tree
-  :defer 2
+(use-package corfu
   :hook
-  (after-init . global-undo-tree-mode)
+  (after-init . global-corfu-mode)
   :config
-  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  (setq-local corfu-auto t
+              corfu-auto-delay 0
+              corfu-auto-prefix 0
+              completion-styles '(basic))
+
+  (use-package popon
+    :ensure t)
   )
+
+(use-package color-theme-modern
+  :ensure t
+  :config
+  (load-theme 'dracula t)
+  (set-frame-parameter nil 'undecorated t))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
