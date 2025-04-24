@@ -10,7 +10,7 @@
   (defalias 'forward-evil-word 'forward-evil-symbol)
   (setq evil-ex-search-case 'sensitive)
 
-  (setq scroll-margin 0
+  (setq scroll-margin 6
         scroll-conservatively 101
         scroll-step 1
         auto-window-vscroll nil)
