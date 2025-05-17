@@ -7,6 +7,7 @@
 
   :init
   (setq lsp-enable-flymake nil)
+  (advice-add 'lsp-headerline-breadcrumb-mode :override #'ignore)
 
   :hook
   (c-mode .lsp)
@@ -18,6 +19,9 @@
   (setq lsp-lens-enable t)
   (setq lsp-response-timeout 10)
   (setq lsp-log-io nil)
+  (setq lsp-headerline-breadcrumb-mode nil)
+  (setq lsp-headerline-breadcrumb-segments nil)
+  (setq lsp-headerline-breadcrumb-enable-diagnostics nil)
   (lsp-mode))
 
 (use-package lsp-treemacs
