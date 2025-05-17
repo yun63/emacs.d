@@ -22,9 +22,6 @@
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
 
-;; 设置行间距
-;; (setq-default line-spacing 1.5)
-
 ;; 设置光标不闪烁
 (blink-cursor-mode 0)
 (setq-default cursor-type 'bar)
@@ -32,6 +29,7 @@
 ;; 设置显示光标所在行列号
 (line-number-mode t)
 (column-number-mode t)
+(setq linum-format "%05d")
 
 (setq dired-use-ls-dired nil)
 
