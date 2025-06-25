@@ -63,7 +63,7 @@
 (use-package color-theme-modern
   :ensure t
   :config
-  (load-theme 'dracula t)
+  (load-theme 'doom-dark+ t)
   (set-frame-parameter nil 'undecorated t))
 
 (provide 'init-themes)

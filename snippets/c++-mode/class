@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: class
-# key: cls
+# key: cl
 # --
 class ${1:Name} {
 public:
