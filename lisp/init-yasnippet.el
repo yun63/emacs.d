@@ -8,6 +8,7 @@
   :commands (yas-expand-snippet)
   :config
   (yas-global-mode 1)
+  (setq company-backends (delete 'company-yasnippet company-backends))
   (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 
 

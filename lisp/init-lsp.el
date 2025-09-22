@@ -13,6 +13,7 @@
   (c-mode .lsp)
   (c++-mode . lsp)
   (python-mode .lsp)
+  (typescript-mode .lsp)
   (js-mode .lsp-deferred)
 
   :config

@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; 写文件编码格式
-(set-buffer-file-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8-unix)
 
 ;; 新建文件编码方式
 (setq-default buffer-file-coding-system 'utf-8)
@@ -16,6 +16,8 @@
 
 ;; 读取或者写入文件名的编码方式
 (setq file-name-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8-unix)
+(setq-default default-buffer-file-coding-system 'utf-8-unix)
 
 ;; 设置tab宽度
 (setq-default indent-tabs-mode nil)
@@ -29,6 +31,9 @@
 ;; 设置显示光标所在行列号
 (line-number-mode t)
 (column-number-mode t)
+
+(setq display-line-numbers-width 5)
+(setq display-line-numbers-width-start t)
 (setq linum-format "%05d")
 
 (setq dired-use-ls-dired nil)
