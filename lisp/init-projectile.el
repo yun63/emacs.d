@@ -45,9 +45,6 @@
         projectile-project-root-files-top-down-recurring '(".svn" ".git" "Makefile"))
   (projectile-mode t))
 
-;; counsel-projectile
-(use-package counsel-projectile
-  :defer 2)
 
 ;; ibuffer-projectile
 (use-package ibuffer-projectile
@@ -65,10 +62,6 @@
   :config
   (add-to-list 'ffip-ignore-filenames "*.ccls")
   (add-to-list 'ffip-prune-patterns "*/.ccls-cache"))
-
-(use-package find-file-rg
-  :defer 2)
-
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

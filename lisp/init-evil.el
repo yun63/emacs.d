@@ -20,6 +20,9 @@
   (define-key evil-insert-state-map (kbd "C-u") 'kill-back-to-indentation)
   (define-key evil-normal-state-map (kbd "C-u") 'kill-back-to-indentation)
   (define-key evil-insert-state-map (kbd "C-k") 'kill-line)
+  (define-key evil-normal-state-map (kbd "RET") nil)
+  (define-key evil-visual-state-map (kbd "RET") nil)
+  (define-key evil-motion-state-map (kbd "RET") nil)
 
   (add-hook 'xref--xref-buffer-mode-hook #'evil-emacs-state)
 
@@ -46,7 +49,7 @@
   "p"  'projectile-switch-project
   "q"  'delete-other-windows
   "r"  'counsel-M-x
-  "s"  'helm-ag-project-root
+  "s"  'projectile-ripgrep
   "k"  'query-replace
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump

@@ -55,7 +55,7 @@
 
 ;;; Tools
 (require 'init-recentf)
-(require 'init-ivy)
+(require 'init-counsel)
 (require 'init-company)
 (require 'init-projectile)
 (require 'init-hippie-expand)
