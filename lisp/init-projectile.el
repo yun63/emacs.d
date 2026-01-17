@@ -25,6 +25,7 @@
         projectile-files-cache-expire 604800
         projectile-sort-order 'recentf
         projectile-switch-project-action 'neotree-projectile-action
+        projectile-completion-system 'consult
         projectile-use-git-grep t)
 
   (dolist (var '(".o" ".so" ".a" ".pyc" ".elc"))
@@ -45,6 +46,8 @@
         projectile-project-root-files-top-down-recurring '(".svn" ".git" "Makefile"))
   (projectile-mode t))
 
+(use-package counsel-projectile
+  :ensure t)
 
 ;; ibuffer-projectile
 (use-package ibuffer-projectile
