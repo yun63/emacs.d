@@ -49,7 +49,7 @@
   "p"  'projectile-switch-project
   "q"  'delete-other-windows
   "r"  'counsel-M-x
-  "s"  'projectile-ripgrep
+  "s"  'consult-project-search
   "k"  'query-replace
   "be" 'ivy-switch-buffer
   "xd" 'dired-jump
